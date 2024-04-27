@@ -3,18 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Form</title>
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/8.0.1_normalize.css">
 </head>
+<style>
+    body{
+        position: relative;
+    }
+    body>header{
+        width: 100%;
+        height: 50px;
+        background: #2960EF;
+        position: relative;
+    }
+    body>header>h4{
+        font-size: 15px;
+        position: relative;
+        top: 15px;
+        left: 60px;
+        margin-top: 0;
+    }
+    body>main{
+        position: relative;
+    }
+    body>main>section>div{
+        display: inline-block;
+        position: relative;
+    }
+    body>main>section{
+        width: 500px;
+        height: 350px;
+        border: 2px solid black;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    body>main>section>h3{
+        margin-left: 145px;
+    }
+    body>main>section>div:nth-child(2)>input{
+        width: 450px;
+        height: 30px;
+        /*display: inline-block;*/
+    }
+    #txtUser{
+        position: relative;
+        top: 10px;
+        left: 20px;
+    }
+    #txtPassword{
+        position: relative;
+        top: 35px;
+        left: 20px;
+    }
+    body>main>section>div:nth-child(3){
+        position: relative;
+        top: 80px;
+        left: 20px;
+    }
+    body>main>section>div:nth-child(3)>button{
+        width: 200px;
+        height: 30px;
+    }
+    #btnSignIn{
+        margin-right: 50px;
+    }
+</style>
 <body>
     <header>
         <h4>Hello, Shoes (Pvt) Ltd</h4>
     </header>
     <main>
         <section>
-            <input type="text" placeholder="User" >
-            <input type="text" placeholder="Password" >
+            <h3>Hello, Shoes (Pvt) Ltd</h3>
+            <div>
+                <input type="text" placeholder="User" id="txtUser">
+                <input type="text" placeholder="Password" id="txtPassword" >
+            </div>
 
-            <button type="button">Sign In</button>
-            <button type="button">Sign Up</button>
+            <div>
+                <button type="button" id="btnSignIn">Sign In</button>
+                <button type="button" id="btnSignUp">Sign Up</button>
+            </div>
 
         </section>
     </main>
