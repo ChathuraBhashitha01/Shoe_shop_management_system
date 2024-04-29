@@ -41,6 +41,36 @@
             right: 200px;
             margin: auto;
         }
+        body>main>section:nth-child(1)>div:first-child{
+            width: 40vw;
+            height: 85vh;
+            position: relative;
+            top: 100px;
+            left: 15px;
+        }
+        body>main>section:nth-child(1)>div:first-child>div{
+            position: relative;
+        }
+        body>main>section:nth-child(1)>div:first-child>div>h4{
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        body>main>section:nth-child(1)>div:first-child>div>input{
+            /*margin-top: 0;*/
+            /*margin-bottom: 0;*/
+            width: 450px;
+            height: 20px;
+            border: black solid 1px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: auto;
+
+        }
+        body>main>section:nth-child(1)>div:first-child>div:nth-child(3)>div{
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -63,5 +93,82 @@
             </div>
         </nav>
     </header>
+    <main>
+        <section id="customer">
+            <div>
+                <div>
+                    <h4>Customer Code : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Customer name : </h4>
+                    <input type="text">
+                </div>
+                <div id="cusGender">
+                    <h4>Gender : </h4>
+                    <div>
+                        <div>
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            <label for="vehicle1"> I have a bike</label><br>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2"> I have a car</label><br>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4>Join date as a loyalty
+                        customer.: </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Level : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Total points : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>DOB : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Address Line 01 : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Address Line 02 : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Address Line 03 : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Address Line 04 : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Address Line 05 : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Contact No. : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Email : </h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>Recent purchase date and
+                        time: </h4>
+                    <input type="text">
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
