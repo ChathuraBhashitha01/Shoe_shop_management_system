@@ -116,29 +116,28 @@
             margin: auto;
 
         }
-        body>main>section:nth-child(2)>div:last-child{
-            width: 55vw;
-            height: 85vh;
-            position: absolute;
-            top: 100px;
-            right: 20px;
-        }
         body>main>section:nth-child(3)>div:first-child{
             width: 40vw;
-            height: 85vh;
+            height: 87vh;
             position: relative;
             top: 80px;
-            left: 15px;
-            background: #0a58ca;
+            left: 10px;
         }
         body>main>section:nth-child(3)>div:first-child>div:first-child{
             width: 100px;
             height: 120px;
             border: black solid 2px;
             border-radius: 15px;
-            position: relative;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            margin: auto;
         }
         body>main>section:nth-child(3)>div:first-child>div:first-child>img{
+            width: 80px;
+            height: 80px;
+            border-radius:50%;
             margin-top: 0;
             margin-bottom: 0;
             position: relative;
@@ -152,15 +151,38 @@
             top: 5px;
             left: 5px;
         }
-        body>main>section:nth-child(3)>div>div>img{
-            width: 80px;
-            height: 80px;
-            border-radius:50%;
-            margin-top: 40px;
-            margin-bottom: 30px;
-        }
-        body>main>section:nth-child(3)>div>div>input{
+
+        body>main>section:nth-child(3)>div:first-child>div:first-child>input{
             display: none;
+        }
+        body>main>section:nth-child(3)>div:first-child>div:last-child{
+            position: relative;
+            top: 130px;
+        }
+        body>main>section:nth-child(3)>div:first-child>div:last-child>div{
+            position: relative;
+        }
+        body>main>section:nth-child(3)>div:first-child>div:last-child>div>h4{
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        body>main>section:nth-child(3)>div:first-child>div:last-child>div>input{
+            width: 350px;
+            height: 20px;
+            border: black solid 1px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: auto;
+
+        }
+        body>main>section:nth-child(3)>div:first-child>div:last-child>div:nth-child(3)>div{
+            display: inline-block;
+            margin-left: 195px;
+        }
+        body>main>section:nth-child(3)>div:first-child>div:last-child>div:nth-child(3)>div>div{
+            display: inline-block;
         }
     </style>
 </head>
@@ -387,6 +409,85 @@
                     <img src="assets/image/user.png" id="profilePic">
                     <label for="inputFile">Add image</label>
                     <input type="file" accept="image/png, image/jpeg, imsgr/jpg" id="inputFile">
+                </div>
+                <div>
+                    <div>
+                        <h4>Employee code : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Employee name : </h4>
+                        <input type="text" >
+                    </div>
+                    <div >
+                        <h4>Gender : </h4>
+                        <div>
+                            <div>
+                                <input type="checkbox"  value="MALE">
+                                <label for="genderMale"> Male</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox"  value="FEMALE">
+                                <label for="genderFemale"> Female</label><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Status : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Designation : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Access Role : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>DOB : </h4>
+                        <input type="date" >
+                    </div>
+                    <div>
+                        <h4>Address Line 01 : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Address Line 02 : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Address Line 03 : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Address Line 04 : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Address Line 05 : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Contact No. : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Email : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Inform in case of
+                            emergency : </h4>
+                        <input type="text" >
+                    </div>
+                    <div>
+                        <h4>Emergency Contact : </h4>
+                        <input type="text" >
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btnEmployeeSave">Save</button>
+                    <button type="button" class="btn btn-secondary" id="btnEmployeeUpdate">Update</button>
+                    <button type="button" class="btn btn-danger" id="btnEmployeeDelete">Delete</button>
                 </div>
             </div>
         </section>
