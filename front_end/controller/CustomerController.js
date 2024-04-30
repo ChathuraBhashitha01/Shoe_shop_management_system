@@ -189,3 +189,15 @@ $("#btnCustomerUpdate").click(function (){
     });
 });
 
+function getAllCustomers(){
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/customers",
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            for (const customer of resp) {
+
+            }
+        }
+    });
+}
