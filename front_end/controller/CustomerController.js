@@ -92,3 +92,23 @@ $("#btnSaveCustomer").click(function (){
     });
 });
 
+
+$("#btnCustomerDelete").click(function (){
+
+    let customerCode=$("#txtCustomerCode").val();
+
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/customers?customerCode=" + customerCode,
+        method: "DELETE",
+        success: function (resp, textStatus, jqxhr) {
+            if (jqxhr.status == 201) {
+                alert("Delete customer successfully");
+            }
+        },
+        error: function (error) {
+
+        }
+    });
+
+});
+
