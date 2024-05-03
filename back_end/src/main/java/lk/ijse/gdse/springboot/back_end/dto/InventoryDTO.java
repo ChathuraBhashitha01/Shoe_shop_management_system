@@ -11,6 +11,7 @@ public class InventoryDTO {
     private String itemPicture;
     private String category;
     private String size;
+    private String quantity;
     private String supplierCode;
     private String supplierName;
     private double unitPriceSale;
@@ -115,6 +116,14 @@ public class InventoryDTO {
         this.status = status;
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "InventoryDTO{" +
@@ -123,6 +132,7 @@ public class InventoryDTO {
                 ", itemPicture='" + itemPicture + '\'' +
                 ", category='" + category + '\'' +
                 ", size='" + size + '\'' +
+                ", quantity='" + quantity + '\'' +
                 ", supplierCode='" + supplierCode + '\'' +
                 ", supplierName='" + supplierName + '\'' +
                 ", unitPriceSale=" + unitPriceSale +
