@@ -1,11 +1,18 @@
 package lk.ijse.gdse.springboot.back_end.entity;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "sale")
 public class Sale {
+
+    @Id
     private String orderNo;
     private String itemCode;
     @ManyToOne
