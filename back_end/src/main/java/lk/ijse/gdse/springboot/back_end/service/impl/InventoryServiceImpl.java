@@ -5,9 +5,11 @@ import lk.ijse.gdse.springboot.back_end.entity.Inventory;
 import lk.ijse.gdse.springboot.back_end.repository.InventoryRepo;
 import lk.ijse.gdse.springboot.back_end.service.InventoryService;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class InventoryServiceImpl implements InventoryService {
 
     private ModelMapper modelMapper;
