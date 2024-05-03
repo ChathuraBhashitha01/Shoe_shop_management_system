@@ -16,7 +16,9 @@ public class Inventory {
     private String itemPicture;
     private String category;
     private String size;
-    private String supplierCode;
+    @ManyToOne
+    @JoinColumn(name = "supplierCode",referencedColumnName = "supplierCode")
+    private Supplier supplier;
     private String supplierName;
     private double unitPriceSale;
     private double unitPriceBuy;
@@ -64,12 +66,12 @@ public class Inventory {
         this.size = size;
     }
 
-    public String getSupplierCode() {
-        return supplierCode;
+    public Supplier getSupplier() {
+        return supplier;
     }
 
-    public void setSupplierCode(String supplierCode) {
-        this.supplierCode = supplierCode;
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 
     public String getSupplierName() {
@@ -128,7 +130,7 @@ public class Inventory {
                 ", itemPicture='" + itemPicture + '\'' +
                 ", category='" + category + '\'' +
                 ", size='" + size + '\'' +
-                ", supplierCode='" + supplierCode + '\'' +
+                ", supplierCode='" + supplier + '\'' +
                 ", supplierName='" + supplierName + '\'' +
                 ", unitPriceSale=" + unitPriceSale +
                 ", unitPriceBuy=" + unitPriceBuy +
