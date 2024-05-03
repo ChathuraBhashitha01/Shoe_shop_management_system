@@ -1,5 +1,6 @@
 package lk.ijse.gdse.springboot.back_end.entity;
 
+import lombok.AllArgsConstructor;
 
 public class AdminPanel {
     private double totalSales;
