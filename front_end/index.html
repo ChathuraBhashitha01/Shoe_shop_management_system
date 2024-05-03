@@ -41,22 +41,22 @@
             right: 200px;
             margin: auto;
         }
-        body>main>section:nth-child(1)>div:first-child{
+        body>main>section:nth-child(1)>div:first-child>div:first-child{
             width: 40vw;
-            height: 85vh;
-            position: relative;
+            height: 40vh;
+            position: absolute;
             top: 100px;
-            left: 15px;
+            left: 50px;
         }
-        body>main>section:nth-child(1)>div:first-child>div{
+        body>main>section:nth-child(1)>div:first-child>div:first-child>div{
             position: relative;
         }
-        body>main>section:nth-child(1)>div:first-child>div>h4{
+        body>main>section:nth-child(1)>div:first-child>div:first-child>div>h4{
             margin-top: 0;
             margin-bottom: 15px;
             display: inline-block;
         }
-        body>main>section:nth-child(1)>div:first-child>div>input{
+        body>main>section:nth-child(1)>div:first-child>div:first-child>div>input{
             /*margin-top: 0;*/
             /*margin-bottom: 0;*/
             width: 350px;
@@ -68,33 +68,69 @@
             margin: auto;
 
         }
-        body>main>section:nth-child(1)>div:first-child>div:nth-child(3)>div{
+        body>main>section:nth-child(1)>div:first-child>div:first-child>div:nth-child(3)>div{
             display: inline-block;
             margin-left: 195px;
         }
-        body>main>section:nth-child(1)>div:first-child>div:nth-child(3)>div>div{
+        body>main>section:nth-child(1)>div:first-child>div:first-child>div:nth-child(3)>div>div{
             display: inline-block;
         }
-        body>main>section:nth-child(1)>div:last-child{
-            width: 55vw;
-            height: 85vh;
-            position: absolute;
-            top: 100px;
-            right: 20px;
-        }
-        body>main>section:nth-child(1)>div:first-child>div:nth-child(5)>div{
+        body>main>section:nth-child(1)>div:first-child>div:first-child>div:nth-child(5)>div{
             display: inline-block;
             margin-left: 210px;
         }
-        body>main>section:nth-child(1)>div:first-child>div:nth-child(5)>div>div{
+        body>main>section:nth-child(1)>div:first-child>div:first-child>div:nth-child(5)>div>div{
             display: inline-block;
+        }
+        body>main>section:nth-child(1)>div:first-child>div:last-child{
+            width: 40vw;
+            height: 85vh;
+            position: absolute;
+            top: 100px;
+            right: 50px;
+        }
+        body>main>section:nth-child(1)>div:first-child>div:last-child>div{
+            position: relative;
+        }
+        body>main>section:nth-child(1)>div:first-child>div:last-child>div>h4{
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        body>main>section:nth-child(1)>div:first-child>div:last-child>div>input{
+            /*margin-top: 0;*/
+            /*margin-bottom: 0;*/
+            width: 350px;
+            height: 20px;
+            border: black solid 1px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: auto;
+
+        }
+        body>main>section:nth-child(1)>div:first-child>div:last-child>div:nth-child(3)>div{
+            display: inline-block;
+            margin-left: 195px;
+        }
+        body>main>section:nth-child(1)>div:first-child>div:last-child>div:nth-child(3)>div>div{
+            display: inline-block;
+        }
+        body>main>section:nth-child(1)>div:last-child{
+            width: 95vw;
+            height: 40vh;
+            position: absolute;
+            left: 30px;
+            top:55vh;
         }
         body>main>section:nth-child(2)>div:first-child{
             width: 40vw;
             height: 85vh;
             position: relative;
             top: 100px;
-            left: 15px;
+            left: 0;
+            right: 0;
+            margin: auto;
         }
         body>main>section:nth-child(2)>div:first-child>div{
             position: relative;
@@ -115,6 +151,13 @@
             top: 0;
             margin: auto;
 
+        }
+        body>main>section:nth-child(2)>div:last-child{
+            width: 55vw;
+            height: 85vh;
+            position: absolute;
+            top: 100px;
+            right: 20px;
         }
         body>main>section:nth-child(3)>div:first-child{
             width: 40vw;
@@ -184,6 +227,13 @@
         body>main>section:nth-child(3)>div:first-child>div:last-child>div:nth-child(3)>div>div{
             display: inline-block;
         }
+        body>main>section:nth-child(3)>div:last-child{
+            width: 55vw;
+            height: 85vh;
+            position: absolute;
+            top: 100px;
+            right: 20px;
+        }
     </style>
 </head>
 <body>
@@ -210,96 +260,100 @@
         <section id="customer">
             <div>
                 <div>
-                    <h4>Customer Code : </h4>
-                    <input type="text" id="txtCustomerCode">
-                </div>
-                <div>
-                    <h4>Customer name : </h4>
-                    <input type="text" id="txtCustomerName">
-                </div>
-                <div id="cusGender">
-                    <h4>Gender : </h4>
                     <div>
+                        <h4>Customer Code : </h4>
+                        <input type="text" id="txtCustomerCode">
+                    </div>
+                    <div>
+                        <h4>Customer name : </h4>
+                        <input type="text" id="txtCustomerName">
+                    </div>
+                    <div id="cusGender">
+                        <h4>Gender : </h4>
                         <div>
-                            <input type="checkbox" id="genderMale" value="MALE">
-                            <label for="genderMale"> Male</label><br>
+                            <div>
+                                <input type="checkbox" id="genderMale" value="MALE">
+                                <label for="genderMale"> Male</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="genderFemale" value="FEMALE">
+                                <label for="genderFemale"> Female</label><br>
+                            </div>
                         </div>
+                    </div>
+                    <div>
+                        <h4>Join date as a loyalty
+                            customer.: </h4>
+                        <input type="date" id="txtJoinDate">
+                    </div>
+                    <div>
+                        <h4>Level : </h4>
                         <div>
-                            <input type="checkbox" id="genderFemale" value="FEMALE">
-                            <label for="genderFemale"> Female</label><br>
+                            <div>
+                                <input type="checkbox" id="levelGold" value="Gold">
+                                <label for="genderMale"> Gold</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="levelSilver" value="Silver">
+                                <label for="genderFemale"> Silver</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="levelBronze" value="Bronze">
+                                <label for="genderFemale"> Bronze</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="levelNew" value="New">
+                                <label for="genderFemale"> New</label><br>
+                            </div>
                         </div>
+                    </div>
+                    <div>
+                        <h4>Total points : </h4>
+                        <input type="text" id="txtTotalPoint">
+                    </div>
+                    <div>
+                        <h4>DOB : </h4>
+                        <input type="date" id="txtDOB">
+                    </div>
+                    <div>
+                        <h4>Recent purchase date and
+                            time: </h4>
+                        <input type="datetime-local" id="txtPurchaseDate">
                     </div>
                 </div>
                 <div>
-                    <h4>Join date as a loyalty
-                        customer.: </h4>
-                    <input type="date" id="txtJoinDate">
-                </div>
-                <div>
-                    <h4>Level : </h4>
                     <div>
-                        <div>
-                            <input type="checkbox" id="levelGold" value="Gold">
-                            <label for="genderMale"> Gold</label><br>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="levelSilver" value="Silver">
-                            <label for="genderFemale"> Silver</label><br>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="levelBronze" value="Bronze">
-                            <label for="genderFemale"> Bronze</label><br>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="levelNew" value="New">
-                            <label for="genderFemale"> New</label><br>
-                        </div>
+                        <h4>Address Line 01 : </h4>
+                        <input type="text" id="txtAddressLine01">
                     </div>
+                    <div>
+                        <h4>Address Line 02 : </h4>
+                        <input type="text" id="txtAddressLine02">
+                    </div>
+                    <div>
+                        <h4>Address Line 03 : </h4>
+                        <input type="text" id="txtAddressLine03">
+                    </div>
+                    <div>
+                        <h4>Address Line 04 : </h4>
+                        <input type="text" id="txtAddressLine04">
+                    </div>
+                    <div>
+                        <h4>Address Line 05 : </h4>
+                        <input type="text" id="txtAddressLine05">
+                    </div>
+                    <div>
+                        <h4>Contact No. : </h4>
+                        <input type="text" id="txtContactNo">
+                    </div>
+                    <div>
+                        <h4>Email : </h4>
+                        <input type="text" id="txtEmail">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btnSaveCustomer">Save</button>
+                    <button type="button" class="btn btn-secondary" id="btnCustomerUpdate">Update</button>
+                    <button type="button" class="btn btn-danger" id="btnCustomerDelete">Delete</button>
                 </div>
-                <div>
-                    <h4>Total points : </h4>
-                    <input type="text" id="txtTotalPoint">
-                </div>
-                <div>
-                    <h4>DOB : </h4>
-                    <input type="date" id="txtDOB">
-                </div>
-                <div>
-                    <h4>Address Line 01 : </h4>
-                    <input type="text" id="txtAddressLine01">
-                </div>
-                <div>
-                    <h4>Address Line 02 : </h4>
-                    <input type="text" id="txtAddressLine02">
-                </div>
-                <div>
-                    <h4>Address Line 03 : </h4>
-                    <input type="text" id="txtAddressLine03">
-                </div>
-                <div>
-                    <h4>Address Line 04 : </h4>
-                    <input type="text" id="txtAddressLine04">
-                </div>
-                <div>
-                    <h4>Address Line 05 : </h4>
-                    <input type="text" id="txtAddressLine05">
-                </div>
-                <div>
-                    <h4>Contact No. : </h4>
-                    <input type="text" id="txtContactNo">
-                </div>
-                <div>
-                    <h4>Email : </h4>
-                    <input type="text" id="txtEmail">
-                </div>
-                <div>
-                    <h4>Recent purchase date and
-                        time: </h4>
-                    <input type="datetime-local" id="txtPurchaseDate">
-                </div>
-                <button type="button" class="btn btn-primary" id="btnSaveCustomer">Save</button>
-                <button type="button" class="btn btn-secondary" id="btnCustomerUpdate">Update</button>
-                <button type="button" class="btn btn-danger" id="btnCustomerDelete">Delete</button>
             </div>
             <div>
                 <table class="table mb-5" >
@@ -489,6 +543,33 @@
                     <button type="button" class="btn btn-secondary" id="btnEmployeeUpdate">Update</button>
                     <button type="button" class="btn btn-danger" id="btnEmployeeDelete">Delete</button>
                 </div>
+            </div>
+            <div>
+                <table class="table mb-5" >
+                    <thead style="border: black">
+                    <tr style="border: black">
+                        <th scope="col" style="background: #0a58ca">Code</th>
+                        <th scope="col" style="background: #0a58ca">Name</th>
+                        <th scope="col" style="background: #0a58ca">Gender</th>
+                        <th scope="col" style="background: #0a58ca">Status</th>
+                        <th scope="col" style="background: #0a58ca">Designation</th>
+                        <th scope="col" style="background: #0a58ca">Access Role</th>
+                        <th scope="col" style="background: #0a58ca">DOB</th>
+                        <th scope="col" style="background: #0a58ca">Address Line 01</th>
+                        <th scope="col" style="background: #0a58ca">Address Line 02</th>
+                        <th scope="col" style="background: #0a58ca">Address Line 03</th>
+                        <th scope="col" style="background: #0a58ca">Address Line 04</th>
+                        <th scope="col" style="background: #0a58ca">Address Line 05</th>
+                        <th scope="col" style="background: #0a58ca">Contact No</th>
+                        <th scope="col" style="background: #0a58ca">Email</th>
+                        <th scope="col" style="background: #0a58ca">Inform in case of emergency</th>
+                        <th scope="col" style="background: #0a58ca">Emergency Contact</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="tblEmployee" style="border: black">
+
+                    </tbody>
+                </table>
             </div>
         </section>
         <section id="inventory">
