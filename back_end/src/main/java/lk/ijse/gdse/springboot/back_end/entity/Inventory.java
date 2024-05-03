@@ -16,6 +16,7 @@ public class Inventory {
     private String itemPicture;
     private String category;
     private String size;
+    private String quantity;
     @ManyToOne
     @JoinColumn(name = "supplierCode",referencedColumnName = "supplierCode")
     private Supplier supplier;
@@ -122,6 +123,14 @@ public class Inventory {
         this.status = status;
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "Inventory{" +
@@ -130,7 +139,8 @@ public class Inventory {
                 ", itemPicture='" + itemPicture + '\'' +
                 ", category='" + category + '\'' +
                 ", size='" + size + '\'' +
-                ", supplierCode='" + supplier + '\'' +
+                ", quantity='" + quantity + '\'' +
+                ", supplier=" + supplier +
                 ", supplierName='" + supplierName + '\'' +
                 ", unitPriceSale=" + unitPriceSale +
                 ", unitPriceBuy=" + unitPriceBuy +
