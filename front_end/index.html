@@ -122,6 +122,56 @@
             position: absolute;
             left: 30px;
             top:55vh;
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+            font-family: sans-serif;
+
+            background-color: #fff5;
+            backdrop-filter: blur(7px);
+            box-shadow: 0 .4rem .8rem #0005;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        body>main>section:nth-child(1)>div:last-child>div:last-child>table,th,td{
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        body>main>section:nth-child(1)>div:last-child>div:last-child>table>thead{
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: #d5d1defe;
+        }
+        body>main>section:nth-child(1)>div:last-child>div:last-child>table>tbody>tr:hover{
+            background-color: white;
+        }
+        body>main>section:nth-child(1)>div:last-child>div:last-child>table{
+            width: 98%;
+            height: 89%;
+            background-color: #E5F4FD;
+            margin: 20px auto;
+            border-radius: 10px;
+            position: relative;
+        }
+        body>main>section:nth-child(1)>div:last-child>div:first-child{
+            width: 100%;
+            height: 10%;
+            background-color:#fff3ff ;
+            padding: 20px;
+        }
+        body>main>section:nth-child(1)>div:last-child>div:last-child::-webkit-scrollbar{
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+        body>main>section:nth-child(1)>div:last-child>div:last-child::-webkit-scrollbar-thumb{
+            border-radius: 5rem;
+            background-color: #000400;
+            visibility: hidden;
+        }
+        body>main>section:nth-child(1)>div:last-child>div:last-child:hover::-webkit-scrollbar-thumb{
+            visibility: visible;
         }
         body>main>section:nth-child(2)>div:first-child{
             position: relative;
@@ -190,13 +240,13 @@
         }
         body>main>section:nth-child(3)>div:first-child>div:first-child{
             width: 40vw;
-            height: 87vh;
+            height: 40vh;
             position: absolute;
-            top: 80px;
-            left: 10px;
+            top: 100px;
+            left: 50px;
         }
         body>main>section:nth-child(3)>div:first-child>div:first-child>div:first-child{
-            width: 100px;
+            width: 100%;
             height: 120px;
             border: black solid 2px;
             border-radius: 15px;
@@ -210,20 +260,19 @@
             width: 80px;
             height: 80px;
             border-radius:50%;
-            margin-top: 0;
-            margin-bottom: 0;
-            position: relative;
+            position: absolute;
             top: 5px;
-            left: 10px;
+            left: 0;
+            right: 0;
+            margin: auto;
         }
         body>main>section:nth-child(3)>div:first-child>div:first-child>div:first-child>label{
-            margin-top: 0;
-            margin-left: 10px;
+            font-size: 20px;
+            color: #0a58ca;
             position: relative;
-            top: 5px;
-            left: 5px;
+            left: 260px;
+            top: 90px;
         }
-
         body>main>section:nth-child(3)>div:first-child>div:first-child>div:first-child>input{
             display: none;
         }
@@ -258,10 +307,10 @@
         }
         body>main>section:nth-child(3)>div:first-child>div:last-child{
             width: 40vw;
-            height: 87vh;
+            height: 40vh;
             position: absolute;
-            top: 80px;
-            right: 10px;
+            top: 100px;
+            right: 50px;
         }
         body>main>section:nth-child(3)>div:first-child>div:last-child>div{
             position: relative;
@@ -282,11 +331,11 @@
 
         }
         body>main>section:nth-child(3)>div:last-child{
-            width: 95vw;
+            width: 90vw;
             height: 40vh;
             position: absolute;
             left: 30px;
-            top:55vh;
+            top:60vh;
         }
     </style>
 </head>
@@ -410,32 +459,32 @@
                 </div>
             </div>
             <div>
-                <table class="table mb-5" >
-                    <thead style="border: black">
-                    <tr style="border: black">
-                        <th scope="col" style="background: #0a58ca">Code</th>
-                        <th scope="col" style="background: #0a58ca">Name</th>
-                        <th scope="col" style="background: #0a58ca">Gender</th>
-                        <th scope="col" style="background: #0a58ca">Salary</th>
-                        <th scope="col" style="background: #0a58ca">Join date</th>
-                        <th scope="col" style="background: #0a58ca">Level</th>
-                        <th scope="col" style="background: #0a58ca">Total points</th>
-                        <th scope="col" style="background: #0a58ca">DOB</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 01</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 02</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 03</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 04</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 05</th>
-                        <th scope="col" style="background: #0a58ca">Contact No</th>
-                        <th scope="col" style="background: #0a58ca">Email</th>
-                        <th scope="col" style="background: #0a58ca">purchase date &
-                            time</th>
-                    </tr>
-                    </thead>
-                    <tbody class="table-group-divider" id="tblCustomer" style="border: black">
+                <div>
+                    <h3>Customer's Details</h3>
+                </div>
+                <div>
+                    <table class="table mb-5" >
+                        <thead style="border: black">
+                        <tr style="border: black">
+                            <th scope="col" >Code</th>
+                            <th scope="col" >Name</th>
+                            <th scope="col" >Gender</th>
+                            <th scope="col" >Join date</th>
+                            <th scope="col" >Level</th>
+                            <th scope="col" >Total points</th>
+                            <th scope="col" >DOB</th>
+                            <th scope="col" >Address</th>
+                            <th scope="col" >Contact No</th>
+                            <th scope="col" >Email</th>
+                            <th scope="col" >purchase date &
+                                time</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider" id="tblCustomer" style="border: black">
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
         <section id="supplier">

@@ -1,6 +1,7 @@
 $("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
+getAllCustomers();
 
 
 function clearAll(){
@@ -79,7 +80,6 @@ $("#btnSaveCustomer").click(function (){
         url:"http://localhost:8080/app/api/v1/customers",
         method:"POST",
         data:jsonObject,
-        contentType:("application/json"),
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
@@ -191,13 +191,27 @@ $("#btnCustomerUpdate").click(function (){
 });
 
 function getAllCustomers(){
+    $("#tblCustomer").empty();
     $.ajax({
         url: "http://localhost:8080/app/api/v1/customers",
         method: "GET",
         dataType: "json",
         success: function (resp) {
             for (const customer of resp) {
-
+                let row=`<tr>
+                    <td>${customer.customerCode}</td>
+                    <td>${customer.customerName}</td>
+                    <td>${customer.gender}</td>
+                    <td>${customer.joinDate}</td>
+                    <td>${customer.level}</td>
+                    <td>${customer.totalPoint}</td>
+                    <td>${customer.dob}</td>
+                    <td>${customer.addressLine01+","+customer.addressLine02+","+customer.addressLine03+","+customer.addressLine04+","+customer.addressLine05+"."}</td>
+                    <td>${customer.contactNo}</td>
+                    <td>${customer.email}</td>
+                    <td>${customer.recentPurchaseDate}</td>
+                </tr>`;
+                $("#tblCustomer").append(row);
             }
         }
     });
