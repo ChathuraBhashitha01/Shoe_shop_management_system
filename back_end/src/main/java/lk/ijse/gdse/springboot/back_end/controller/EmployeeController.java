@@ -1,15 +1,16 @@
 package lk.ijse.gdse.springboot.back_end.controller;
 
-import lk.ijse.gdse.springboot.back_end.dto.CustomerDTO;
 import lk.ijse.gdse.springboot.back_end.dto.EmployeeDTO;
 import lk.ijse.gdse.springboot.back_end.service.EmployeeService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/employees")
+@CrossOrigin
 public class EmployeeController {
     private EmployeeService employeeService;
 
@@ -28,8 +29,14 @@ public class EmployeeController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void saveEmployee(@RequestBody EmployeeDTO employeeDTO){
-        employeeService.saveEmployee(employeeDTO);
+    public void saveEmployee(@RequestBody EmployeeDTO employeeDTO,
+                             @RequestPart("employeePicture") String employeePicture){
+        String base64ProfilePic = Base64.getEncoder().encodeToString(employeePicture.getBytes());
+         EmployeeDTO employeeDTO1 = new EmployeeDTO(employeeDTO.getEmployeeCode(), employeeDTO.getEmployeeName(), base64ProfilePic, employeeDTO.getGender(),
+                employeeDTO.getStatus(), employeeDTO.getDesignation(), employeeDTO.getAccessRole(), employeeDTO.getDob(), employeeDTO.getDateOfJoin(),
+                employeeDTO.getAttachedBranch(), employeeDTO.getAddressLine01(), employeeDTO.getAddressLine02(), employeeDTO.getAddressLine03(), employeeDTO.getAddressLine04(), employeeDTO.getAddressLine05(),
+                employeeDTO.getContactNo(), employeeDTO.getEmail(), employeeDTO.getInformInCaseOfEmergency(), employeeDTO.getEmergencyContact());
+        employeeService.saveEmployee(employeeDTO1);
     }
 
     @PatchMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
