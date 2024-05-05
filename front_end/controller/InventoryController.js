@@ -3,6 +3,7 @@ $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
 
+
 function clearAll(){
     $("#customer,#supplier,#employee,#inventory").css('display','none');
 }
@@ -12,6 +13,6 @@ function setView(viewOb){
     viewOb.css('display','block');
 }
 
-$("#navSupplier").click(function (){
-    setView($("#supplier"))
+$("#navInventory").click(function (){
+    setView($("#inventory"))
 });

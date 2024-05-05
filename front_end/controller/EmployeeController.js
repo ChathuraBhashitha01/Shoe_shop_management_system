@@ -1,10 +1,11 @@
 $("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
+$("#inventory").css('display','none');
 
 
 function clearAll(){
-    $("#customer,#supplier,#employee").css('display','none');
+    $("#customer,#supplier,#employee,#inventory").css('display','none');
 }
 
 function setView(viewOb){

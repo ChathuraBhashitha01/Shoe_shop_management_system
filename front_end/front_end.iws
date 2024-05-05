@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf8278f6-5935-4356-b8cd-b0fd40e9cbf6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/image/istockphoto-1292261872-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/image/875068.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/InventoryController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/CustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/CustomerController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/EmployeeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EmployeeController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/SupplierController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SupplierController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front_end.iws" beforeDir="false" afterPath="$PROJECT_DIR$/front_end.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -61,6 +65,19 @@
       <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\controller" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -81,7 +98,9 @@
       <workItem from="1714634927333" duration="52000" />
       <workItem from="1714751586084" duration="10994000" />
       <workItem from="1714796048129" duration="9857000" />
-      <workItem from="1714817180831" duration="571000" />
+      <workItem from="1714817180831" duration="16551000" />
+      <workItem from="1714880610266" duration="9732000" />
+      <workItem from="1714914341256" duration="12395000" />
     </task>
     <servers />
   </component>

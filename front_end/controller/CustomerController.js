@@ -1,11 +1,12 @@
 $("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
+$("#inventory").css('display','none');
 getAllCustomers();
 
 
 function clearAll(){
-    $("#customer,#supplier,#employee").css('display','none');
+    $("#customer,#supplier,#employee,#inventory").css('display','none');
 }
 
 function setView(viewOb){
@@ -18,9 +19,10 @@ $("#navCustomer").click(function (){
 });
 
 $("#btnSaveCustomer").click(function (){
+
     let cusCode=$("#txtCustomerCode").val();
     let cusName=$("#txtCustomerName").val();
-    let gender="";
+    let gender;
     let male =$("#genderMale").val();
     let feMale =$("#genderFemale").val();
     if (male.checked) {
@@ -30,7 +32,7 @@ $("#btnSaveCustomer").click(function (){
         gender=feMale.value;
     }
     let joinDate=$("#txtJoinDate").val();
-    let level="";
+    let level;
     let gold =$("#levelGold").val();
     let silver =$("#levelSilver").val();
     let bronze =$("#levelBronze").val();
@@ -80,6 +82,7 @@ $("#btnSaveCustomer").click(function (){
         url:"http://localhost:8080/app/api/v1/customers",
         method:"POST",
         data:jsonObject,
+        contentType:("application/json"),
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
@@ -212,7 +215,43 @@ function getAllCustomers(){
                     <td>${customer.recentPurchaseDate}</td>
                 </tr>`;
                 $("#tblCustomer").append(row);
+                bindCusTrEvents();
             }
         }
     });
+    function bindCusTrEvents() {
+        $("#tblCustomer>tr").click(function (){
+            let code=$(this).children().eq(0).text();
+            let name=$(this).children().eq(1).text();
+            let gender=$(this).children().eq(2).text();
+            let joinDate=$(this).children().eq(3).text();
+            let level=$(this).children().eq(4).text();
+            let totalPoint=$(this).children().eq(5).text();
+            let dob=$(this).children().eq(6).text();
+            let address=$(this).children().eq(7).text();
+            let arr = address.split(",");
+            let addressLine01=arr[0];
+            let addressLine02=arr[1];
+            let addressLine03=arr[2];
+            let addressLine04=arr[3];
+            let addressLine05=arr[4];
+            let contact=$(this).children().eq(8).text();
+            let email=$(this).children().eq(9).text();
+            let purchaseDate=$(this).children().eq(10).text();
+
+            $("#txtCustomerCode").val(code)
+            $("#txtCustomerName").val(name)
+            $("#txtJoinDate").val(joinDate)
+            $("#txtTotalPoint").val(totalPoint)
+            $("#txtDOB").val(dob)
+            $("#txtAddressLine01").val(addressLine01)
+            $("#txtAddressLine02").val(addressLine02)
+            $("#txtAddressLine03").val(addressLine03)
+            $("#txtAddressLine04").val(addressLine04)
+            $("#txtAddressLine05").val(addressLine05)
+            $("#txtContactNo").val(contact)
+            $("#txtEmail").val(email)
+            $("#txtPurchaseDate").val(purchaseDate)
+        });
+    }
 }
