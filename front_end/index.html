@@ -625,49 +625,53 @@
                 <div>
                     <div>
                         <h4>Supplier Code : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierCode">
                     </div>
                     <div>
                         <h4>Supplier name : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierName">
                     </div>
                     <div>
                         <h4>Category : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierCategory">
                     </div>
                     <div>
                         <h4>Contact No.1 : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierContactNo1">
                     </div>
                     <div>
                         <h4>Contact No.2 : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierContactNo2">
                     </div>
                     <div>
                         <h4>Email : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierEmail">
                     </div>
                 </div>
                 <div>
                     <div>
                         <h4>Address Line 01 : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierAddress1">
                     </div>
                     <div>
                         <h4>Address Line 02 : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierAddress2">
                     </div>
                     <div>
                         <h4>Address Line 03 : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierAddress3">
                     </div>
                     <div>
                         <h4>Address Line 04 : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierAddress4">
                     </div>
                     <div>
                         <h4>Address Line 05 : </h4>
-                        <input type="text">
+                        <input type="text" id="txtSupplierAddress5">
+                    </div>
+                    <div>
+                        <h4>Address Line 06 : </h4>
+                        <input type="text" id="txtSupplierAddress6">
                     </div>
                     <button type="button" class="btn btn-primary" id="btnSaveSupplier">Save</button>
                     <button type="button" class="btn btn-secondary" id="btnSupplirUpdate">Update</button>
@@ -681,11 +685,7 @@
                         <th scope="col" style="background: #0a58ca">Code</th>
                         <th scope="col" style="background: #0a58ca">Name</th>
                         <th scope="col" style="background: #0a58ca">Category</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 01</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 02</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 03</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 04</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 05</th>
+                        <th scope="col" style="background: #0a58ca">Address</th>
                         <th scope="col" style="background: #0a58ca">Contact No.1</th>
                         <th scope="col" style="background: #0a58ca">Contact No.2</th>
                         <th scope="col" style="background: #0a58ca">Email</th>
@@ -704,84 +704,92 @@
                         <img src="assets/image/user.png" id="profilePic">
                         <label for="inputFile">Add image</label>
                         <input type="file" accept="image/png, image/jpeg, imsgr/jpg" id="inputFile">
-                    </div>
+                </div>
                     <div>
                         <div>
                             <h4>Employee code : </h4>
-                            <input type="text" >
+                            <input type="text" id="txtEmployeeCode">
                         </div>
                         <div>
                             <h4>Employee name : </h4>
-                            <input type="text" >
+                            <input type="text" id="txtEmployeeName">
                         </div>
                         <div >
                             <h4>Gender : </h4>
                             <div>
                                 <div>
-                                    <input type="checkbox"  value="MALE">
+                                    <input type="checkbox"  value="MALE" id="employeeMale">
                                     <label for="genderMale"> Male</label><br>
                                 </div>
                                 <div>
-                                    <input type="checkbox"  value="FEMALE">
+                                    <input type="checkbox"  value="FEMALE" id="employeeFemale">
                                     <label for="genderFemale"> Female</label><br>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <h4>Status : </h4>
-                            <input type="text" >
+                            <input type="text" id="txtEmployeeStatus">
                         </div>
                         <div>
                             <h4>Designation : </h4>
-                            <input type="text" >
+                            <input type="text" id="txtEmployeeDesignation">
                         </div>
                         <div>
                             <h4>Access Role : </h4>
-                            <input type="text" >
+                            <input type="text" id="txtEmployeeAccessRole">
+                        </div>
+                        <div>
+                            <h4>Date of Join : </h4>
+                            <input type="date" id="txtEmployeeDateOfJoin">
                         </div>
                     </div>
                 </div>
                 <div>
                     <div>
+                        <h4>Attached Branch : </h4>
+                        <input type="text" id="txtEmployeeAttachedBranch">
+                    </div>
+                    <div>
                         <h4>DOB : </h4>
-                        <input type="date" >
+                        <input type="date" id="txtEmployeeDOB">
                     </div>
                     <div>
                         <h4>Address Line 01 : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtEmployeeAddressLine1">
                     </div>
                     <div>
                         <h4>Address Line 02 : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtEmployeeAddressLine2">
                     </div>
                     <div>
                         <h4>Address Line 03 : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtEmployeeAddressLine3">
                     </div>
                     <div>
                         <h4>Address Line 04 : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtEmployeeAddressLine4">
                     </div>
                     <div>
                         <h4>Address Line 05 : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtEmployeeAddressLine5">
                     </div>
                     <div>
                         <h4>Contact No. : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtEmployeeContactNo">
                     </div>
                     <div>
                         <h4>Email : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtEmployeeEmail">
                     </div>
                     <div>
                         <h4>Inform in case of
                             emergency : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtEmployeeCaseOfEmergency" >
                     </div>
                     <div>
                         <h4>Emergency Contact : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtEmployeeEmergencyContact">
                     </div>
                     <button type="button" class="btn btn-primary" id="btnEmployeeSave">Save</button>
                     <button type="button" class="btn btn-secondary" id="btnEmployeeUpdate">Update</button>
@@ -799,11 +807,8 @@
                         <th scope="col" style="background: #0a58ca">Designation</th>
                         <th scope="col" style="background: #0a58ca">Access Role</th>
                         <th scope="col" style="background: #0a58ca">DOB</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 01</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 02</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 03</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 04</th>
-                        <th scope="col" style="background: #0a58ca">Address Line 05</th>
+                        <th scope="col" style="background: #0a58ca">Address</th>
+                        <th scope="col" style="background: #0a58ca">Address</th>
                         <th scope="col" style="background: #0a58ca">Contact No</th>
                         <th scope="col" style="background: #0a58ca">Email</th>
                         <th scope="col" style="background: #0a58ca">Inform in case of emergency</th>
@@ -825,15 +830,15 @@
                     <div>
                         <div>
                             <h4>Item code : </h4>
-                            <input type="text" >
+                            <input type="text" id="txtItemCode" >
                         </div>
                         <div>
                             <h4>Item Decs : </h4>
-                            <input type="text" >
+                            <input type="text" id="txtItemName" >
                         </div>
                         <div>
                             <h4>Category : </h4>
-                            <select name="category" id="txtCategory">
+                            <select name="category" id="cmdItemCategory" >
                                 <option>Formal Shoes</option>
                                 <option>Casual Shoes</option>
                                 <option>Industrial Shoes</option>
@@ -854,39 +859,39 @@
                             <h4>Size : </h4>
                             <div>
                                 <div>
-                                    <input type="checkbox"  value=5>
+                                    <input type="checkbox"  value=5 id="size5">
                                     <label> Size 5</label>
-                                    <input type="text" placeholder="Quantity">
+                                    <input type="text" placeholder="Quantity" id="size5Qty">
                                 </div>
                                 <div>
-                                    <input type="checkbox"  value=6>
+                                    <input type="checkbox"  value=6 id="size6">
                                     <label> Size  6</label>
-                                    <input type="text" placeholder="Quantity">
+                                    <input type="text" placeholder="Quantity" id="size6Qty">
                                 </div>
                                 <div>
-                                    <input type="checkbox"  value=7>
+                                    <input type="checkbox"  value=7 id="size7">
                                     <label> Size  7</label>
-                                    <input type="text" placeholder="Quantity">
+                                    <input type="text" placeholder="Quantity" id="size7Qty">
                                 </div>
                                 <div>
-                                    <input type="checkbox"  value=8>
+                                    <input type="checkbox"  value=8 id="size8">
                                     <label> Size  8</label>
-                                    <input type="text" placeholder="Quantity">
+                                    <input type="text" placeholder="Quantity" id="size8Qty">
                                 </div>
                                 <div>
-                                    <input type="checkbox"  value=9>
+                                    <input type="checkbox"  value=9 id="size9">
                                     <label> Size  9</label>
-                                    <input type="text" placeholder="Quantity">
+                                    <input type="text" placeholder="Quantity" id="size9Qty">
                                 </div>
                                 <div>
-                                    <input type="checkbox"  value=10>
+                                    <input type="checkbox"  value=10 id="size10">
                                     <label> Size 10</label>
-                                    <input type="text" placeholder="Quantity">
+                                    <input type="text" placeholder="Quantity" id="size10Qty">
                                 </div>
                                 <div>
-                                    <input type="checkbox"  value=11>
+                                    <input type="checkbox"  value=11 id="size11">
                                     <label> Size 11</label>
-                                    <input type="text" placeholder="Quantity">
+                                    <input type="text" placeholder="Quantity" id="size11Qty">
                                 </div>
                             </div>
                         </div>
@@ -897,42 +902,42 @@
                         <h4>Gender : </h4>
                         <div>
                             <div>
-                                <input type="checkbox"  value="MALE">
-                                <label for="genderMale"> Man</label>
+                                <input type="checkbox"  value="MALE" id="typeMan">
+                                <label for="typeMan"> Man</label>
                             </div>
                             <div>
-                                <input type="checkbox"  value="FEMALE">
-                                <label for="genderFemale"> Women</label>
+                                <input type="checkbox"  value="FEMALE" id="typeWomen">
+                                <label for="typeWomen"> Women</label>
                             </div>
                         </div>
                     </div>
                     <div>
                         <h4>Supplier Code : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtSupplierCodeForItem">
                     </div>
                     <div>
                         <h4>Supplier Name : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtSupplierNameForItem">
                     </div>
                     <div>
                         <h4>Unit price - Sale : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtUnitPriceSale">
                     </div>
                     <div>
                         <h4>Unit price - Buy : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtUnitPriceBuy">
                     </div>
                     <div>
                         <h4>Expected Profit : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtItemExpectedProfit">
                     </div>
                     <div>
                         <h4>Profit margin : </h4>
-                        <input type="text" >
+                        <input type="text" id="txtItemProfitMargin">
                     </div>
                     <div>
                         <h4>Status : </h4>
-                        <textarea ></textarea>
+                        <textarea id="txtItemStatus"></textarea>
                     </div>
                     <button type="button" class="btn btn-primary" id="btnInventorySave">Save</button>
                     <button type="button" class="btn btn-secondary" id="btnInventoryUpdate">Update</button>
