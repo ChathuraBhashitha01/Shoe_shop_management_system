@@ -14,7 +14,6 @@ import java.util.Date;
 public class EmployeeDTO {
     private String employeeCode;
     private String employeeName;
-    private String employeePicture;
     private Gender gender;
     private String status;
     private String designation;
@@ -31,4 +30,5 @@ public class EmployeeDTO {
     private String email;
     private String informInCaseOfEmergency;
     private String emergencyContact;
+    private String employeePicture;
 }

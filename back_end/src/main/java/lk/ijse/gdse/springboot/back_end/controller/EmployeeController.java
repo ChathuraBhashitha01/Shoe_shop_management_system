@@ -2,10 +2,17 @@ package lk.ijse.gdse.springboot.back_end.controller;
 
 import lk.ijse.gdse.springboot.back_end.dto.EmployeeDTO;
 import lk.ijse.gdse.springboot.back_end.service.EmployeeService;
+import lk.ijse.gdse.springboot.back_end.util.Gender;
+import lk.ijse.gdse.springboot.back_end.util.Role;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -18,7 +25,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces =MediaType.MULTIPART_FORM_DATA_VALUE)
     public List<EmployeeDTO> getAllEmployees(){
         return employeeService.getAllEmployee();
     }
@@ -28,15 +35,34 @@ public class EmployeeController {
         return employeeService.getEmployeeDetails(id);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void saveEmployee(@RequestBody EmployeeDTO employeeDTO,
-                             @RequestPart("employeePicture") String employeePicture){
-        String base64ProfilePic = Base64.getEncoder().encodeToString(employeePicture.getBytes());
-         EmployeeDTO employeeDTO1 = new EmployeeDTO(employeeDTO.getEmployeeCode(), employeeDTO.getEmployeeName(), base64ProfilePic, employeeDTO.getGender(),
-                employeeDTO.getStatus(), employeeDTO.getDesignation(), employeeDTO.getAccessRole(), employeeDTO.getDob(), employeeDTO.getDateOfJoin(),
-                employeeDTO.getAttachedBranch(), employeeDTO.getAddressLine01(), employeeDTO.getAddressLine02(), employeeDTO.getAddressLine03(), employeeDTO.getAddressLine04(), employeeDTO.getAddressLine05(),
-                employeeDTO.getContactNo(), employeeDTO.getEmail(), employeeDTO.getInformInCaseOfEmergency(), employeeDTO.getEmergencyContact());
-        employeeService.saveEmployee(employeeDTO1);
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public void saveEmployee(@RequestParam("employeeCode") String code,
+                             @RequestParam("employeeName") String name,
+                             @RequestParam("gender")Gender gender,
+                             @RequestParam("status") String status,
+                             @RequestParam("designation") String designation,
+                             @RequestParam("accessRole") Role role,
+                             @RequestParam("dob") String dob,
+                             @RequestParam("dateOfJoin") String dateOfJoin,
+                             @RequestParam("attachedBranch") String attachedBranch,
+                             @RequestParam("addressLine01") String addressLine1,
+                             @RequestParam("addressLine02") String addressLine2,
+                             @RequestParam("addressLine03") String addressLine3,
+                             @RequestParam("addressLine04") String addressLine4,
+                             @RequestParam("addressLine05") String addressLine5,
+                             @RequestParam("contactNo") String contact,
+                             @RequestParam("email") String email,
+                             @RequestParam("informInCaseOfEmergency") String informInCaseOfEmergency,
+                             @RequestParam("emergencyContact") String emergencyContact,
+                             @RequestParam("employeePicture") MultipartFile profilrPic
+                             ) throws IOException, ParseException {
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date newDob = dateFormat.parse(dob);
+        Date newDateOfJoin = dateFormat.parse(dateOfJoin);
+        String image = Base64.getEncoder().encodeToString(profilrPic.getBytes());
+        EmployeeDTO employeeDTO = new EmployeeDTO(code, name, gender, status, designation,role, newDob, newDateOfJoin, attachedBranch, addressLine1, addressLine2, addressLine3, addressLine4, addressLine5, contact, email, informInCaseOfEmergency, emergencyContact,image);
+        employeeService.saveEmployee(employeeDTO);
     }
 
     @PatchMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

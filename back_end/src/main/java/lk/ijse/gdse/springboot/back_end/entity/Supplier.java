@@ -21,6 +21,7 @@ public class Supplier {
     private String addressLine03;
     private String addressLine04;
     private String addressLine05;
+    private String addressLine06;
     private String contactNo1;
     private String contactNo2;
     private String email;
@@ -113,9 +114,17 @@ public class Supplier {
         this.email = email;
     }
 
+    public String getAddressLine06() {
+        return addressLine06;
+    }
+
+    public void setAddressLine06(String addressLine06) {
+        this.addressLine06 = addressLine06;
+    }
+
     @Override
     public String toString() {
-        return "SupplierDTO{" +
+        return "Supplier{" +
                 "supplierCode='" + supplierCode + '\'' +
                 ", supplierName='" + supplierName + '\'' +
                 ", category='" + category + '\'' +
@@ -124,6 +133,7 @@ public class Supplier {
                 ", addressLine03='" + addressLine03 + '\'' +
                 ", addressLine04='" + addressLine04 + '\'' +
                 ", addressLine05='" + addressLine05 + '\'' +
+                ", addressLine06='" + addressLine06 + '\'' +
                 ", contactNo1='" + contactNo1 + '\'' +
                 ", contactNo2='" + contactNo2 + '\'' +
                 ", email='" + email + '\'' +

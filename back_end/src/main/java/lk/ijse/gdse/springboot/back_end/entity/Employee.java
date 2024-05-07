@@ -1,8 +1,6 @@
 package lk.ijse.gdse.springboot.back_end.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lk.ijse.gdse.springboot.back_end.util.Gender;
 import lk.ijse.gdse.springboot.back_end.util.Role;
 import lombok.AllArgsConstructor;
@@ -20,7 +18,6 @@ public class Employee {
     @Id
     private String employeeCode;
     private String employeeName;
-    private String employeePicture;
     private Gender gender;
     private String status;
     private String designation;
@@ -37,6 +34,8 @@ public class Employee {
     private String email;
     private String informInCaseOfEmergency;
     private String emergencyContact;
+    @Column(columnDefinition = "LONGTEXT")
+    private String employeePicture;
 
     public String getEmployeeCode() {
         return employeeCode;
@@ -52,14 +51,6 @@ public class Employee {
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
-    }
-
-    public String getEmployeePicture() {
-        return employeePicture;
-    }
-
-    public void setEmployeePicture(String employeePicture) {
-        this.employeePicture = employeePicture;
     }
 
     public Gender getGender() {
@@ -190,12 +181,19 @@ public class Employee {
         this.emergencyContact = emergencyContact;
     }
 
+    public String getEmployeePicture() {
+        return employeePicture;
+    }
+
+    public void setEmployeePicture(String employeePicture) {
+        this.employeePicture = employeePicture;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
                 "employeeCode='" + employeeCode + '\'' +
                 ", employeeName='" + employeeName + '\'' +
-                ", employeePicture='" + employeePicture + '\'' +
                 ", gender=" + gender +
                 ", status='" + status + '\'' +
                 ", designation='" + designation + '\'' +
@@ -212,6 +210,7 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", informInCaseOfEmergency='" + informInCaseOfEmergency + '\'' +
                 ", emergencyContact='" + emergencyContact + '\'' +
+                ", employeePicture='" + employeePicture + '\'' +
                 '}';
     }
 }
