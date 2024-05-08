@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cf8278f6-5935-4356-b8cd-b0fd40e9cbf6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../back_end/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/BackEndApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/BackEndApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/dto/SupplierDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/dto/SupplierDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/entity/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/entity/Supplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/entity/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/entity/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/entity/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/entity/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/entity/Sale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/CustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/CustomerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/EmployeeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EmployeeController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/InventoryController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/InventoryController.js" afterDir="false" />
@@ -92,7 +93,11 @@
       <workItem from="1714914341256" duration="13525000" />
       <workItem from="1714964885216" duration="9088000" />
       <workItem from="1714984045225" duration="1919000" />
-      <workItem from="1715012318805" duration="5225000" />
+      <workItem from="1715012318805" duration="7486000" />
+      <workItem from="1715054091986" duration="15691000" />
+      <workItem from="1715094328328" duration="5964000" />
+      <workItem from="1715148212925" duration="546000" />
+      <workItem from="1715190401372" duration="1639000" />
     </task>
     <servers />
   </component>

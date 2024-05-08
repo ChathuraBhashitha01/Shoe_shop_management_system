@@ -19,16 +19,16 @@ $("#navSupplier").click(function (){
 $("#btnSaveSupplier").click(function (){
     let supplierCode=$("#txtSupplierCode").val();
     let supplierName=$("#txtSupplierName").val();
-    let category=$("#txtSupplierCategory");
-    let addressLine1=$("#txtSupplierAddress1");
-    let addressLine2=$("#txtSupplierAddress2");
-    let addressLine3=$("#txtSupplierAddress3");
-    let addressLine4=$("#txtSupplierAddress4");
-    let addressLine5=$("#txtSupplierAddress5");
-    let addressLine6=$("#txtSupplierAddress6");
-    let contactNo1=$("#txtSupplierContactNo1");
-    let contactNo2=$("#txtSupplierContactNo2")
-    let email=$("#txtSupplierEmail")
+    let category=$("#txtSupplierCategory").val();
+    let addressLine1=$("#txtSupplierAddress1").val();
+    let addressLine2=$("#txtSupplierAddress2").val();
+    let addressLine3=$("#txtSupplierAddress3").val();
+    let addressLine4=$("#txtSupplierAddress4").val();
+    let addressLine5=$("#txtSupplierAddress5").val();
+    let addressLine6=$("#txtSupplierAddress6").val();
+    let contactNo1=$("#txtSupplierContactNo1").val();
+    let contactNo2=$("#txtSupplierContactNo2").val();
+    let email=$("#txtSupplierEmail").val();
 
     let newSupplier={
         supplierCode:supplierCode,
@@ -66,16 +66,16 @@ $("#btnSaveSupplier").click(function (){
 $("#btnSupplirUpdate").click(function (){
     let supplierCode=$("#txtSupplierCode").val();
     let supplierName=$("#txtSupplierName").val();
-    let category=$("#txtSupplierCategory");
-    let addressLine1=$("#txtSupplierAddress1");
-    let addressLine2=$("#txtSupplierAddress2");
-    let addressLine3=$("#txtSupplierAddress3");
-    let addressLine4=$("#txtSupplierAddress4");
-    let addressLine5=$("#txtSupplierAddress5");
-    let addressLine6=$("#txtSupplierAddress6");
-    let contactNo1=$("#txtSupplierContactNo1");
-    let contactNo2=$("#txtSupplierContactNo2")
-    let email=$("#txtSupplierEmail")
+    let category=$("#txtSupplierCategory").val();
+    let addressLine1=$("#txtSupplierAddress1").val();
+    let addressLine2=$("#txtSupplierAddress2").val();
+    let addressLine3=$("#txtSupplierAddress3").val();
+    let addressLine4=$("#txtSupplierAddress4").val();
+    let addressLine5=$("#txtSupplierAddress5").val();
+    let addressLine6=$("#txtSupplierAddress6").val();
+    let contactNo1=$("#txtSupplierContactNo1").val();
+    let contactNo2=$("#txtSupplierContactNo2").val();
+    let email=$("#txtSupplierEmail").val();
 
     let newSupplier={
         supplierCode:supplierCode,
@@ -113,7 +113,7 @@ $("#btnSupplirUpdate").click(function (){
 $("#btnSupplierDelete").click(function (){
     let supplierCode=$("#txtSupplierCode").val();
     $.ajax({
-        url: "http://localhost:8080/app/api/v1/suppliers/supplierCode?=" + supplierCode,
+        url: "http://localhost:8080/app/api/v1/suppliers/" + supplierCode,
         method: "DELETE",
         success: function (resp, textStatus, jqxhr) {
             if (jqxhr.status == 201) {
@@ -129,7 +129,7 @@ $("#btnSupplierDelete").click(function (){
 function getAllSupplier(){
     $("#tblCustomer").empty();
     $.ajax({
-        url: "http://localhost:8080/app/api/v1/customers",
+        url: "http://localhost:8080/app/api/v1/suppliers",
         method: "GET",
         dataType: "json",
         success: function (resp) {

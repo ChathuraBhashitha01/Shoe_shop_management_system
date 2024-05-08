@@ -99,7 +99,7 @@ $("#btnSaveCustomer").click(function (){
 $("#btnCustomerDelete").click(function (){
     let cusCode=$("#txtCustomerCode").val();
     $.ajax({
-        url: "http://localhost:8080/app/api/v1/customers?customerCode=" + cusCode,
+        url: "http://localhost:8080/app/api/v1/customers/"+ cusCode,
         method: "DELETE",
         success: function (resp, textStatus, jqxhr) {
             if (jqxhr.status == 201) {
