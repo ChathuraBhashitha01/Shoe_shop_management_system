@@ -18,9 +18,11 @@ public class Employee {
     @Id
     private String employeeCode;
     private String employeeName;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private String status;
     private String designation;
+    @Enumerated(EnumType.STRING)
     private Role accessRole;
     private Date dob;
     private  Date dateOfJoin;
