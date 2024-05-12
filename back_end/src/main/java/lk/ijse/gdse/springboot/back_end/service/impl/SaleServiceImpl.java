@@ -5,7 +5,9 @@ import lk.ijse.gdse.springboot.back_end.entity.Sale;
 import lk.ijse.gdse.springboot.back_end.repository.SaleRepo;
 import lk.ijse.gdse.springboot.back_end.service.SaleService;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SaleServiceImpl implements SaleService {
 
     private ModelMapper modelMapper;
@@ -17,7 +19,7 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    public void saveDetails(SaleDTO saleDTO) {
+    public void saveSale(SaleDTO saleDTO) {
         saleRepo.save(modelMapper.map(saleDTO, Sale.class));
     }
 }
