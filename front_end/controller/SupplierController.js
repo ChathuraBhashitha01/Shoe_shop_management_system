@@ -54,7 +54,7 @@ $("#btnSaveSupplier").click(function (){
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
             if (jqxhr.status == 201) {
-                alert("Added customer successfully");
+                alert("Added supplier successfully");
             }
         },
         error: function (error){
@@ -101,7 +101,7 @@ $("#btnSupplirUpdate").click(function (){
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
             if (jqxhr.status == 201) {
-                alert("Added customer successfully");
+                alert("Added supplier successfully");
             }
         },
         error: function (error){
@@ -117,7 +117,7 @@ $("#btnSupplierDelete").click(function (){
         method: "DELETE",
         success: function (resp, textStatus, jqxhr) {
             if (jqxhr.status == 201) {
-                alert("Delete customer successfully");
+                alert("Delete supplier successfully");
             }
         },
         error: function (error) {

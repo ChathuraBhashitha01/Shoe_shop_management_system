@@ -87,7 +87,7 @@ $("#btnEmployeeSave").click(function (){
         success: function (resp, textStatus, jqxhr) {
             console.log("Success", resp);
             if (jqxhr.status == 201) {
-                alert("Added customer successfully");
+                alert("Added employee successfully");
             }
             getAllEmployee();
         },
@@ -157,7 +157,7 @@ $("#btnEmployeeUpdate").click(function (){
         success: function (resp, textStatus, jqxhr) {
             console.log("Success", resp);
             if (jqxhr.status == 201) {
-                alert("Added customer successfully");
+                alert("Added employee successfully");
             }
             getAllCustomers();
         },
@@ -174,7 +174,7 @@ $("#btnEmployeeDelete").click(function (){
         method: "DELETE",
         success: function (resp, textStatus, jqxhr) {
             if (jqxhr.status == 201) {
-                alert("Delete customer successfully");
+                alert("Delete employee successfully");
             }
             getAllCustomers();
         },

@@ -79,7 +79,7 @@ $("#btnInventorySave").click(function (){
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
             if (jqxhr.status == 201) {
-                alert("Added customer successfully");
+                alert("Added inventory successfully");
             }
         },
         error: function (error){
@@ -140,7 +140,7 @@ $("#btnInventoryUpdate").click(function (){
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
             if (jqxhr.status == 201) {
-                alert("Added customer successfully");
+                alert("Added inventory successfully");
             }
         },
         error: function (error){
@@ -151,4 +151,18 @@ $("#btnInventoryUpdate").click(function (){
 
 $("#btnInventoryDelete").click(function (){
     let itemCode=$("#txtItemCode").val();
+
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/inventories/" + itemCode,
+        method: "DELETE",
+        success: function (resp, textStatus, jqxhr) {
+            if (jqxhr.status == 201) {
+                alert("Delete inventory successfully");
+            }
+            getAllCustomers();
+        },
+        error: function (error) {
+
+        }
+    });
 });
