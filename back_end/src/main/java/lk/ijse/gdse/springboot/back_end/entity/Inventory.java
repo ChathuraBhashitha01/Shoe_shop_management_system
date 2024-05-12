@@ -16,11 +16,7 @@ public class Inventory {
     private String itemCode;
     private String itemDesc;
     @Column(columnDefinition = "LONGTEXT")
-    private String itemPicture1;
-    @Column(columnDefinition = "LONGTEXT",nullable = false)
-    private String itemPicture2;
-    @Column(columnDefinition = "LONGTEXT",nullable = false)
-    private String itemPicture3;
+    private String itemPicture;
     private String category;
     private int quantitySize5;
     private int quantitySize6;

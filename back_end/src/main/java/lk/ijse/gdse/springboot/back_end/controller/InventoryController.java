@@ -4,7 +4,9 @@ import lk.ijse.gdse.springboot.back_end.dto.InventoryDTO;
 import lk.ijse.gdse.springboot.back_end.service.InventoryService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 
@@ -28,12 +30,10 @@ public class InventoryController {
         return inventoryService.getInventoryDetails(id);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void saveInventory(@RequestParam("itemCode") String code,
                               @RequestParam("itemDesc") String name,
-                              @RequestParam("itemPicture1") String picture1,
-                              @RequestParam("itemPicture2") String picture2,
-                              @RequestParam("itemPicture3") String picture3,
+                              @RequestParam("itemPicture") MultipartFile picture,
                               @RequestParam("category") String category,
                               @RequestParam("quantitySize5") int quantitySize5,
                               @RequestParam("quantitySize6") int quantitySize6,
@@ -49,10 +49,11 @@ public class InventoryController {
                               @RequestParam("expectedProfit") double expectedProfit,
                               @RequestParam("profitMargin") double profitMargin,
                               @RequestParam("status") String status
-                              ){
-        String base64ProfilePic1 = Base64.getEncoder().encodeToString(picture1.getBytes());
-        String base64ProfilePic2 = Base64.getEncoder().encodeToString(picture2.getBytes());
-        String base64ProfilePic3 = Base64.getEncoder().encodeToString(picture3.getBytes());
+                              ) throws IOException {
+        String base64ProfilePic = Base64.getEncoder().encodeToString(picture.getBytes());
+
+         InventoryDTO inventoryDTO = new InventoryDTO(code, name, base64ProfilePic, category, quantitySize5, quantitySize6, quantitySize7,
+                quantitySize8, quantitySize9, quantitySize10, quantitySize11, supplierCode, supplierName, unitPriceSale, unitPriceBuy, expectedProfit, profitMargin, status);
         inventoryService.saveInventory(inventoryDTO);
     }
 
