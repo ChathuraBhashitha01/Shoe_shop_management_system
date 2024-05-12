@@ -261,12 +261,13 @@ function bindEmployeeTrEvents() {
             for (let j = 0; j < employeePictures[i].length; j++) {
                 if(code===employeePictures[i][j][1]){
                     let getProfilePic=employeePictures[i][j][2];
-                    $("#inputFile").val(getProfilePic);
+                    profilePic.src=URL.createObjectURL(getProfilePic.files[0])
+
                 }
             }
         }
-        inputFile.onchange = function (){
-            profilePic.src=URL.createObjectURL(inputFile.files[0])
-        }
+        // inputFile.onchange = function (){
+        //     profilePic.src=URL.createObjectURL(inputFile.files[0])
+        // }
     });
 }

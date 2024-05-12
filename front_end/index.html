@@ -363,9 +363,28 @@
             height: 80px;
             position: absolute;
             top: 5px;
+            left: 30px;
+            margin: auto;
+        }
+        body>main>section:nth-child(4)>div:first-child>div:first-child>div:first-child>img{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 5px;
             left: 0;
             right: 0;
             margin: auto;
+        }
+        body>main>section:nth-child(4)>div:first-child>div:first-child>div:first-child>label{
+            font-size: 15px;
+            color: #0a58ca;
+            position: relative;
+            left: 260px;
+            top: 90px;
+            cursor: auto;
+        }
+        body>main>section:nth-child(4)>div:first-child>div:first-child>div:first-child>input{
+            display: none;
         }
         body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child{
             position: relative;
@@ -431,16 +450,16 @@
             margin-bottom: 10px;
         }
         body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div:nth-child(4)>div{
+            display: inline-block;
+            margin-top: 10px;
+        }
+        body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div:nth-child(4)>div>div{
             position: absolute;
-            left: 255px;
+            left: 0;
             top: 0;
             margin: auto;
         }
-        body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div:nth-child(4)>div>div{
-            display: inline-block;
-
-        }
-        body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div:nth-child(4)>div>div>input:last-child{
+        body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div:nth-child(4)>div>input:last-child{
             width: 100px;
             height: 20px;
             border: black solid 1px;
@@ -704,7 +723,7 @@
                         <img src="assets/image/user.png" id="profilePic">
                         <label for="inputFile">Add image</label>
                         <input type="file" id="inputFile">
-                </div>
+                    </div>
                     <div>
                         <div>
                             <h4>Employee code : </h4>
@@ -825,7 +844,9 @@
             <div>
                 <div>
                     <div>
-                        <img src="assets/image/875068.png" id="itemPic">
+                        <img src="assets/image/875068.png" id="itemPicture">
+                        <label for="inputItemPicture">Add image</label>
+                        <input type="file" id="inputItemPicture">
                     </div>
                     <div>
                         <div>
@@ -856,43 +877,33 @@
                             </select>
                         </div>
                         <div>
-                            <h4>Size : </h4>
                             <div>
-                                <div>
-                                    <input type="checkbox"  value=5 id="size5">
-                                    <label> Size 5</label>
-                                    <input type="text" placeholder="Quantity" id="txtSize5Qty">
-                                </div>
-                                <div>
-                                    <input type="checkbox"  value=6 id="size6">
-                                    <label> Size  6</label>
-                                    <input type="text" placeholder="Quantity" id="txtSize6Qty">
-                                </div>
-                                <div>
-                                    <input type="checkbox"  value=7 id="size7">
-                                    <label> Size  7</label>
-                                    <input type="text" placeholder="Quantity" id="txtSize7Qty">
-                                </div>
-                                <div>
-                                    <input type="checkbox"  value=8 id="size8">
-                                    <label> Size  8</label>
-                                    <input type="text" placeholder="Quantity" id="txtSize8Qty">
-                                </div>
-                                <div>
-                                    <input type="checkbox"  value=9 id="size9">
-                                    <label> Size  9</label>
-                                    <input type="text" placeholder="Quantity" id="txtSize9Qty">
-                                </div>
-                                <div>
-                                    <input type="checkbox"  value=10 id="size10">
-                                    <label> Size 10</label>
-                                    <input type="text" placeholder="Quantity" id="txtSize10Qty">
-                                </div>
-                                <div>
-                                    <input type="checkbox"  value=11 id="size11">
-                                    <label> Size 11</label>
-                                    <input type="text" placeholder="Quantity" id="txtSize11Qty">
-                                </div>
+                                <label> Size 5</label>
+                                <input type="text" placeholder="Quantity" id="txtSize5Qty">
+                            </div>
+                            <div>
+                                <label> Size  6</label>
+                                <input type="text" placeholder="Quantity" id="txtSize6Qty">
+                            </div>
+                            <div>
+                                <label> Size  7</label>
+                                <input type="text" placeholder="Quantity" id="txtSize7Qty">
+                            </div>
+                            <div>
+                                <label> Size  8</label>
+                                <input type="text" placeholder="Quantity" id="txtSize8Qty">
+                            </div>
+                            <div>
+                                <label> Size  9</label>
+                                <input type="text" placeholder="Quantity" id="txtSize9Qty">
+                            </div>
+                            <div>
+                                <label> Size 10</label>
+                                <input type="text" placeholder="Quantity" id="txtSize10Qty">
+                            </div>
+                            <div>
+                                <label> Size 11</label>
+                                <input type="text" placeholder="Quantity" id="txtSize11Qty">
                             </div>
                         </div>
                     </div>
