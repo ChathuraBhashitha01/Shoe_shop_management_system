@@ -194,6 +194,7 @@ function getAllEmployee(){
             for (const employee of resp) {
                 let row=`<tr>
                     <td>${employee.employeeCode}</td>
+                    <td><img alt="image" src="data:image/png;base64,${employee.employeePicture}" style="max-width: 50px; height: 50px; border-radius: 50px;"></td>
                     <td>${employee.employeeName}</td>
                     <td>${employee.gender}</td>
                     <td>${employee.status}</td>
@@ -216,58 +217,85 @@ function getAllEmployee(){
         }
     });
 }
+
+function getDetailByCode(code){
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/employees/" + code,
+        method: "GET",
+        success: function (resp) {
+            return resp;
+        },
+    });
+}
+
 function bindEmployeeTrEvents() {
     $("#tblEmployee>tr").click(function () {
         let code = $(this).children().eq(0).text();
-        let name = $(this).children().eq(1).text();
-        let gender = $(this).children().eq(2).text();
-        let status = $(this).children().eq(3).text();
-        let designation = $(this).children().eq(4).text();
-        let accessRole = $(this).children().eq(5).text();
-        let DOB = $(this).children().eq(6).text();
-        let dateOfJoin = $(this).children().eq(7).text();
-        let attachedBranch = $(this).children().eq(8).text();
-        let address = $(this).children().eq(9).text();
+        let picture = $(this).children().eq(1).text();
+        let name = $(this).children().eq(2).text();
+        let gender = $(this).children().eq(3).text();
+        let status = $(this).children().eq(4).text();
+        let designation = $(this).children().eq(5).text();
+        let accessRole = $(this).children().eq(6).text();
+        let DOB = $(this).children().eq(7).text();
+        let dateOfJoin = $(this).children().eq(8).text();
+        let attachedBranch = $(this).children().eq(9).text();
+        let address = $(this).children().eq(10).text();
         let arr = address.split(",");
         let addressLine01 = arr[0];
         let addressLine02 = arr[1];
         let addressLine03 = arr[2];
         let addressLine04 = arr[3];
         let addressLine05 = arr[4];
-        let contact = $(this).children().eq(10).text();
-        let email = $(this).children().eq(11).text();
-        let caseOfEmergency = $(this).children().eq(12).text();
-        let emergencyContact = $(this).children().eq(13).text();
+        let contact = $(this).children().eq(11).text();
+        let email = $(this).children().eq(12).text();
+        let caseOfEmergency = $(this).children().eq(13).text();
+        let emergencyContact = $(this).children().eq(14).text();
 
         $("#txtEmployeeCode").val(code)
         $("#txtEmployeeName").val(name)
         $("#txtEmployeeStatus").val(status)
         $("#txtEmployeeDesignation").val(designation)
         $("#txtEmployeeAccessRole").val(accessRole)
+        $("#txtEmployeeAttachedBranch").val(attachedBranch)
         $("#txtEmployeeDOB").val(DOB)
         $("#txtEmployeeDateOfJoin").val(dateOfJoin)
-        $("#txtEmployeeAttachedBranch").val(attachedBranch)
-        $("#txtAddressLine01").val(addressLine01)
-        $("#txtAddressLine02").val(addressLine02)
-        $("#txtAddressLine03").val(addressLine03)
-        $("#txtAddressLine04").val(addressLine04)
-        $("#txtAddressLine05").val(addressLine05)
+        $("#txtEmployeeAddressLine1").val(addressLine01)
+        $("#txtEmployeeAddressLine2").val(addressLine02)
+        $("#txtEmployeeAddressLine3").val(addressLine03)
+        $("#txtEmployeeAddressLine4").val(addressLine04)
+        $("#txtEmployeeAddressLine5").val(addressLine05)
         $("#txtEmployeeContactNo").val(contact)
         $("#txtEmployeeEmail").val(email)
         $("#txtEmployeeCaseOfEmergency").val(caseOfEmergency)
         $("#txtEmployeeEmergencyContact").val(emergencyContact)
 
-        for (let i = 0; i < employeePictures.length; i++) {
-            for (let j = 0; j < employeePictures[i].length; j++) {
-                if(code===employeePictures[i][j][1]){
-                    let getProfilePic=employeePictures[i][j][2];
-                    profilePic.src=URL.createObjectURL(getProfilePic.files[0])
+        let employee=getDetailByCode(code);
 
-                }
-            }
+        let base64Image =picture;
+
+        // Decode Base64 string to binary
+        let binaryData = atob(base64Image);
+
+        // Convert binary data to an array buffer
+        let arrayBuffer = new ArrayBuffer(binaryData.length);
+        let uint8Array = new Uint8Array(arrayBuffer);
+        for (let i = 0; i < binaryData.length; i++) {
+            uint8Array[i] = binaryData.charCodeAt(i);
         }
-        // inputFile.onchange = function (){
-        //     profilePic.src=URL.createObjectURL(inputFile.files[0])
-        // }
+
+        // Create a Blob from the array buffer
+        let blob = new Blob([uint8Array], { type: 'image/jpeg, image/png' }); // Change the MIME type accordingly
+
+        // Create an object URL for the blob
+        let imageUrl = URL.createObjectURL(blob);
+
+        // Create a new Image element
+        //let img = new Image();
+
+        // Set the src attribute to the object URL
+        //img.src = imageUrl;
+
+        profilePic.src=imageUrl;
     });
 }

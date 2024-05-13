@@ -489,6 +489,13 @@
             top: 0;
             margin: auto;
         }
+        body>main>section:nth-child(4)>div:last-child{
+            width: 90vw;
+            height: 40vh;
+            position: absolute;
+            left: 30px;
+            top:60vh;
+        }
     </style>
 </head>
 <body>
@@ -820,13 +827,15 @@
                     <thead style="border: black">
                     <tr style="border: black">
                         <th scope="col" style="background: #0a58ca">Code</th>
+                        <th scope="col" style="background: #0a58ca">Picture</th>
                         <th scope="col" style="background: #0a58ca">Name</th>
                         <th scope="col" style="background: #0a58ca">Gender</th>
                         <th scope="col" style="background: #0a58ca">Status</th>
                         <th scope="col" style="background: #0a58ca">Designation</th>
                         <th scope="col" style="background: #0a58ca">Access Role</th>
                         <th scope="col" style="background: #0a58ca">DOB</th>
-                        <th scope="col" style="background: #0a58ca">Address</th>
+                        <th scope="col" style="background: #0a58ca">Date of Join </th>
+                        <th scope="col" style="background: #0a58ca">Attached Branch</th>
                         <th scope="col" style="background: #0a58ca">Address</th>
                         <th scope="col" style="background: #0a58ca">Contact No</th>
                         <th scope="col" style="background: #0a58ca">Email</th>
@@ -957,7 +966,32 @@
                 </div>
             </div>
             <div>
+                <table class="table mb-5" >
+                    <thead style="border: black">
+                    <tr style="border: black">
+                        <th scope="col" style="background: #0a58ca">Code</th>
+                        <th scope="col" style="background: #0a58ca">Name</th>
+                        <th scope="col" style="background: #0a58ca">Category</th>
+                        <th scope="col" style="background: #0a58ca">Size5</th>
+                        <th scope="col" style="background: #0a58ca">Size6</th>
+                        <th scope="col" style="background: #0a58ca">Size7</th>
+                        <th scope="col" style="background: #0a58ca">Size8</th>
+                        <th scope="col" style="background: #0a58ca">Size9</th>
+                        <th scope="col" style="background: #0a58ca">Size10</th>
+                        <th scope="col" style="background: #0a58ca">Size11</th>
+                        <th scope="col" style="background: #0a58ca">Supplier Code</th>
+                        <th scope="col" style="background: #0a58ca">Supplier name</th>
+                        <th scope="col" style="background: #0a58ca">price-Sale</th>
+                        <th scope="col" style="background: #0a58ca">price-Buy</th>
+                        <th scope="col" style="background: #0a58ca">Expected Profit</th>
+                        <th scope="col" style="background: #0a58ca">Profit margin</th>
+                        <th scope="col" style="background: #0a58ca">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="tblInventories" style="border: black">
 
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>

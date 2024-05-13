@@ -2,6 +2,7 @@ $("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
+getAllInventories();
 
 
 function clearAll(){
@@ -96,7 +97,7 @@ $("#btnInventoryUpdate").click(function (){
 
     let category=$("#cmdItemCategory").val();
     let supplierCode=$("#txtSupplierCodeForItem").val();
-    let supplierName=$("#txtSupplierName").val();
+    let supplierName=$("#txtSupplierNameForItem").val();
     let unitPriceSale=$("#txtUnitPriceSale").val();
     let unitPriceBuy=$("#txtUnitPriceBuy").val();
     let expectedProfit=$("#txtItemExpectedProfit").val();
@@ -166,3 +167,78 @@ $("#btnInventoryDelete").click(function (){
         }
     });
 });
+
+function getAllInventories(){
+    $("#tblInventories").empty();
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/inventories",
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            for (const inventory of resp) {
+                let row=`<tr>
+                    <td>${inventory.itemCode}</td>
+                    <td>${inventory.itemDesc}</td>
+                    <td>${inventory.category}</td>
+                    <td>${inventory.quantitySize5}</td>
+                    <td>${inventory.quantitySize6}</td>
+                    <td>${inventory.quantitySize7}</td>
+                    <td>${inventory.quantitySize8}</td>
+                    <td>${inventory.quantitySize9}</td>
+                    <td>${inventory.quantitySize10}</td>
+                    <td>${inventory.quantitySize11}</td>
+                    <td>${inventory.supplierCode}</td>
+                    <td>${inventory.supplierName}</td>
+                    <td>${inventory.unitPriceSale}</td>
+                    <td>${inventory.unitPriceBuy}</td>
+                    <td>${inventory.expectedProfit}</td>
+                    <td>${inventory.profitMargin}</td>
+                    <td>${inventory.status}</td>
+                </tr>`;
+                $("#tblInventories").append(row);
+                bindInventoryTrEvents();
+            }
+        }
+    });
+}
+
+function bindInventoryTrEvents() {
+    $("#tblInventories>tr").click(function () {
+        let code = $(this).children().eq(0).text();
+        let name = $(this).children().eq(1).text();
+        let category = $(this).children().eq(2).text();
+        let quantitySize5 = $(this).children().eq(3).text();
+        let quantitySize6 = $(this).children().eq(4).text();
+        let quantitySize7 = $(this).children().eq(5).text();
+        let quantitySize8 = $(this).children().eq(6).text();
+        let quantitySize9 = $(this).children().eq(7).text();
+        let quantitySize10 = $(this).children().eq(8).text();
+        let quantitySize11 = $(this).children().eq(9).text();
+        let supplierCode = $(this).children().eq(10).text();
+        let supplierName = $(this).children().eq(11).text();
+        let unitPriceSale = $(this).children().eq(12).text();
+        let unitPriceBuy = $(this).children().eq(13).text();
+        let expectedProfit = $(this).children().eq(14).text();
+        let profitMargin = $(this).children().eq(15).text();
+        let status = $(this).children().eq(16).text();
+
+        $("#txtItemCode").val(code)
+        $("#txtItemName").val(name)
+        $("#cmdItemCategory").val(category)
+        $("#txtSize5Qty").val(quantitySize5)
+        $("#txtSize6Qty").val(quantitySize6)
+        $("#txtSize7Qty").val(quantitySize7)
+        $("#txtSize8Qty").val(quantitySize8)
+        $("#txtSize9Qty").val(quantitySize9)
+        $("#txtSize10Qty").val(quantitySize10)
+        $("#txtSize11Qty").val(quantitySize11)
+        $("#txtSupplierCodeForItem").val(supplierCode)
+        $("#txtSupplierNameForItem").val(supplierName)
+        $("#txtUnitPriceSale").val(unitPriceSale)
+        $("#txtUnitPriceBuy").val(unitPriceBuy)
+        $("#txtItemExpectedProfit").val(expectedProfit)
+        $("#txtItemProfitMargin").val(profitMargin)
+        $("#txtItemStatus").val(status)
+
+    });
+}
