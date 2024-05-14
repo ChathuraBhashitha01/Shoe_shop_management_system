@@ -194,7 +194,7 @@ function getAllEmployee(){
             for (const employee of resp) {
                 let row=`<tr>
                     <td>${employee.employeeCode}</td>
-                    <td><img alt="image" src="data:image/png;base64,${employee.employeePicture}" style="max-width: 50px; height: 50px; border-radius: 50px;"></td>
+                    <td><img alt="image" src="data:image/png;base64,${employee.employeePicture}" style="max-width: 50px; height: 50px; border-radius: 50px; "></td>
                     <td>${employee.employeeName}</td>
                     <td>${employee.gender}</td>
                     <td>${employee.status}</td>
@@ -209,22 +209,10 @@ function getAllEmployee(){
                     <td>${employee.informInCaseOfEmergency}</td>
                     <td>${employee.emergencyContact}</td>
                 </tr>`;
-                let newItemPic=[employee.employeeCode,employee.employeePicture]
-                employeePictures.push(newItemPic);
                 $("#tblEmployee").append(row);
                 bindEmployeeTrEvents();
             }
         }
-    });
-}
-
-function getDetailByCode(code){
-    $.ajax({
-        url: "http://localhost:8080/app/api/v1/employees/" + code,
-        method: "GET",
-        success: function (resp) {
-            return resp;
-        },
     });
 }
 
@@ -270,32 +258,37 @@ function bindEmployeeTrEvents() {
         $("#txtEmployeeCaseOfEmergency").val(caseOfEmergency)
         $("#txtEmployeeEmergencyContact").val(emergencyContact)
 
-        let employee=getDetailByCode(code);
+       uploadProfilePicture(code);
 
-        let base64Image =picture;
+    });
+}
 
-        // Decode Base64 string to binary
-        let binaryData = atob(base64Image);
+function uploadProfilePicture(code){
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/employees/"+code,
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
 
-        // Convert binary data to an array buffer
-        let arrayBuffer = new ArrayBuffer(binaryData.length);
-        let uint8Array = new Uint8Array(arrayBuffer);
-        for (let i = 0; i < binaryData.length; i++) {
-            uint8Array[i] = binaryData.charCodeAt(i);
-        }
+            let base64Image =resp.employeePicture;
+            console.log(base64Image)
 
-        // Create a Blob from the array buffer
-        let blob = new Blob([uint8Array], { type: 'image/jpeg, image/png' }); // Change the MIME type accordingly
+            // Decode Base64 string to binary
+            let binaryData = atob(base64Image);
+            console.log(binaryData)
 
-        // Create an object URL for the blob
-        let imageUrl = URL.createObjectURL(blob);
+            // Convert binary data to an array buffer
+            let arrayBuffer = new ArrayBuffer(binaryData.length);
+            let uint8Array = new Uint8Array(arrayBuffer);
+            for (let i = 0; i < binaryData.length; i++) {
+                uint8Array[i] = binaryData.charCodeAt(i);
+            }
 
-        // Create a new Image element
-        //let img = new Image();
+            // Create a Blob from the array buffer
+            let blob = new Blob([uint8Array], { type: 'image/jpeg, image/png,image/jpg' }); // Change the MIME type accordingly
 
-        // Set the src attribute to the object URL
-        //img.src = imageUrl;
-
-        profilePic.src=imageUrl;
+            // Create an object URL for the blob
+            profilePic.src = URL.createObjectURL(blob);
+        },
     });
 }

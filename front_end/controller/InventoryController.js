@@ -178,6 +178,7 @@ function getAllInventories(){
             for (const inventory of resp) {
                 let row=`<tr>
                     <td>${inventory.itemCode}</td>
+                    <td><img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="max-width: 50px; height: 50px; border-radius: 10px;"></td>
                     <td>${inventory.itemDesc}</td>
                     <td>${inventory.category}</td>
                     <td>${inventory.quantitySize5}</td>
@@ -205,22 +206,22 @@ function getAllInventories(){
 function bindInventoryTrEvents() {
     $("#tblInventories>tr").click(function () {
         let code = $(this).children().eq(0).text();
-        let name = $(this).children().eq(1).text();
-        let category = $(this).children().eq(2).text();
-        let quantitySize5 = $(this).children().eq(3).text();
-        let quantitySize6 = $(this).children().eq(4).text();
-        let quantitySize7 = $(this).children().eq(5).text();
-        let quantitySize8 = $(this).children().eq(6).text();
-        let quantitySize9 = $(this).children().eq(7).text();
-        let quantitySize10 = $(this).children().eq(8).text();
-        let quantitySize11 = $(this).children().eq(9).text();
-        let supplierCode = $(this).children().eq(10).text();
-        let supplierName = $(this).children().eq(11).text();
-        let unitPriceSale = $(this).children().eq(12).text();
-        let unitPriceBuy = $(this).children().eq(13).text();
-        let expectedProfit = $(this).children().eq(14).text();
-        let profitMargin = $(this).children().eq(15).text();
-        let status = $(this).children().eq(16).text();
+        let name = $(this).children().eq(2).text();
+        let category = $(this).children().eq(3).text();
+        let quantitySize5 = $(this).children().eq(4).text();
+        let quantitySize6 = $(this).children().eq(5).text();
+        let quantitySize7 = $(this).children().eq(6).text();
+        let quantitySize8 = $(this).children().eq(7).text();
+        let quantitySize9 = $(this).children().eq(8).text();
+        let quantitySize10 = $(this).children().eq(9).text();
+        let quantitySize11 = $(this).children().eq(10).text();
+        let supplierCode = $(this).children().eq(11).text();
+        let supplierName = $(this).children().eq(12).text();
+        let unitPriceSale = $(this).children().eq(13).text();
+        let unitPriceBuy = $(this).children().eq(14).text();
+        let expectedProfit = $(this).children().eq(15).text();
+        let profitMargin = $(this).children().eq(16).text();
+        let status = $(this).children().eq(17).text();
 
         $("#txtItemCode").val(code)
         $("#txtItemName").val(name)
@@ -240,5 +241,35 @@ function bindInventoryTrEvents() {
         $("#txtItemProfitMargin").val(profitMargin)
         $("#txtItemStatus").val(status)
 
+        uploadItemPicture(code);
+    });
+}
+function uploadItemPicture(code){
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/inventories/"+code,
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+
+            let base64Image =resp.itemPicture;
+            console.log(base64Image)
+
+            // Decode Base64 string to binary
+            let binaryData = atob(base64Image);
+            console.log(binaryData)
+
+            // Convert binary data to an array buffer
+            let arrayBuffer = new ArrayBuffer(binaryData.length);
+            let uint8Array = new Uint8Array(arrayBuffer);
+            for (let i = 0; i < binaryData.length; i++) {
+                uint8Array[i] = binaryData.charCodeAt(i);
+            }
+
+            // Create a Blob from the array buffer
+            let blob = new Blob([uint8Array], { type: 'image/jpeg, image/png,image/jpg' }); // Change the MIME type accordingly
+
+            // Create an object URL for the blob
+            itemPicture.src = URL.createObjectURL(blob);
+        },
     });
 }
