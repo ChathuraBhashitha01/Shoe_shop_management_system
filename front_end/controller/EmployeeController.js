@@ -2,12 +2,11 @@ $("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
+$("#sale").css('display','none');
 getAllEmployee()
-let employeePictures=[];
-
 
 function clearAll(){
-    $("#customer,#supplier,#employee,#inventory").css('display','none');
+    $("#customer,#supplier,#employee,#inventory,#sale").css('display','none');
 }
 
 function setView(viewOb){

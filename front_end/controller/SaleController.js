@@ -1,4 +1,21 @@
+$("#customer").css('display','none');
+$("#supplier").css('display','none');
+$("#employee").css('display','none');
+$("#inventory").css('display','none');
+getAllEmployee()
 
+function clearAll(){
+    $("#customer,#supplier,#employee,#inventory,#sale").css('display','none');
+}
+
+function setView(viewOb){
+    clearAll();
+    viewOb.css('display','block');
+}
+
+$("#navSale").click(function (){
+    setView($("#sale"))
+});
 getAllInventoriesForSale()
 
 function getAllInventoriesForSale(){
@@ -8,31 +25,15 @@ function getAllInventoriesForSale(){
         dataType: "json",
         success: function (resp) {
             for (const inventory of resp) {
-                let divElement = document.createElement("div");
-                divElement.setAttribute("class","itemDetailsDiv")
+
+                let divElement=`<div>
+                                    <img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">
+                                    <h3>${inventory.itemDesc}</h3>
+                                    <h4>${"Rs"+inventory.unitPriceSale}</h4>
+                                    <button>Buy</button>
+                                </div>`
+
                 $("#itemDetails").append(divElement);
-
-                let imageElement = `<img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">`
-                $("body>main>section:nth-child(5)>section:first-child>div").append(imageElement);
-
-                let titleElement=`<h3>${inventory.itemDesc}</h3>`;
-                $("body>main>section:nth-child(5)>section:first-child>div").append(titleElement);
-
-                let priceElement=`<h4>${"Rs"+inventory.unitPriceSale}</h4>`
-                $("body>main>section:nth-child(5)>section:first-child>div").append(priceElement);
-
-                let buttonElement=`<button>Buy</button>`;
-                $("body>main>section:nth-child(5)>section:first-child>div").append(buttonElement);
-
-                let status=`<h4 class="hoverAction">${inventory.status}</h4>`
-                $("body>main>section:nth-child(5)>section:first-child>div").append(status);
-
-                let size=`<h4 class="hoverAction">${inventory.status}</h4>`
-                $("body>main>section:nth-child(5)>section:first-child>div").append(size);
-
-                let stock=`<h4 class="hoverAction">In stock</h4>`
-                $("body>main>section:nth-child(5)>section:first-child>div").append(stock);
-
 
                 // $("body>main>section:nth-child(5)>section:first-child>div").addEventListener("mouseenter",function (){
                 //     $("body>main>section:nth-child(5)>section:first-child>div>h4:nth-child(5)").style('display', 'inline-block');
@@ -45,8 +46,6 @@ function getAllInventoriesForSale(){
                 //     $("body>main>section:nth-child(5)>section:first-child>div>h4:nth-child(6)").style('display', 'none');
                 //     $("body>main>section:nth-child(5)>section:first-child>div>h4:nth-child(7)").style('display', 'none');
                 // })
-
-
 
             }
         }
