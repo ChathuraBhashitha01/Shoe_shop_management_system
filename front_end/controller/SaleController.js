@@ -31,6 +31,10 @@ function getAllInventoriesForSale(){
                                     <h3>${inventory.itemDesc}</h3>
                                     <h4>${"Rs"+inventory.unitPriceSale}</h4>
                                     <button>Buy</button>
+                                    <h4>${inventory.status}</h4>
+                                    <h4>${inventory.status}</h4>
+                                    <h4>In Stock</h4>
+                                    <h4>${inventory.itemCode}</h4>
                                 </div>`
 
                 $("#itemDetails").append(divElement);
@@ -49,5 +53,17 @@ function getAllInventoriesForSale(){
 
             }
         }
+    });
+}
+
+function getDetailsFor(){
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/inventories/"+code,
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+
+
+        },
     });
 }
