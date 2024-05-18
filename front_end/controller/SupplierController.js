@@ -18,6 +18,10 @@ $("#navSupplier").click(function (){
 });
 
 $("#btnSaveSupplier").click(function (){
+  saveSupplier();
+});
+
+function saveSupplier(){
     let supplierCode=$("#txtSupplierCode").val();
     let supplierName=$("#txtSupplierName").val();
     let category=$("#txtSupplierCategory").val();
@@ -57,12 +61,13 @@ $("#btnSaveSupplier").click(function (){
             if (jqxhr.status == 201) {
                 alert("Added supplier successfully");
             }
+            getAllSupplier();
         },
         error: function (error){
             console.log("Error",error);
         }
     });
-});
+}
 
 $("#btnSupplirUpdate").click(function (){
     let supplierCode=$("#txtSupplierCode").val();

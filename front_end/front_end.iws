@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf8278f6-5935-4356-b8cd-b0fd40e9cbf6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/InventoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/EmployeeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/EmployeeRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/CustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/CustomerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/SaleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SaleController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/validation/CustomerValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/validation/CustomerValidation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front_end.iws" beforeDir="false" afterPath="$PROJECT_DIR$/front_end.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -45,7 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java-Script/Java_Script" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/Bootstrap" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -54,9 +57,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\assets\Bootstrap" />
+      <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\assets" />
       <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\assets\image" />
       <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\assets\css" />
-      <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\controller" />
@@ -109,7 +113,16 @@
       <workItem from="1715765835022" duration="6289000" />
       <workItem from="1715786049273" duration="9260000" />
       <workItem from="1715829651121" duration="614000" />
-      <workItem from="1715868440598" duration="6638000" />
+      <workItem from="1715868440598" duration="13441000" />
+      <workItem from="1715928357936" duration="9222000" />
+      <workItem from="1715961529620" duration="7100000" />
+      <workItem from="1716006399384" duration="18000" />
+      <workItem from="1716006482195" duration="4385000" />
+      <workItem from="1716014011554" duration="207000" />
+      <workItem from="1716015299765" duration="1812000" />
+      <workItem from="1716020345577" duration="5181000" />
+      <workItem from="1716028153069" duration="776000" />
+      <workItem from="1716051589643" duration="17883000" />
     </task>
     <servers />
   </component>

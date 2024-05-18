@@ -3,6 +3,8 @@ $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
 $("#sale").css('display','none');
+
+let customerCodes = [];
 getAllCustomers();
 
 
@@ -16,39 +18,30 @@ function setView(viewOb){
 }
 
 $("#navCustomer").click(function (){
-    setView($("#customer"))
+    setView($("#customer"));
 });
 
 $("#btnSaveCustomer").click(function (){
+    saveCustomer();
+    clearCustomerInputField();
+});
+
+$("#btnCustomerUpdate").click(function (){
+    updateCustomer();
+    clearCustomerInputField();
+});
+
+$("#btnCustomerDelete").click(function (){
+    deleteCustomer();
+    clearCustomerInputField();
+});
+
+function saveCustomer(){
     let cusCode=$("#txtCustomerCode").val();
     let cusName=$("#txtCustomerName").val();
-    let gender;
-    let male =$("#genderMale").val();
-    let feMale =$("#genderFemale").val();
-    if (male.checked) {
-        gender=male.value;
-    }
-    else if (feMale.checked){
-        gender=feMale.value;
-    }
+    let gender=$("#cusGender").val();
     let joinDate=$("#txtJoinDate").val();
-    let level;
-    let gold =$("#levelGold").val();
-    let silver =$("#levelSilver").val();
-    let bronze =$("#levelBronze").val();
-    let levelNew =$("#levelNew").val();
-    if (gold.checked) {
-        level=gold.value;
-    }
-    else if (silver.checked){
-        level=silver.value;
-    }
-    else if (bronze.checked){
-        level=bronze.value;
-    }
-    else if (levelNew.checked){
-        level=levelNew.value;
-    }
+    let level=$("#customerLevel").val();
     let totalPoint=$("#txtTotalPoint").val();
     let dob=$("#txtDOB").val();
     let addressLine01=$("#txtAddressLine01").val();
@@ -89,15 +82,15 @@ $("#btnSaveCustomer").click(function (){
             if (jqxhr.status == 201) {
                 alert("Added customer successfully");
             }
+            getAllCustomers();
         },
         error: function (error){
             console.log("Error",error);
         }
     });
-});
+}
 
-
-$("#btnCustomerDelete").click(function (){
+function deleteCustomer(){
     let cusCode=$("#txtCustomerCode").val();
     $.ajax({
         url: "http://localhost:8080/app/api/v1/customers/"+ cusCode,
@@ -106,44 +99,20 @@ $("#btnCustomerDelete").click(function (){
             if (jqxhr.status == 201) {
                 alert("Delete customer successfully");
             }
+            getAllCustomers();
         },
         error: function (error) {
 
         }
     });
+}
 
-});
-
-$("#btnCustomerUpdate").click(function (){
+function updateCustomer(){
     let cusCode=$("#txtCustomerCode").val();
     let cusName=$("#txtCustomerName").val();
-    let gender;
-    let male =$("#genderMale").val();
-    let feMale =$("#genderFemale").val();
-    if (male.checked) {
-        gender=male.value;
-    }
-    else if (feMale.checked){
-        gender=feMale.value;
-    }
+    let gender=$("#cusGender").val();
     let joinDate=$("#txtJoinDate").val();
-    let level;
-    let gold =$("#levelGold").val();
-    let silver =$("#levelSilver").val();
-    let bronze =$("#levelBronze").val();
-    let levelNew =$("#levelNew").val();
-    if (gold.checked) {
-        level=gold.value;
-    }
-    else if (silver.checked){
-        level=silver.value;
-    }
-    else if (bronze.checked){
-        level=bronze.value;
-    }
-    else if (levelNew.checked){
-        level=levelNew.value;
-    }
+    let level=$("#customerLevel").val();
     let totalPoint=$("#txtTotalPoint").val();
     let dob=$("#txtDOB").val();
     let addressLine01=$("#txtAddressLine01").val();
@@ -184,12 +153,19 @@ $("#btnCustomerUpdate").click(function (){
             if (jqxhr.status == 201) {
                 alert("Added customer successfully");
             }
+            getAllCustomers();
         },
         error: function (error){
             console.log("Error",error);
         }
     });
-});
+}
+
+function searchCustomer(id){
+    return customerCodes.find(function (customer){
+        return customer.id==id;
+    });
+};
 
 function getAllCustomers(){
     $("#tblCustomer").empty();
@@ -214,6 +190,11 @@ function getAllCustomers(){
                 </tr>`;
                 $("#tblCustomer").append(row);
                 bindCusTrEvents();
+
+                const customerDetails = {
+                    id: customer.customerCode
+                }
+                customerCodes.push(customerDetails);
             }
         }
     });

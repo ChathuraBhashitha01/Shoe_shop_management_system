@@ -14,33 +14,44 @@
             width: 100vw;
             height: 7vh;
             background: #E5F4FD;
-            position: absolute;
-            top: 15px;
-            left: 0;
-            margin: auto;
+            align-items: baseline;
+            display: flex;
+
         }
-        body>header>nav>h4{
+        body>header>nav>label{
+            margin-top: 1%;
             margin-right: 0;
         }
-        body>header>nav>ul{
-            position: absolute;
-            top: 15px;
-            bottom: 0;
-            right: 400px;
-            margin: auto;
+        body>header>nav>div>ul{
+            display: flex;
+            align-items: center;
+            margin: 0;
+            /*position: absolute;*/
+            /*top: 0%;*/
+            /*bottom: 0;*/
+            /*right: 0%;*/
+            /*margin: auto;*/
         }
-        body>header>nav>ul>li{
+        body>header>nav>div{
+            display: flex;
+        }
+
+        body>header>nav>div>img{
+            align-self: center;
+        }
+
+        body>header>nav>div>ul>li{
             display: inline-block;
             padding-left: 40px;
             list-style: none;
         }
-        body>header>nav>div>img{
-            position: absolute;
-            top: 10px;
-            bottom: 0;
-            right: 200px;
-            margin: auto;
-        }
+        /*body>header>nav>div>img{*/
+        /*    position: absolute;*/
+        /*    top: 10px;*/
+        /*    bottom: 0;*/
+        /*    right: 200px;*/
+        /*    margin: auto;*/
+        /*}*/
         body>main>section:nth-child(1)>div:first-child>div:first-child{
             width: 40vw;
             height: 40vh;
@@ -51,14 +62,14 @@
         body>main>section:nth-child(1)>div:first-child>div:first-child>div{
             position: relative;
         }
-        body>main>section:nth-child(1)>div:first-child>div:first-child>div>h4{
+      /*  body>main>section:nth-child(1)>div:first-child>div:first-child>div>label{
             margin-top: 0;
             margin-bottom: 15px;
             display: inline-block;
-        }
-        body>main>section:nth-child(1)>div:first-child>div:first-child>div>input{
-            /*margin-top: 0;*/
-            /*margin-bottom: 0;*/
+        }*/
+       /* body>main>section:nth-child(1)>div:first-child>div:first-child>div>input{
+            !*margin-top: 0;*!
+            !*margin-bottom: 0;*!
             width: 350px;
             height: 20px;
             border: black solid 1px;
@@ -67,7 +78,7 @@
             top: 0;
             margin: auto;
 
-        }
+        }*/
         body>main>section:nth-child(1)>div:first-child>div:first-child>div:nth-child(3)>div{
             display: inline-block;
             margin-left: 195px;
@@ -92,14 +103,14 @@
         body>main>section:nth-child(1)>div:first-child>div:last-child>div{
             position: relative;
         }
-        body>main>section:nth-child(1)>div:first-child>div:last-child>div>h4{
+        /*body>main>section:nth-child(1)>div:first-child>div:last-child>div>h4{
             margin-top: 0;
             margin-bottom: 15px;
             display: inline-block;
         }
         body>main>section:nth-child(1)>div:first-child>div:last-child>div>input{
-            /*margin-top: 0;*/
-            /*margin-bottom: 0;*/
+            !*margin-top: 0;*!
+            !*margin-bottom: 0;*!
             width: 350px;
             height: 20px;
             border: black solid 1px;
@@ -108,7 +119,7 @@
             top: 0;
             margin: auto;
 
-        }
+        }*/
         body>main>section:nth-child(1)>div:first-child>div:last-child>div:nth-child(3)>div{
             display: inline-block;
             margin-left: 195px;
@@ -118,12 +129,13 @@
         }
         body>main>section:nth-child(1)>div:last-child{
             width: 95vw;
-            height: 40vh;
+            height: 35vh;
             position: absolute;
-            left: 30px;
-            top:55vh;
+            left: 3%;
+            top: 64%;
             margin: 0;
             padding: 0;
+            overflow-y: scroll; /* enables vertical scrolling */
 
             box-sizing: border-box;
             font-family: sans-serif;
@@ -131,10 +143,9 @@
             background-color: #fff5;
             backdrop-filter: blur(7px);
             box-shadow: 0 .4rem .8rem #0005;
-            border-radius: 10px;
-            overflow: hidden;
+
         }
-        body>main>section:nth-child(1)>div:last-child>div:last-child>table,th,td{
+        /*body>main>section:nth-child(1)>div:last-child>div:last-child>table,th,td{
             border-collapse: collapse;
             padding: 10px;
         }
@@ -146,16 +157,14 @@
         }
         body>main>section:nth-child(1)>div:last-child>div:last-child>table>tbody>tr:hover{
             background-color: white;
-        }
-        body>main>section:nth-child(1)>div:last-child>div:last-child>table{
-            width: 98%;
-            height: 89%;
-            background-color: #E5F4FD;
-            margin: 20px auto;
-            border-radius: 10px;
-            position: relative;
-        }
-        body>main>section:nth-child(1)>div:last-child>div:first-child{
+        }*/
+        /*body>main>section:nth-child(1)>div:last-child>div{
+            !*width: 100%; !* or set a specific width *!*!
+            height: 300px; !* set a specific height to enable vertical scrolling *!
+            !*overflow-x: auto; !* enables horizontal scrolling *!*!
+            overflow-y: auto; !* enables vertical scrolling *!
+        }*/
+       /* body>main>section:nth-child(1)>div:last-child>div:first-child{
             width: 100%;
             height: 10%;
             background-color:#fff3ff ;
@@ -172,29 +181,31 @@
         }
         body>main>section:nth-child(1)>div:last-child>div:last-child:hover::-webkit-scrollbar-thumb{
             visibility: visible;
-        }
-        body>main>section:nth-child(2)>div:first-child{
+        }*/
+        body>main>section:nth-child(2){
+            width: 100vw;
+            height: 90vh;
             position: relative;
         }
         body>main>section:nth-child(2)>div:first-child>div:first-child{
             width: 40vw;
-            height: 40vh;
+            height: 50vh;
             position: absolute;
-            top: 100px;
-            left: 100px;
+            top: 8%;
+            left: 7%;
             margin: auto;
         }
-        body>main>section:nth-child(2)>div:first-child>div:first-child>div{
+      /*  body>main>section:nth-child(2)>div:first-child>div:first-child>div{
             position: relative;
-        }
-        body>main>section:nth-child(2)>div:first-child>div:first-child>div>h4{
+        }*/
+        /*body>main>section:nth-child(2)>div:first-child>div:first-child>div>h4{
             margin-top: 0;
             margin-bottom: 15px;
             display: inline-block;
         }
         body>main>section:nth-child(2)>div:first-child>div:first-child>div>input{
-            /*margin-top: 0;*/
-            /*margin-bottom: 0;*/
+            !*margin-top: 0;*!
+            !*margin-bottom: 0;*!
             width: 450px;
             height: 20px;
             border: black solid 1px;
@@ -202,19 +213,19 @@
             right: 0;
             top: 0;
             margin: auto;
-        }
+        }*/
         body>main>section:nth-child(2)>div:first-child>div:last-child{
             width: 40vw;
-            height: 85vh;
+            height: 50vh;
             position: absolute;
-            top: 100px;
-            right: 100px;
+            top: 8%;
+            right: 7%;
             margin: auto;
         }
-        body>main>section:nth-child(2)>div:first-child>div:last-child>div{
+       /* body>main>section:nth-child(2)>div:first-child>div:last-child>div{
             position: relative;
-        }
-        body>main>section:nth-child(2)>div:first-child>div:last-child>div>h4{
+        }*/
+       /* body>main>section:nth-child(2)>div:first-child>div:last-child>div>h4{
             margin-top: 0;
             margin-bottom: 15px;
             display: inline-block;
@@ -227,13 +238,22 @@
             right: 0;
             top: 0;
             margin: auto;
-        }
+        }*/
         body>main>section:nth-child(2)>div:last-child{
             width: 95vw;
-            height: 40vh;
+            height: 35vh;
             position: absolute;
-            left: 30px;
-            top:55vh;
+            left: 2%;
+            top: 60%;
+
+            overflow-y: scroll; /* enables vertical scrolling */
+
+            box-sizing: border-box;
+            font-family: sans-serif;
+
+            background-color: #fff5;
+            backdrop-filter: blur(7px);
+            box-shadow: 0 .4rem .8rem #0005;
         }
         body>main>section:nth-child(3)>div:first-child{
             position: relative;
@@ -500,7 +520,7 @@
             width: 90vw;
             border: black solid 1px;
             position: relative;
-            top: 100px;
+            top: 130px;
             left: 100px;
         }
         body>main>section:nth-child(5)>section:first-child>div{
@@ -570,7 +590,7 @@
             display: none;
         }
         body>main>section:nth-child(5)>section:first-child>div>h4:nth-child(8){
-            display: none;
+            /*display: none;*/
         }
         body>main>section:nth-child(5)>section:nth-child(2){
             width: 600px;
@@ -618,6 +638,8 @@
         body>main>section:nth-child(5)>section:nth-child(2)>div:nth-child(2)>div:nth-child(2)>button{
             width: 30px;
             height: 30px;
+            background: #E5F4FD;
+            border-radius: 5px;
         }
         body>main>section:nth-child(5)>section:nth-child(2)>div:nth-child(2)>h3:nth-child(1){
             margin-top: 5px;
@@ -647,25 +669,56 @@
             height: 25px;
             margin-left: 20px;
         }
+        body>main>section:nth-child(5)>section:nth-child(3)>div{
+            width: 620px;
+            height: 40px;
+            position: absolute;
+            top: 90px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        body>main>section:nth-child(5)>section:nth-child(3)>div>button{
+            width: 200px;
+            height: 40px;
+        }
+        body>main>section:nth-child(5)>section:nth-child(3)>div>button:nth-child(1){
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        body>main>section:nth-child(5)>section:nth-child(3)>div>button:nth-child(2){
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        body>main>section:nth-child(5)>section:nth-child(3)>div>button:nth-child(3){
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
 
     </style>
+    <link rel="stylesheet" href="assets/Bootstrap/css/bootstrap.css">
 </head>
 <body>
     <header>
         <nav>
-            <h4>Hello, Shoes (Pvt) Ltd</h4>
-            <ul>
-                <li id="navDashboard">Dashboard</li>
-                <li id="navCustomer">Customer</li>
-                <li id="navSale">Sale</li>
-                <li id="navSupplier">Supplier</li>
-                <li id="navInventory">Inventory</li>
-                <li id="navEmployee">Employee</li>
-                <li id="navUser">User</li>
-                <li><input type="text" placeholder="Search.."></li>
-            </ul>
-
+            <label>Hello, Shoes (Pvt) Ltd</label>
             <div>
+                <ul>
+                    <li id="navDashboard">Dashboard</li>
+                    <li id="navCustomer">Customer</li>
+                    <li id="navSale">Sale</li>
+                    <li id="navSupplier">Supplier</li>
+                    <li id="navInventory">Inventory</li>
+                    <li id="navEmployee">Employee</li>
+                    <li id="navUser">User</li>
+                    <li><input type="text" placeholder="Search.."></li>
+                </ul>
                 <img width="40" src="assets/image/user.png" alt="This is  User  png">
             </div>
         </nav>
@@ -673,187 +726,308 @@
     <main>
         <section id="customer">
             <div>
-                <div>
-                    <div>
-                        <h4>Customer Code : </h4>
+                <div >
+                    <!--<div>
+                        <label for="txtCustomerCode">Customer Code : </label>
                         <input type="text" id="txtCustomerCode">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Customer Code</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCustomerCode">
                     </div>
-                    <div>
-                        <h4>Customer name : </h4>
+                    <!--<div>
+                        <label for="txtCustomerName">Customer name : </label>
                         <input type="text" id="txtCustomerName">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Customer Name</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCustomerName">
                     </div>
-                    <div id="cusGender">
-                        <h4>Gender : </h4>
+                    <!--<div id="cusGender">
+                        <label>Gender : </label>
                         <div>
-                            <div>
+                            <&lt;!&ndash;div>
                                 <input type="checkbox" id="genderMale" value="MALE">
-                                <label> Male</label><br>
+                                <label for="genderMale"> Male</label><br>
                             </div>
                             <div>
                                 <input type="checkbox" id="genderFemale" value="FEMALE">
-                                <label> Female</label><br>
+                                <label for="genderFemale"> Female</label><br>
+                            </div>&ndash;&gt;
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genderMale" value="MALE">
+                                <label class="form-check-label" for="genderMale">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genderFemale" value="FEMALE">
+                                <label class="form-check-label" for="genderFemale">Female</label>
                             </div>
                         </div>
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Gender</span>
+                        <select class="form-select form-select-sm" aria-label="Small select example" id="cusGender">
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                        </select>
                     </div>
-                    <div>
-                        <h4>Join date as a loyalty
-                            customer.: </h4>
+                    <!--<div>
+                        <label for="txtJoinDate">Join date as a loyalty
+                            customer.: </label>
                         <input type="date" id="txtJoinDate">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Join date as a loyalty
+                            customer</span>
+                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtJoinDate">
                     </div>
-                    <div>
-                        <h4>Level : </h4>
+                   <!-- <div>
+                        <label>Level : </label>
                         <div>
                             <div>
                                 <input type="checkbox" id="levelGold" value="Gold" >
-                                <label> Gold</label><br>
+                                <label for="levelGold"> Gold</label><br>
                             </div>
                             <div>
                                 <input type="checkbox" id="levelSilver" value="Silver">
-                                <label> Silver</label><br>
+                                <label for="levelSilver"> Silver</label><br>
                             </div>
                             <div>
                                 <input type="checkbox" id="levelBronze" value="Bronze">
-                                <label> Bronze</label><br>
+                                <label for="levelBronze"> Bronze</label><br>
                             </div>
                             <div>
                                 <input type="checkbox" id="levelNew" value="New">
-                                <label> New</label><br>
+                                <label for="levelNew"> New</label><br>
                             </div>
                         </div>
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Level</span>
+                        <select class="form-select form-select-sm" aria-label="Small select example" id="customerLevel">
+                            <option value="Gold">Gold</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Bronze">Bronze</option>
+                            <option value="New">New</option>
+                        </select>
                     </div>
-                    <div>
-                        <h4>Total points : </h4>
+                    <!--<div>
+                        <label for="txtTotalPoint">Total points : </label>
                         <input type="text" id="txtTotalPoint">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Total points</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtTotalPoint">
                     </div>
-                    <div>
-                        <h4>DOB : </h4>
+                    <!--<div>
+                        <label for="txtDOB">DOB : </label>
                         <input type="date" id="txtDOB">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >DOB</span>
+                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtDOB">
                     </div>
-                    <div>
-                        <h4>Recent purchase date and
-                            time: </h4>
+                    <!--<div>
+                        <label for="txtPurchaseDate">Recent purchase date and
+                            time: </label>
                         <input type="datetime-local" id="txtPurchaseDate">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Recent purchase date and
+                            time</span>
+                        <input type="datetime-local" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtPurchaseDate">
                     </div>
                 </div>
                 <div>
-                    <div>
-                        <h4>Address Line 01 : </h4>
+                   <!-- <div>
+                        <label for="txtAddressLine01">Address Line 01 : </label>
                         <input type="text" id="txtAddressLine01">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 01</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtAddressLine01">
                     </div>
-                    <div>
-                        <h4>Address Line 02 : </h4>
+                    <!--<div>
+                        <label for="txtAddressLine02">Address Line 02 : </label>
                         <input type="text" id="txtAddressLine02">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 02</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtAddressLine02">
                     </div>
-                    <div>
-                        <h4>Address Line 03 : </h4>
+                    <!--<div>
+                        <label for="txtAddressLine03">Address Line 03 : </label>
                         <input type="text" id="txtAddressLine03">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 03</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtAddressLine03">
                     </div>
-                    <div>
-                        <h4>Address Line 04 : </h4>
+                    <!--<div>
+                        <label for="txtAddressLine04">Address Line 04 : </label>
                         <input type="text" id="txtAddressLine04">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 04</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtAddressLine04">
                     </div>
-                    <div>
-                        <h4>Address Line 05 : </h4>
+                    <!--<div>
+                        <label for="txtAddressLine05">Address Line 05 : </label>
                         <input type="text" id="txtAddressLine05">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 05</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtAddressLine05">
                     </div>
-                    <div>
-                        <h4>Contact No. : </h4>
+                    <!--<div>
+                        <label for="txtContactNo">Contact No. : </label>
                         <input type="text" id="txtContactNo">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Contact No</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtContactNo">
                     </div>
-                    <div>
-                        <h4>Email : </h4>
+                   <!-- <div>
+                        <label for="txtEmail">Email : </label>
                         <input type="text" id="txtEmail">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Email</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtEmail">
                     </div>
-                    <button type="button" class="btn btn-primary" id="btnSaveCustomer">Save</button>
-                    <button type="button" class="btn btn-secondary" id="btnCustomerUpdate">Update</button>
-                    <button type="button" class="btn btn-danger" id="btnCustomerDelete">Delete</button>
+                    <button type="button" class="btn btn-outline-primary" id="btnSaveCustomer">Save</button>
+                    <button type="button" class="btn btn-outline-secondary"  id="btnCustomerUpdate">Update</button>
+                    <button type="button" class="btn btn-outline-success" id="btnCustomerDelete">Delete</button>
                 </div>
             </div>
-            <div>
-                <div>
-                    <h3>Customer's Details</h3>
-                </div>
-                <div>
-                    <table class="table mb-5" >
-                        <thead style="border: black">
-                        <tr style="border: black">
-                            <th scope="col" >Code</th>
-                            <th scope="col" >Name</th>
-                            <th scope="col" >Gender</th>
-                            <th scope="col" >Join date</th>
-                            <th scope="col" >Level</th>
-                            <th scope="col" >Total points</th>
-                            <th scope="col" >DOB</th>
-                            <th scope="col" >Address</th>
-                            <th scope="col" >Contact No</th>
-                            <th scope="col" >Email</th>
-                            <th scope="col" >purchase date &
-                                time</th>
-                        </tr>
-                        </thead>
-                        <tbody class="table-group-divider" id="tblCustomer" style="border: black">
+            <div >
+                <table class="table table-striped" data-bs-spy="scroll">
+                    <thead style="border: black">
+                    <tr style="border: black">
+                        <th scope="col" style="background: #0a58ca">Code</th>
+                        <th scope="col" style="background: #0a58ca">Name</th>
+                        <th scope="col" style="background: #0a58ca">Gender</th>
+                        <th scope="col" style="background: #0a58ca">Join date</th>
+                        <th scope="col" style="background: #0a58ca">Level</th>
+                        <th scope="col" style="background: #0a58ca">Total points</th>
+                        <th scope="col" style="background: #0a58ca">DOB</th>
+                        <th scope="col" style="background: #0a58ca">Address</th>
+                        <th scope="col" style="background: #0a58ca">Contact No</th>
+                        <th scope="col" style="background: #0a58ca">Email</th>
+                        <th scope="col" style="background: #0a58ca">purchase date &
+                            time</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="tblCustomer" style="border: black">
 
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </section>
         <section id="supplier">
             <div>
                 <div>
-                    <div>
-                        <h4>Supplier Code : </h4>
+                   <!-- <div>
+                        <label>Supplier Code : </label>
                         <input type="text" id="txtSupplierCode">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Supplier Code</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierCode">
                     </div>
-                    <div>
+                   <!-- <div>
                         <h4>Supplier name : </h4>
                         <input type="text" id="txtSupplierName">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Supplier name</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierName">
                     </div>
-                    <div>
+                  <!--  <div>
                         <h4>Category : </h4>
                         <input type="text" id="txtSupplierCategory">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Category</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierCategory">
                     </div>
-                    <div>
+                   <!-- <div>
                         <h4>Contact No.1 : </h4>
                         <input type="text" id="txtSupplierContactNo1">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Contact No.1</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierContactNo1">
                     </div>
-                    <div>
+                   <!-- <div>
                         <h4>Contact No.2 : </h4>
                         <input type="text" id="txtSupplierContactNo2">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Contact No.2</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierContactNo2">
                     </div>
-                    <div>
+                   <!-- <div>
                         <h4>Email : </h4>
                         <input type="text" id="txtSupplierEmail">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Email</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierEmail">
                     </div>
                 </div>
                 <div>
-                    <div>
+                    <!--<div>
                         <h4>Address Line 01 : </h4>
                         <input type="text" id="txtSupplierAddress1">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 01</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierAddress1">
                     </div>
-                    <div>
+                  <!--  <div>
                         <h4>Address Line 02 : </h4>
                         <input type="text" id="txtSupplierAddress2">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 02</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierAddress2">
                     </div>
-                    <div>
+                   <!-- <div>
                         <h4>Address Line 03 : </h4>
                         <input type="text" id="txtSupplierAddress3">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 03</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierAddress3">
                     </div>
-                    <div>
+                   <!-- <div>
                         <h4>Address Line 04 : </h4>
                         <input type="text" id="txtSupplierAddress4">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 04</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierAddress4">
                     </div>
-                    <div>
+                   <!-- <div>
                         <h4>Address Line 05 : </h4>
                         <input type="text" id="txtSupplierAddress5">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 05</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierAddress5">
                     </div>
-                    <div>
+                    <!--<div>
                         <h4>Address Line 06 : </h4>
                         <input type="text" id="txtSupplierAddress6">
+                    </div>-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" >Address Line 06</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtSupplierAddress6">
                     </div>
-                    <button type="button" class="btn btn-primary" id="btnSaveSupplier">Save</button>
-                    <button type="button" class="btn btn-secondary" id="btnSupplirUpdate">Update</button>
-                    <button type="button" class="btn btn-danger" id="btnSupplierDelete">Delete</button>
+                    <button type="button" class="btn btn-outline-primary" id="btnSaveSupplier">Save</button>
+                    <button type="button" class="btn btn-outline-secondary"  id="btnSupplirUpdate">Update</button>
+                    <button type="button" class="btn btn-outline-success" id="btnSupplierDelete">Delete</button>
                 </div>
             </div>
             <div>
@@ -1152,12 +1326,11 @@
             </section>
             <section id="itemSelectForm">
                 <div>
-                    <img src="assets/image/istockphoto-1292261872-612x612.jpg" alt="">
-                    <h4></h4>
-                    <h3></h3>
-                    <h4></h4>
-                    <h4></h4>
-                    <h4></h4>
+                    <img  alt="itemPic" id="itemPicForDetailForm">
+                    <h4 id="itemCodeForDetailForm"></h4>
+                    <h4 id="itemNameForDetailForm"></h4>
+                    <h4 id="itemStatusForDetailForm"></h4>
+                    <h4 id="itemPriceForDetailForm"></h4>
                 </div>
                 <div>
                     <h3>Sizes</h3>
@@ -1170,24 +1343,32 @@
                         <button id="btnSize10">10</button>
                         <button id="btnSize11">11</button>
                     </div>
-                    <label>In Stock</label>
-                    <label>10</label>
+                    <label id="lblSizeStock"></label>
+                    <label id="lblSizeQuantity"></label>
                     <div>
                         <h3>Quantity : </h3>
                         <input type="text" id="txtGetQuantity" >
                     </div>
+                    <button id="btnBackToSale">Back</button>
+                    <button id="btnAddToCart">Add</button>
                 </div>
             </section>
             <section>
-
+                <div>
+                    <button id="btnToPurchaseForm">Purchase</button>
+                    <button id="btnToRefundForm">Refund</button>
+                    <button id="btnToSalesForm">Sales</button>
+                </div>
             </section>
         </section>
     </main>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
+    <script src="assets/Bootstrap/js/bootstrap.js"></script>
     <script src="controller/CustomerController.js"></script>
     <script src="controller/SupplierController.js"></script>
     <script src="controller/EmployeeController.js"></script>
     <script src="controller/InventoryController.js"></script>
     <script src="controller/SaleController.js"></script>
+    <script src="controller/validation/CustomerValidation.js"></script>
 </body>
 </html>
