@@ -3,6 +3,8 @@ $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
 $("#sale").css('display','none');
+
+let supplierCodes = [];
 getAllSupplier();
 function clearAll(){
     $("#customer,#supplier,#employee,#inventory,#sale").css('display','none');
@@ -19,6 +21,17 @@ $("#navSupplier").click(function (){
 
 $("#btnSaveSupplier").click(function (){
   saveSupplier();
+    clearSupplierInputField();
+});
+
+$("#btnSupplirUpdate").click(function (){
+    updateSupplier();
+    clearSupplierInputField();
+});
+
+$("#btnSupplierDelete").click(function (){
+    deleteSupplier();
+    clearSupplierInputField();
 });
 
 function saveSupplier(){
@@ -69,7 +82,7 @@ function saveSupplier(){
     });
 }
 
-$("#btnSupplirUpdate").click(function (){
+function updateSupplier(){
     let supplierCode=$("#txtSupplierCode").val();
     let supplierName=$("#txtSupplierName").val();
     let category=$("#txtSupplierCategory").val();
@@ -109,14 +122,15 @@ $("#btnSupplirUpdate").click(function (){
             if (jqxhr.status == 201) {
                 alert("Added supplier successfully");
             }
+            getAllSupplier();
         },
         error: function (error){
             console.log("Error",error);
         }
     });
-});
+}
 
-$("#btnSupplierDelete").click(function (){
+function deleteSupplier(){
     let supplierCode=$("#txtSupplierCode").val();
     $.ajax({
         url: "http://localhost:8080/app/api/v1/suppliers/" + supplierCode,
@@ -125,15 +139,22 @@ $("#btnSupplierDelete").click(function (){
             if (jqxhr.status == 201) {
                 alert("Delete supplier successfully");
             }
+            getAllSupplier();
         },
         error: function (error) {
 
         }
     });
-});
+}
+
+function searchSupplier(id){
+    return supplierCodes.find(function (supplier){
+        return supplier.id==id;
+    });
+};
 
 function getAllSupplier(){
-    $("#tblCustomer").empty();
+    $("#tblSupplier").empty();
     $.ajax({
         url: "http://localhost:8080/app/api/v1/suppliers",
         method: "GET",
@@ -151,6 +172,10 @@ function getAllSupplier(){
                 </tr>`;
                 $("#tblSupplier").append(row);
                 bindSupplierTrEvents();
+                const supplierDetails = {
+                    id: supplier.supplierCode
+                }
+                supplierCodes.push(supplierDetails);
             }
         }
     });
