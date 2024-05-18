@@ -2,6 +2,7 @@ package lk.ijse.gdse.springboot.back_end.controller;
 
 import lk.ijse.gdse.springboot.back_end.dto.SupplierDTO;
 import lk.ijse.gdse.springboot.back_end.service.SupplierService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,16 +29,19 @@ public class SupplierController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     public void saveSupplier(@RequestBody SupplierDTO supplierDTO){
         supplierService.saveSupplier(supplierDTO);
     }
 
     @PatchMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     public void updateSupplier(@RequestBody SupplierDTO supplierDTO){
         supplierService.updateSupplier(supplierDTO);
     }
 
     @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
     public void deleteSupplier(@PathVariable String id){
         supplierService.deleteSupplier(id);
     }

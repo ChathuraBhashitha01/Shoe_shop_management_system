@@ -42,8 +42,8 @@ public class EmployeeController {
                              @RequestParam("status") String status,
                              @RequestParam("designation") String designation,
                              @RequestParam("accessRole") Role role,
-                             @RequestParam("dob") Date dob,
-                             @RequestParam("dateOfJoin") Date dateOfJoin,
+                             @RequestParam("dob") String dob,
+                             @RequestParam("dateOfJoin") String dateOfJoin,
                              @RequestParam("attachedBranch") String attachedBranch,
                              @RequestParam("addressLine01") String addressLine1,
                              @RequestParam("addressLine02") String addressLine2,
@@ -57,13 +57,43 @@ public class EmployeeController {
                              @RequestParam("employeePicture") MultipartFile profilrPic
                              ) throws IOException, ParseException {
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date newDob = dateFormat.parse(dob);
+        Date newJoinOfDate = dateFormat.parse(dob);
         String base64ProfilePic = Base64.getEncoder().encodeToString(profilrPic.getBytes());
-        EmployeeDTO employeeDTO = new EmployeeDTO(code, name, gender, status, designation,role, dob, dateOfJoin, attachedBranch, addressLine1, addressLine2, addressLine3, addressLine4, addressLine5, contact, email, informInCaseOfEmergency, emergencyContact,base64ProfilePic);
+        EmployeeDTO employeeDTO = new EmployeeDTO(code, name, gender, status, designation,role, newDob, newJoinOfDate, attachedBranch,
+                addressLine1, addressLine2, addressLine3, addressLine4, addressLine5, contact, email, informInCaseOfEmergency, emergencyContact,base64ProfilePic);
         employeeService.saveEmployee(employeeDTO);
     }
 
-    @PatchMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateEmployee(@RequestBody EmployeeDTO employeeDTO){
+    @PatchMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public void updateEmployee(@RequestParam("employeeCode") String code,
+                               @RequestParam("employeeName") String name,
+                               @RequestParam("gender")Gender gender,
+                               @RequestParam("status") String status,
+                               @RequestParam("designation") String designation,
+                               @RequestParam("accessRole") Role role,
+                               @RequestParam("dob") String dob,
+                               @RequestParam("dateOfJoin") String dateOfJoin,
+                               @RequestParam("attachedBranch") String attachedBranch,
+                               @RequestParam("addressLine01") String addressLine1,
+                               @RequestParam("addressLine02") String addressLine2,
+                               @RequestParam("addressLine03") String addressLine3,
+                               @RequestParam("addressLine04") String addressLine4,
+                               @RequestParam("addressLine05") String addressLine5,
+                               @RequestParam("contactNo") String contact,
+                               @RequestParam("email") String email,
+                               @RequestParam("informInCaseOfEmergency") String informInCaseOfEmergency,
+                               @RequestParam("emergencyContact") String emergencyContact,
+                               @RequestParam("employeePicture") MultipartFile profilrPic
+                                ) throws IOException, ParseException {
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date newDob = dateFormat.parse(dob);
+        Date newJoinOfDate = dateFormat.parse(dob);
+        String base64ProfilePic = Base64.getEncoder().encodeToString(profilrPic.getBytes());
+        EmployeeDTO employeeDTO = new EmployeeDTO(code, name, gender, status, designation,role, newDob, newJoinOfDate, attachedBranch, addressLine1,
+                addressLine2, addressLine3, addressLine4, addressLine5, contact, email, informInCaseOfEmergency, emergencyContact,base64ProfilePic);
         employeeService.updateEmployee(employeeDTO);
     }
 
