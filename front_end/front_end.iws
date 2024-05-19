@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf8278f6-5935-4356-b8cd-b0fd40e9cbf6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/validation/EmployeeValidation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/validation/InventoryValidation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/EmployeeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EmployeeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/InventoryController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/InventoryController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/SaleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SaleController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front_end.iws" beforeDir="false" afterPath="$PROJECT_DIR$/front_end.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
@@ -123,7 +119,7 @@
       <workItem from="1716028153069" duration="776000" />
       <workItem from="1716051589643" duration="22011000" />
       <workItem from="1716092735562" duration="14285000" />
-      <workItem from="1716122880560" duration="1557000" />
+      <workItem from="1716122880560" duration="16851000" />
     </task>
     <servers />
   </component>

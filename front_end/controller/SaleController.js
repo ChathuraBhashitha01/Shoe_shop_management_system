@@ -197,3 +197,63 @@ $('#btnBackToSale').click(function () {
 $('#btnAddToCart').click(function () {
 
 });
+
+$("#btnToPurchaseForm").click(function (){
+    $("#purchaseForm").css({
+        'display':'inline-block'
+    });
+});
+
+$("#btnBackFromPurchase").click(function (){
+    $("#purchaseForm").css({
+        'display':'none'
+    });
+});
+
+$("#btnCashPayment").click(function (){
+    $("#cardPaymentForm").css({
+        'display':'none'
+    });
+});
+
+$("#btnCardPayment").click(function (){
+    $("#cardPaymentForm").css({
+        'display':'inline-block'
+    });
+});
+
+$("#txtCash").on("keydown keyup input", function () {
+    setBalance();
+});
+
+$("#txtDiscount").on("keydown keyup input", function (e){
+    let total = $("#txtTotal").text();
+    let cash=$("#txtCash").text();
+    if(total>0){
+        let discount = $(this).val();
+        let discountMoney = (total/100*discount);
+        total -= discountMoney;
+        let balance=cash-total;
+        $("#txtSubtotal").text(total);
+        setBalance();
+    }
+
+});
+
+function setBalance() {
+    let subtotal= $("#txtSubtotal").text();
+    let cashText = $("#txtCash").val();
+    if (!isNaN(cashText)) {
+        let balance = cashText - subtotal;
+        $("#txtBalance").val(balance);
+    } else {
+        $("#txtBalance").val("0");
+    }
+}
+
+setCurrentDate()
+function setCurrentDate(){
+    let dateString = new Date(Date.now()).toLocaleString();
+    let today = dateString.slice(0,3).match(/[0-9]/i) ? dateString.split(' ')[0].split(',')[0] : dateString.split(' ')[1] + " " + dateString.split(' ')[2] + " " + dateString.split(' ')[3];
+    $("#lblOrderDate").text(today);
+}
