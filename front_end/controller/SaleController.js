@@ -27,13 +27,13 @@ function getAllInventoriesForSale(){
 
                 let divElement=`<div class="divInItemDetails">
                                     <img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">
-                                    <h3>${inventory.itemDesc}</h3>
-                                    <h4>${"Rs"+inventory.unitPriceSale}</h4>
+                                    <label>${inventory.itemDesc}</label>
+                                    <label>${"Rs"+inventory.unitPriceSale}</label>
                                     <button class="btnItemBuy">Buy</button>
-                                    <h4>${inventory.status}</h4>
-                                    <h4>${inventory.status}</h4>
-                                    <h4>In Stock</h4>
-                                    <h4 class="itemCode">${inventory.itemCode}</h4>
+                                    <label>${inventory.status}</label>
+                                    <label>${inventory.status}</label>
+                                    <label>In Stock</label>
+                                    <label class="itemCode">${inventory.itemCode}</label>
                                 </div>`
 
                 $("#itemDetails").append(divElement);

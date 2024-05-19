@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf8278f6-5935-4356-b8cd-b0fd40e9cbf6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/validation/SupplierValidation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/validation/EmployeeValidation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/validation/InventoryValidation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/InventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/SupplierController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/EmployeeRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/EmployeeRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/SupplierController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SupplierController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/EmployeeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EmployeeController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/InventoryController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/InventoryController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/SaleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SaleController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front_end.iws" beforeDir="false" afterPath="$PROJECT_DIR$/front_end.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -66,19 +65,6 @@
       <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\controller" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -135,7 +121,9 @@
       <workItem from="1716015299765" duration="1812000" />
       <workItem from="1716020345577" duration="5181000" />
       <workItem from="1716028153069" duration="776000" />
-      <workItem from="1716051589643" duration="21351000" />
+      <workItem from="1716051589643" duration="22011000" />
+      <workItem from="1716092735562" duration="14285000" />
+      <workItem from="1716122880560" duration="1557000" />
     </task>
     <servers />
   </component>

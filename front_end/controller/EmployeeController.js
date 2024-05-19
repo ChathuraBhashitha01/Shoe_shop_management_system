@@ -26,19 +26,22 @@ inputFile.onchange = function (){
 }
 
 $("#btnEmployeeSave").click(function (){
+   saveEmployee();
+});
+
+$("#btnEmployeeUpdate").click(function (){
+    updateEmployee();
+});
+
+$("#btnEmployeeDelete").click(function (){
+    deleteEmployee();
+});
+
+function saveEmployee(){
     let employeeCode=$("#txtEmployeeCode").val();
     let employeeName=$("#txtEmployeeName").val();
     let proPic = $("#inputFile").prop('files')[0];
-
-    let employeeGender="MALE";
-    let employeeMale =$("#employeeMale").val();
-    let employeeFeMale =$("#employeeFemale").val();
-    if (employeeMale.checked) {
-        employeeGender=employeeGender.value;
-    }
-    else if (employeeFeMale.checked){
-        employeeGender=employeeGender.value;
-    }
+    let employeeGender=$("#employeeGender").val();
     let employeeStatus=$("#txtEmployeeStatus").val();
     let employeeDesignation=$("#txtEmployeeDesignation").val();
     let employeeAccessRole=$("#txtEmployeeAccessRole").val();
@@ -94,21 +97,13 @@ $("#btnEmployeeSave").click(function (){
             console.log("Error", error);
         }
     });
-});
+}
 
-$("#btnEmployeeUpdate").click(function (){
+function updateEmployee(){
     let employeeCode=$("#txtEmployeeCode").val();
     let employeeName=$("#txtEmployeeName").val();
     let proPic = $("#inputFile").prop('files')[0];
-    let employeeGender="MALE";
-    let employeeMale =$("#employeeMale").val();
-    let employeeFeMale =$("#employeeFemale").val();
-    if (employeeMale.checked) {
-        employeeGender=employeeGender.value;
-    }
-    else if (employeeFeMale.checked){
-        employeeGender=employeeGender.value;
-    }
+    let employeeGender=$("#employeeGender").val();
     let employeeStatus=$("#txtEmployeeStatus").val();
     let employeeDesignation=$("#txtEmployeeDesignation").val();
     let employeeAccessRole=$("#txtEmployeeAccessRole").val();
@@ -164,9 +159,9 @@ $("#btnEmployeeUpdate").click(function (){
             console.log("Error", error);
         }
     });
-});
+}
 
-$("#btnEmployeeDelete").click(function (){
+function deleteEmployee(){
     let employeeCode=$("#txtEmployeeCode").val();
     $.ajax({
         url: "http://localhost:8080/app/api/v1/employees/" + employeeCode,
@@ -181,7 +176,7 @@ $("#btnEmployeeDelete").click(function (){
 
         }
     });
-});
+}
 
 function getAllEmployee(){
     $("#tblEmployee").empty();

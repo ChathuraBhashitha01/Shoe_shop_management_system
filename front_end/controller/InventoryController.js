@@ -83,6 +83,7 @@ $("#btnInventorySave").click(function (){
             if (jqxhr.status == 201) {
                 alert("Added inventory successfully");
             }
+            getAllInventories();
         },
         error: function (error){
             console.log("Error",error);
@@ -144,6 +145,7 @@ $("#btnInventoryUpdate").click(function (){
             if (jqxhr.status == 201) {
                 alert("Added inventory successfully");
             }
+            getAllInventories();
         },
         error: function (error){
             console.log("Error",error);
@@ -161,7 +163,7 @@ $("#btnInventoryDelete").click(function (){
             if (jqxhr.status == 201) {
                 alert("Delete inventory successfully");
             }
-            getAllCustomers();
+            getAllInventories();
         },
         error: function (error) {
 
@@ -271,6 +273,7 @@ function uploadItemPicture(code){
 
             // Create an object URL for the blob
             itemPicture.src = URL.createObjectURL(blob);
+            $("#inputItemPicture").val(blob)
         },
     });
 }
