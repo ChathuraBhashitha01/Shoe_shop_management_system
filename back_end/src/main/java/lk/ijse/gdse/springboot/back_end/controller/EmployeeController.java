@@ -4,6 +4,7 @@ import lk.ijse.gdse.springboot.back_end.dto.EmployeeDTO;
 import lk.ijse.gdse.springboot.back_end.service.EmployeeService;
 import lk.ijse.gdse.springboot.back_end.util.Gender;
 import lk.ijse.gdse.springboot.back_end.util.Role;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,6 +37,7 @@ public class EmployeeController {
     }
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     public void saveEmployee(@RequestParam("employeeCode") String code,
                              @RequestParam("employeeName") String name,
                              @RequestParam("gender")Gender gender,
@@ -67,6 +69,7 @@ public class EmployeeController {
     }
 
     @PatchMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     public void updateEmployee(@RequestParam("employeeCode") String code,
                                @RequestParam("employeeName") String name,
                                @RequestParam("gender")Gender gender,
@@ -98,6 +101,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
     public void deleteEmployee(@PathVariable("id") String id){
         employeeService.deleteEmployee(id);
     }
