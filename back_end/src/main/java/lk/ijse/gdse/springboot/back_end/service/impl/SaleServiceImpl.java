@@ -17,6 +17,8 @@ import lk.ijse.gdse.springboot.back_end.service.SaleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SaleServiceImpl implements SaleService {
 
@@ -35,6 +37,11 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
+    public List<SaleDTO> getAllSaleDetails() {
+        return saleRepo.findAll().stream().map(sale -> modelMapper.map(sale,SaleDTO.class)).toList();
+    }
+
+    @Override
     @Transactional
     public void saveSale(SaleDTO saleDTO) {
         SaleDTO saleDTO1=new SaleDTO(saleDTO.getOrderNo(),saleDTO.getCustomerCode(),saleDTO.getCustomerName(),saleDTO.getTotalPrice(),saleDTO.getPurchaseDate(),saleDTO.getPaymentMethod(),saleDTO.getAddedPoints(),saleDTO.getCashierName(),saleDTO.getEmployeeCode());
@@ -45,43 +52,84 @@ public class SaleServiceImpl implements SaleService {
 
             if(detailsDTO.getSize()==5){
                 InventoryDTO inventoryDTO=modelMapper.map(inventoryRepo.findById(detailsDTO.getItemCode()).get(), InventoryDTO.class);
-                inventoryDTO.setQuantitySize5(detailsDTO.getQuantity());
+                int qty=inventoryDTO.getQuantitySize5()-detailsDTO.getQuantity();
+                inventoryDTO.setQuantitySize5(qty);
                 inventoryRepo.save(modelMapper.map(inventoryDTO, Inventory.class));
             }
             else if(detailsDTO.getSize()==6){
                 InventoryDTO inventoryDTO=modelMapper.map(inventoryRepo.findById(detailsDTO.getItemCode()).get(), InventoryDTO.class);
-                inventoryDTO.setQuantitySize6(detailsDTO.getQuantity());
+                int qty=inventoryDTO.getQuantitySize6()-detailsDTO.getQuantity();
+                inventoryDTO.setQuantitySize6(qty);
                 inventoryRepo.save(modelMapper.map(inventoryDTO, Inventory.class));
             }
             else if(detailsDTO.getSize()==7){
                 InventoryDTO inventoryDTO=modelMapper.map(inventoryRepo.findById(detailsDTO.getItemCode()).get(), InventoryDTO.class);
-                inventoryDTO.setQuantitySize7(detailsDTO.getQuantity());
+                int qty=inventoryDTO.getQuantitySize7()-detailsDTO.getQuantity();
+                inventoryDTO.setQuantitySize7(qty);
                 inventoryRepo.save(modelMapper.map(inventoryDTO, Inventory.class));
             }
             else if(detailsDTO.getSize()==8){
                 InventoryDTO inventoryDTO=modelMapper.map(inventoryRepo.findById(detailsDTO.getItemCode()).get(), InventoryDTO.class);
-                inventoryDTO.setQuantitySize8(detailsDTO.getQuantity());
+                int qty=inventoryDTO.getQuantitySize8()-detailsDTO.getQuantity();
+                inventoryDTO.setQuantitySize8(qty);
                 inventoryRepo.save(modelMapper.map(inventoryDTO, Inventory.class));
             }
             else if(detailsDTO.getSize()==9){
                 InventoryDTO inventoryDTO=modelMapper.map(inventoryRepo.findById(detailsDTO.getItemCode()).get(), InventoryDTO.class);
-                inventoryDTO.setQuantitySize9(detailsDTO.getQuantity());
+                int qty=inventoryDTO.getQuantitySize9()-detailsDTO.getQuantity();
+                inventoryDTO.setQuantitySize9(qty);
                 inventoryRepo.save(modelMapper.map(inventoryDTO, Inventory.class));
             }
             else if(detailsDTO.getSize()==10){
                 InventoryDTO inventoryDTO=modelMapper.map(inventoryRepo.findById(detailsDTO.getItemCode()).get(), InventoryDTO.class);
-                inventoryDTO.setQuantitySize10(detailsDTO.getQuantity());
+                int qty=inventoryDTO.getQuantitySize10()-detailsDTO.getQuantity();
+                inventoryDTO.setQuantitySize10(qty);
                 inventoryRepo.save(modelMapper.map(inventoryDTO, Inventory.class));
             }
             else if(detailsDTO.getSize()==11){
                 InventoryDTO inventoryDTO=modelMapper.map(inventoryRepo.findById(detailsDTO.getItemCode()).get(), InventoryDTO.class);
-                inventoryDTO.setQuantitySize11(detailsDTO.getQuantity());
+                int qty=inventoryDTO.getQuantitySize11()-detailsDTO.getQuantity();
+                inventoryDTO.setQuantitySize11(qty);
                 inventoryRepo.save(modelMapper.map(inventoryDTO, Inventory.class));
             }
         }
         CustomerDTO customerDTO=modelMapper.map(customerRepo.findById(saleDTO.getCustomerCode()).get(), CustomerDTO.class);
-        customerDTO.setTotalPoint(saleDTO.getAddedPoints());
+        int point=customerDTO.getTotalPoint()+saleDTO.getAddedPoints();
+        customerDTO.setTotalPoint(point);
         customerDTO.setRecentPurchaseDate(saleDTO.getPurchaseDate());
+        System.out.println(saleDTO.getPurchaseDate());
         customerRepo.save(modelMapper.map(customerDTO, Customer.class));
+    }
+
+    @Override
+    public String getNextId() {
+        List<SaleDTO> detailsDTOS=saleRepo.findAll().stream().map(sale -> modelMapper.map(sale,SaleDTO.class)).toList();
+        for (SaleDTO detail:detailsDTOS) {
+            return splitId(detail.getOrderNo());
+        }
+        return splitId(null);
+    }
+
+    @Override
+    public String splitId(String id) {
+        if(id != null) {
+            String[] strings = id.split("OR00-00");
+            int ids = Integer.parseInt(strings[1]);
+            if(ids==9){
+                String[] strings2 = id.split("OR00-0");
+                int ids2 = Integer.parseInt(strings2[1]);
+                if(ids2==99){
+                    String[] strings3 = id.split("OR00-");
+                    int ids3 = Integer.parseInt(strings2[1]);
+                    ids3++;
+                    return "OR00-" + ids3;
+                }
+                ids2++;
+                return "OR00-0" + ids2;
+            }
+            ids++;
+            return "OR00-00" + ids;
+        }
+        return "OR00-001";
     }
 }
