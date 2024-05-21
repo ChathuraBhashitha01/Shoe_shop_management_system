@@ -15,13 +15,15 @@ public class SaleDTO {
     private String orderNo;
     private String customerCode;
     private String customerName;
-    private String itemDesc;
     private double totalPrice;
-    private Date PurchaseDate;
-    private String PaymentMethod;
+    private Date purchaseDate;
+    private String paymentMethod;
     private double addedPoints;
     private String cashierName;
     private String employeeCode;
     private List<SaleDetailsDTO> saleDetails;
 
+    public SaleDTO(String orderNo, String employeeCode, String customerName, double totalPrice, Date purchaseDate, String paymentMethod, double addedPoints, String cashierName, String employeeCode1) {
+
+    }
 }

@@ -11,6 +11,7 @@ public class SaleDetailsDTO {
     private int no;
     private String orderNo;
     private String itemCode;
+    private String itemDesc;
     private int size;
     private int quantity;
     private double unitPrice;

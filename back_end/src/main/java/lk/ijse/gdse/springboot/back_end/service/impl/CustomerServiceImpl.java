@@ -51,4 +51,9 @@ public class CustomerServiceImpl implements CustomerService {
     public void deleteCustomer(String id) {
         customerRepo.deleteById(id);
     }
+
+    @Override
+    public boolean updateTotalPoint(int point) {
+        return false;
+    }
 }

@@ -1,2 +1,4 @@
-package lk.ijse.gdse.springboot.back_end.config;public class SucerityConfig {
+package lk.ijse.gdse.springboot.back_end.config;
+
+public class SecurityConfig {
 }

@@ -21,6 +21,6 @@ public class SaleController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public void saveSale(SaleDTO saleDTO){
-
+        saleService.saveSale(saleDTO);
     }
 }

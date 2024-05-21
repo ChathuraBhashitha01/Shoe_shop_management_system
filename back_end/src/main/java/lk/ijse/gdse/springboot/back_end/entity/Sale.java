@@ -21,9 +21,8 @@ public class Sale {
     @JoinColumn(name = "customerCode",referencedColumnName = "customerCode")
     private Customer customer;
     private String customerName;
-    private String itemDesc;
     private double totalPrice;
-    private Date PurchaseDate;
+    private Timestamp PurchaseDate;
     private String PaymentMethod;
     private double addedPoints;
     private String cashierName;
