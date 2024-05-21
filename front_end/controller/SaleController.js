@@ -3,6 +3,8 @@ $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
 
+let paymentMethod;
+
 function clearAll(){
     $("#customer,#supplier,#employee,#inventory,#sale").css('display','none');
 }
@@ -28,7 +30,7 @@ function getAllInventoriesForSale(){
                 let divElement=`<div class="divInItemDetails">
                                     <img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">
                                     <label>${inventory.itemDesc}</label>
-                                    <label>${"Rs"+inventory.unitPriceSale}</label>
+                                    <label>${inventory.unitPriceSale}</label>
                                     <button class="btnItemBuy">Buy</button>
                                     <label>${inventory.status}</label>
                                     <label>${inventory.status}</label>
@@ -150,42 +152,49 @@ $('#btnSize5').click(function (){
     let size=$('#btnSize5').val();
     $("#lblSizeStock").text("In Stock");
     $("#lblSizeQuantity").text(size);
+    $("#lblSizeOfItem").text(5);
 });
 
 $('#btnSize6').click(function (){
     let size=$('#btnSize6').val();
     $("#lblSizeStock").text("In Stock");
     $("#lblSizeQuantity").text(size);
+    $("#lblSizeOfItem").text(6);
 });
 
 $('#btnSize7').click(function (){
     let size=$('#btnSize7').val();
     $("#lblSizeStock").text("In Stock");
     $("#lblSizeQuantity").text(size);
+    $("#lblSizeOfItem").text(7);
 });
 
 $('#btnSize8').click(function (){
     let size=$('#btnSize8').val();
     $("#lblSizeStock").text("In Stock");
     $("#lblSizeQuantity").text(size);
+    $("#lblSizeOfItem").text(8);
 });
 
 $('#btnSize9').click(function (){
     let size=$('#btnSize9').val();
     $("#lblSizeStock").text("In Stock");
     $("#lblSizeQuantity").text(size);
+    $("#lblSizeOfItem").text(9);
 });
 
 $('#btnSize10').click(function (){
     let size=$('#btnSize10').val();
     $("#lblSizeStock").text("In Stock");
     $("#lblSizeQuantity").text(size);
+    $("#lblSizeOfItem").text(10);
 });
 
 $('#btnSize11').click(function (){
     let size=$('#btnSize11').val();
     $("#lblSizeStock").text("In Stock");
     $("#lblSizeQuantity").text(size);
+    $("#lblSizeOfItem").text(11);
 });
 
 $('#btnBackToSale').click(function () {
@@ -195,7 +204,56 @@ $('#btnBackToSale').click(function () {
 });
 
 $('#btnAddToCart').click(function () {
+    let code=$("#itemCodeForDetailForm").text();
+    let name=$("#itemNameForDetailForm").text();
+    let size=$("#lblSizeOfItem").text();
+    let price= $("#itemPriceForDetailForm").text();
+    let qty= $("#txtGetQuantity").val();
+    let total=parseFloat(price) * parseFloat(qty);
+    let allTotal = 0;
+    let exitItem=true;
 
+    console.log(price)
+    console.log(qty)
+    console.log(total)
+
+    $('#tblPurchase>tr').each(function () {
+        let alreadyAddedId=$(this).children().eq(0).text();
+        if (code==alreadyAddedId) {
+            $(this).children().eq(0).text(code);
+            $(this).children().eq(1).text(name);
+            $(this).children().eq(2).text(size);
+            $(this).children().eq(3).text(price);
+            $(this).children().eq(4).text(qty);
+            $(this).children().eq(5).text(qty * price);
+            exitItem=false;
+        }
+    });
+
+    if(exitItem){
+        let row=`<tr>
+            <td>${code}</td>
+            <td>${name}</td>
+            <td>${size}</td>
+            <td>${price}</td>
+            <td>${qty}</td>
+            <td>${total}</td>
+            </tr>`;
+
+        $("#tblPurchase").append(row);
+    }
+
+    $('#tblPurchase>tr').each(function () {
+        let total = $(this).children().eq(5).text();
+        allTotal += parseFloat(total);
+    });
+
+    $("#txtTotal").text(allTotal);
+    $("#txtSubtotal").text(allTotal);
+
+    $("#itemSelectForm").css({
+        'display':'none'
+    })
 });
 
 $("#btnToPurchaseForm").click(function (){
@@ -214,12 +272,14 @@ $("#btnCashPayment").click(function (){
     $("#cardPaymentForm").css({
         'display':'none'
     });
+    paymentMethod="cash"
 });
 
 $("#btnCardPayment").click(function (){
     $("#cardPaymentForm").css({
         'display':'inline-block'
     });
+    paymentMethod="card"
 });
 
 $("#txtCash").on("keydown keyup input", function () {
@@ -256,4 +316,92 @@ function setCurrentDate(){
     let dateString = new Date(Date.now()).toLocaleString();
     let today = dateString.slice(0,3).match(/[0-9]/i) ? dateString.split(' ')[0].split(',')[0] : dateString.split(' ')[1] + " " + dateString.split(' ')[2] + " " + dateString.split(' ')[3];
     $("#lblOrderDate").text(today);
+}
+
+function purchaseOrder(){
+    let customerCode = $("#txtCustomerCodeForPurchase").val();
+    let employeeCode = $("#txtEmployeeCodeForPurchase").val();
+    let orderId = $("#lblOrderId").text();
+    let totalOfAllItems = $("#txtSubtotal").text();
+    let orderDate = $("#lblOrderDate").text();
+    let customerName;
+    let employeeName;
+    let addedPoints=0;
+
+    let itemDetails=[];
+
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/employees/"+employeeCode,
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            employeeName=resp.employeeName;
+        },
+    });
+
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/customers/"+customerCode,
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            customerName=resp.customerName;
+        },
+    });
+
+    $('#tblPurchase>tr').each(function () {
+        let code=$(this).children().eq(0).text();
+        let name=$(this).children().eq(1).text();
+        let size=$(this).children().eq(2).text();
+        let price=$(this).children().eq(3).text();
+        let qty=$(this).children().eq(4).text();
+        let total=$(this).children().eq(5).text();
+
+        let details={
+            orderNo:orderId,
+            itemCode:code,
+            itemDesc:name,
+            size:size,
+            quantity:qty,
+            unitPrice:total
+        }
+
+        itemDetails.push(details)
+
+    });
+
+    if(totalOfAllItems>=800){
+        addedPoints=1;
+    }
+
+    let newPurchase = {
+        orderNo:orderId,
+        customerCode:customerCode,
+        customerName:customerName,
+        totalPrice:totalOfAllItems,
+        purchaseDate:orderDate,
+        paymentMethod:paymentMethod,
+        addedPoints:addedPoints,
+        cashierName:employeeName,
+        employeeCode:employeeCode,
+        saleDetails:itemDetails
+
+    };
+    const jsonObject=JSON.stringify(newPurchase);
+
+    $.ajax({
+        url:"http://localhost:8080/app/api/v1/sales",
+        method:"POST",
+        data:jsonObject,
+        contentType:("application/json"),
+
+        success: function (resp, textStatus, jqxhr){
+            console.log("Success",resp);
+            if (jqxhr.status == 201) {
+                alert("place order successfully");
+            }
+        },
+        error: function (error){
+            console.log("Error",error);
+        }
+    });
 }

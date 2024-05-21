@@ -186,13 +186,22 @@ function getAllCustomers(){
                     <td>${customer.addressLine01+","+customer.addressLine02+","+customer.addressLine03+","+customer.addressLine04+","+customer.addressLine05+"."}</td>
                     <td>${customer.contactNo}</td>
                     <td>${customer.email}</td>
-                    <td>${customer.recentPurchaseDate}</td>
+                    <td>${customer.recentPurchaseDate}</td> 
                 </tr>`;
                 $("#tblCustomer").append(row);
                 bindCusTrEvents();
 
                 const customerDetails = {
-                    id: customer.customerCode
+                    id: customer.customerCode,
+                    /*customerName:customer.customerName,
+                    gender:customer.gender,
+                    joinDate:customer.joinDate,
+                    level:customer.level,
+                    totalPoint:customer.totalPoint,
+                    dob:customer.dob,
+                    contactNo:customer.contactNo,
+                    email:customer.email,
+                    recentPurchaseDate:customer.recentPurchaseDate*/
                 }
                 customerCodes.push(customerDetails);
             }
