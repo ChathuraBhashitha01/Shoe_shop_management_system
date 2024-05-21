@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface SaleDetailsService {
     List<SaleDetailsDTO> getAllSaleDetails();
-    CustomerDTO getSaleDetails(String id);
+    SaleDetailsDTO getSaleDetails(String id);
     void saveSaleDetails(SaleDetailsDTO saleDetailsDTO);
     void deleteSaleDetails(String id);
 }

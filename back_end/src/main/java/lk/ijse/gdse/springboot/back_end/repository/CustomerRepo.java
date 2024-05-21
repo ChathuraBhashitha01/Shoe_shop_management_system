@@ -3,6 +3,8 @@ package lk.ijse.gdse.springboot.back_end.repository;
 import lk.ijse.gdse.springboot.back_end.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.sql.Timestamp;
+
 public interface CustomerRepo extends JpaRepository<Customer,String> {
-    boolean findDistinctByTotalPoint(double  point);
+   Customer findByCustomerCode(String code);
 }

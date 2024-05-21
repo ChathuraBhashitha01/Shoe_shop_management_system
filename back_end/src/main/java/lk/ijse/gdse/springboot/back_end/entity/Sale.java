@@ -24,7 +24,7 @@ public class Sale {
     private double totalPrice;
     private Timestamp PurchaseDate;
     private String PaymentMethod;
-    private double addedPoints;
+    private int addedPoints;
     private String cashierName;
     @ManyToOne
     @JoinColumn(name = "employeeCode",referencedColumnName = "employeeCode")

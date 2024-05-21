@@ -45,38 +45,4 @@ public class InventoryServiceImpl implements InventoryService {
         inventoryRepo.deleteById(id);
     }
 
-    @Override
-    public boolean updateQtyOfSize5(int qty) {
-        return false;
-    }
-
-    @Override
-    public boolean updateQtyOfSize6(int qty) {
-        return false;
-    }
-
-    @Override
-    public boolean updateQtyOfSize7(int qty) {
-        return false;
-    }
-
-    @Override
-    public boolean updateQtyOfSize8(int qty) {
-        return false;
-    }
-
-    @Override
-    public boolean updateQtyOfSize9(int qty) {
-        return false;
-    }
-
-    @Override
-    public boolean updateQtyOfSize10(int qty) {
-        return false;
-    }
-
-    @Override
-    public boolean updateQtyOfSize11(int qty) {
-        return false;
-    }
 }

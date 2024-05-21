@@ -16,14 +16,22 @@ public class SaleDTO {
     private String customerCode;
     private String customerName;
     private double totalPrice;
-    private Date purchaseDate;
+    private Timestamp purchaseDate;
     private String paymentMethod;
-    private double addedPoints;
+    private int addedPoints;
     private String cashierName;
     private String employeeCode;
     private List<SaleDetailsDTO> saleDetails;
 
-    public SaleDTO(String orderNo, String employeeCode, String customerName, double totalPrice, Date purchaseDate, String paymentMethod, double addedPoints, String cashierName, String employeeCode1) {
-
+    public SaleDTO(String orderNo, String customerCode, String customerName, double totalPrice, Timestamp purchaseDate, String paymentMethod, int addedPoints, String cashierName, String employeeCode) {
+        this.orderNo = orderNo;
+        this.customerCode = customerCode;
+        this.customerName = customerName;
+        this.totalPrice = totalPrice;
+        this.purchaseDate = purchaseDate;
+        this.paymentMethod = paymentMethod;
+        this.addedPoints = addedPoints;
+        this.cashierName = cashierName;
+        this.employeeCode = employeeCode;
     }
 }

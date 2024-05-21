@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -52,8 +53,4 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepo.deleteById(id);
     }
 
-    @Override
-    public boolean updateTotalPoint(double point) {
-        return false;
-    }
 }
