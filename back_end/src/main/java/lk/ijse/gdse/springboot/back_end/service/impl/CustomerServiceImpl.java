@@ -53,7 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public boolean updateTotalPoint(int point) {
+    public boolean updateTotalPoint(double point) {
         return false;
     }
 }
