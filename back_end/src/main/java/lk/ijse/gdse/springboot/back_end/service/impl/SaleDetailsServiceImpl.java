@@ -37,4 +37,9 @@ public class SaleDetailsServiceImpl implements SaleDetailsService {
     public void deleteSaleDetails(String id) {
         saleDetailsRepo.deleteById(id);
     }
+
+    @Override
+    public SaleDetailsDTO getTopSale() {
+        return modelMapper.map(saleDetailsRepo.findTopByOrderByItemCode(),SaleDetailsDTO.class);
+    }
 }

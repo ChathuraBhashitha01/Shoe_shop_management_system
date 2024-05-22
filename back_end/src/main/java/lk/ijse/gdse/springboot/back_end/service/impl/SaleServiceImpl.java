@@ -103,11 +103,12 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public String getNextId() {
-        List<SaleDTO> detailsDTOS=saleRepo.findAll().stream().map(sale -> modelMapper.map(sale,SaleDTO.class)).toList();
+        /*List<SaleDTO> detailsDTOS=saleRepo.findTopByOrderByOrderNo().stream().map(sale -> modelMapper.map(sale,SaleDTO.class)).toList();
         for (SaleDTO detail:detailsDTOS) {
             return splitId(detail.getOrderNo());
         }
-        return splitId(null);
+        return splitId(null);*/
+        return null;
     }
 
     @Override
@@ -131,5 +132,15 @@ public class SaleServiceImpl implements SaleService {
             return "OR00-00" + ids;
         }
         return "OR00-001";
+    }
+
+    @Override
+    public void updateSale(SaleDTO saleDTO) {
+        saleRepo.save(modelMapper.map(saleDTO, Sale.class));
+    }
+
+    @Override
+    public void deleteSale(String id) {
+        saleRepo.deleteById(id);
     }
 }

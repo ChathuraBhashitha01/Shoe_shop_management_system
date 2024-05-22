@@ -1,17 +1,16 @@
-package lk.ijse.gdse.springboot.back_end.dto;
+package lk.ijse.gdse.springboot.back_end.auth.request;
 
-import lk.ijse.gdse.springboot.back_end.util.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class UserDTO {
+public class SignUpRequest {
     private String email;
     private String password;
-    private Role role;
+    private String role;
 }

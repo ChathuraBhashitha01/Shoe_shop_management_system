@@ -1,5 +1,6 @@
 package lk.ijse.gdse.springboot.back_end.service;
 
+import lk.ijse.gdse.springboot.back_end.dto.InventoryDTO;
 import lk.ijse.gdse.springboot.back_end.dto.SaleDTO;
 
 import java.sql.Connection;
@@ -11,4 +12,6 @@ public interface SaleService {
     void saveSale(SaleDTO saleDTO);
     String getNextId();
     String splitId(String id);
+    void updateSale(SaleDTO saleDTO);
+    void deleteSale(String id);
 }

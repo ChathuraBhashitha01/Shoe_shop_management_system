@@ -32,4 +32,14 @@ public class SaleController {
     public String getOrederID(){
         return saleService.getNextId();
     }
+
+    @PatchMapping
+    public void updateSales(@RequestBody SaleDTO saleDTO){
+        saleService.updateSale(saleDTO);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteSales(@PathVariable("id") String id){
+        saleService.deleteSale(id);
+    }
 }

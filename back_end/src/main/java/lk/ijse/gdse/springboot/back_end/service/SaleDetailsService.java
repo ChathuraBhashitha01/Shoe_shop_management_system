@@ -10,4 +10,5 @@ public interface SaleDetailsService {
     SaleDetailsDTO getSaleDetails(String id);
     void saveSaleDetails(SaleDetailsDTO saleDetailsDTO);
     void deleteSaleDetails(String id);
+    SaleDetailsDTO getTopSale();
 }
