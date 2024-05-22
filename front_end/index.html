@@ -814,6 +814,200 @@
             width: 75%;
             height: 5%;
         }
+        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(4){
+            width: 90vw;
+            height: 75vh;
+            border: red solid 1px;
+            background: #ffffff;
+            overflow: hidden;
+            overflow-y: scroll;
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            margin: auto;
+            display: none;
+        }
+        body>main>section:nth-child(6){
+            width: 95vw;
+            height: 90vh;
+            border: black solid 1px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        body>main>section:nth-child(6)>div:nth-child(1){
+            height: 88vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        body>main>section:nth-child(6)>div:nth-child(1)>div{
+            height: 15vh;
+            position: relative;
+        }
+
+        body>main>section:nth-child(6)>div:nth-child(1)>div>div>label:nth-child(1){
+            font-size: 15px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            margin: auto;
+        }
+        body>main>section:nth-child(6)>div:nth-child(1)>div>div>label:nth-child(2){
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        body>main>section:nth-child(6)>div:nth-child(2){
+            width: 33vw;
+            height: 35vh;
+            position: absolute;
+            top: 2.5%;
+            left: 23%;
+            margin: auto;
+        }
+        body>main>section:nth-child(6)>div:nth-child(3){
+            width: 33vw;
+            height: 35vh;
+            position: absolute;
+            top: 2.5%;
+            right: 2%;
+            margin: auto;
+        }
+        body>main>section:nth-child(6)>div:nth-child(4){
+            width: 71vw;
+            height: 45vh;
+            position: absolute;
+            top: 46%;
+            left: 23%;
+            margin: auto;
+        }
+        body>main>section:nth-child(7)>div{
+            display: inline-block;
+            position: relative;
+        }
+        body>main>section:nth-child(7){
+            width: 500px;
+            height: 370px;
+            border: 2px solid black;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 10px;
+        }
+        body>main>section:nth-child(7)>h3{
+            margin-left: 130px;
+            font-size: 25px;
+        }
+        body>main>section:nth-child(7)>div:nth-child(2)>input{
+            width: 450px;
+            height: 40px;
+            border: black solid 2px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+        #txtUser{
+            position: relative;
+            top: 10px;
+            left: 20px;
+        }
+        #txtPassword{
+            position: relative;
+            top: 35px;
+            left: 20px;
+        }
+        body>main>section:nth-child(7)>div:nth-child(3){
+            position: relative;
+            top: 80px;
+            left: 20px;
+        }
+        body>main>section:nth-child(7)>div:nth-child(3)>button{
+            width: 200px;
+            height: 40px;
+            border: black solid 2px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #btnSignIn{
+            margin-right: 50px;
+        }
+        body>main>section:nth-child(8)>div{
+            display: inline-block;
+            position: relative;
+        }
+        body>main>section:nth-child(8){
+            width: 500px;
+            height: 370px;
+            border: 2px solid black;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 10px;
+        }
+        body>main>section:nth-child(8)>h3{
+            margin-left: 130px;
+            font-size: 25px;
+        }
+        body>main>section:nth-child(8)>div:nth-child(2)>input{
+            width: 450px;
+            height: 40px;
+            border: black solid 2px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+        #txtSignUpEmail{
+            position: relative;
+            top: 10px;
+            left: 20px;
+        }
+        #cmdAccessRole{
+            width: 450px;
+            height: 40px;
+            border: black solid 2px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+        #txtPasswordSignUpEmail{
+            position: relative;
+            top: 35px;
+            left: 20px;
+        }
+        body>main>section:nth-child(8)>div:nth-child(2){
+            position: relative;
+            top: 80px;
+            left: 20px;
+        }
+        body>main>section:nth-child(8)>div:nth-child(3){
+            position: relative;
+            top: 135px;
+            left: 20px;
+        }
+        body>main>section:nth-child(8)>div:nth-child(3)>button{
+            width: 200px;
+            height: 40px;
+            border: black solid 2px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #btnSignUpToApp{
+            margin-right: 50px;
+        }
+
     </style>
     <link rel="stylesheet" href="assets/Bootstrap/css/bootstrap.css">
 </head>
@@ -1744,12 +1938,134 @@
                     </div>
                 </div>
                 <div></div>
-                <div></div>
+                <div id="purchaseDetails">
+                    <button type="button" class="btn btn-outline-primary" id="btnToSaleFromPurchase">Back</button>
+                    <table class="table table-hover">
+                        <thead >
+                        <tr style="border: black">
+                            <th scope="col" >Order No</th>
+                            <th scope="col" >Customer Code</th>
+                            <th scope="col" >Customer Name</th>
+                            <th scope="col" >Total Price</th>
+                            <th scope="col" >Purchase Date</th>
+                            <th scope="col" >Payment Method</th>
+                            <th scope="col" >Added Point</th>
+                            <th scope="col" >Cashier Name</th>
+                            <th scope="col" >Employee Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider" id="tblPurchaseDetails" style="border: black">
+
+                        </tbody>
+                    </table>
+                </div>
             </section>
+        </section>
+        <section id="admin">
+            <div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <label>Today's sales</label>
+                      <label>Rs 25000</label>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <label>Today's Profit</label>
+                        <label>Rs 25000</label>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <label>Most sale item</label>
+                        <label>Adidas</label>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <label>Customers</label>
+                        <label>100</label>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <label>Total items</label>
+                        <label>100</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card" >
+                <img  class="card-img-top" alt="..." id="imgMostSellItem">
+                <div class="card-body">
+                    <label id="lblMostSellItemCode"></label>
+                    <label id="lblMostSellItemName"></label>
+                    <label id="lblMostSellItemStatus"></label>
+                    <label id="lblMostSellItemPrice"></label>
+                </div>
+            </div>
+            <div class="card" >
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card" >
+                <table class="table table-hover">
+                    <thead >
+                    <tr style="border: black">
+                        <th scope="col" >Item Code</th>
+                        <th scope="col" >Item Desc</th>
+                        <th scope="col" >Size</th>
+                        <th scope="col" >Price</th>
+                        <th scope="col" >Quantity</th>
+                        <th scope="col" >Total</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider"  style="border: black">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+        <section id="log-in-page">
+            <h3>Hello, Shoes (Pvt) Ltd</h3>
+            <div>
+                <input type="text" placeholder="User" id="txtUser">
+                <input type="text" placeholder="Password" id="txtPassword" >
+            </div>
+
+            <div>
+                <button type="button" id="btnSignIn">Sign In</button>
+                <button type="button" id="btnSignUp">Sign Up</button>
+            </div>
+        </section>
+        <section id="sign-up-page">
+            <h3>Hello, Shoes (Pvt) Ltd</h3>
+            <div>
+                <div >
+                    <select class="form-select form-select-sm" aria-label="Small select example" id="cmdAccessRole">
+                        <option>Admin</option>
+                        <option>User</option>
+                    </select>
+                </div>
+                <input type="text" placeholder="Email" id="txtSignUpEmail">
+                <input type="text" placeholder="Password" id="txtPasswordSignUpEmail" >
+            </div>
+
+            <div>
+                <button type="button" id="btnSignUpToApp">Sign Up</button>
+                <button type="button" id="btnBackLogIn">Back</button>
+            </div>
         </section>
     </main>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
     <script src="assets/Bootstrap/js/bootstrap.js"></script>
+    <script src="controller/SignInController.js"></script>
+    <script src="controller/SignUpController.js"></script>
+    <script src="controller/AdminPanelController.js"></script>
     <script src="controller/CustomerController.js"></script>
     <script src="controller/SupplierController.js"></script>
     <script src="controller/EmployeeController.js"></script>

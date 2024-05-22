@@ -3,10 +3,13 @@ $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
 
-let paymentMethod;
+
+setPurchaseOrderID()
+
+let paymentMethod="cash";
 
 function clearAll(){
-    $("#customer,#supplier,#employee,#inventory,#sale").css('display','none');
+    $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
 }
 
 function setView(viewOb){
@@ -311,11 +314,49 @@ function setBalance() {
     }
 }
 
-setCurrentDate()
-function setCurrentDate(){
-    let dateString = new Date(Date.now()).toLocaleString();
-    let today = dateString.slice(0,3).match(/[0-9]/i) ? dateString.split(' ')[0].split(',')[0] : dateString.split(' ')[1] + " " + dateString.split(' ')[2] + " " + dateString.split(' ')[3];
-    $("#lblOrderDate").text(today);
+displayCurrentTimestamp();
+function displayCurrentTimestamp() {
+    /*const now = new Date();
+    const timestamp = now.toLocaleString(); // Format the date and time as a string
+    $("#lblOrderDate").text(timestamp);*/
+
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');  // Months are 0-based
+    const day = now.getDate().toString().padStart(2, '0');
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+
+    const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+   /* const now = new Date();
+    const formattedDateTime = now.toISOString();
+    console.log(formattedDateTime);*/
+
+    $("#lblOrderDate").text(formattedDateTime);
+}
+
+/*window.onload = function() {
+    displayCurrentTimestamp(); // Display timestamp as soon as the page loads
+    setInterval(displayCurrentTimestamp, 1000); // Update the timestamp every second
+}*/
+
+$("#btnPurchase").click(function (){
+    purchaseOrder();
+})
+
+function setPurchaseOrderID(){
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/sales/orderID",
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            $("#lblOrderId").text(resp)
+        },
+    });
 }
 
 function purchaseOrder(){
@@ -362,7 +403,7 @@ function purchaseOrder(){
             itemDesc:name,
             size:size,
             quantity:qty,
-            unitPrice:total
+            unitPrice:price
         }
 
         itemDetails.push(details)
@@ -403,5 +444,43 @@ function purchaseOrder(){
         error: function (error){
             console.log("Error",error);
         }
+    });
+}
+
+$("#btnToSalesForm").click(function (){
+    $("#purchaseDetails").css({
+        'display':'inline-block'
+    });
+});
+
+$("#btnToSaleFromPurchase").click(function (){
+    $("#purchaseDetails").css({
+        'display':'none'
+    });
+});
+
+getAllSales();
+function getAllSales(){
+    $("#tblPurchaseDetails").empty();
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/sales/getAll",
+        method: "GET",
+        dataType: "json",
+        success: function (resp) {
+            for (const sale of resp) {
+                let row = `<tr>
+                    <td>${sale.orderNo}</td>
+                    <td>${sale.customerCode}</td>
+                    <td>${sale.customerName}</td>
+                    <td>${sale.totalPrice}</td>
+                    <td>${sale.purchaseDate}</td>
+                    <td>${sale.paymentMethod}</td>
+                    <td>${sale.addedPoints}</td>
+                    <td>${sale.cashierName}</td>
+                    <td>${sale.employeeCode}</td>
+                </tr>`
+                $("#tblPurchaseDetails").append(row);
+            }
+        },
     });
 }

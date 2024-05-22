@@ -4,12 +4,13 @@ $("#employee").css('display','none');
 $("#inventory").css('display','none');
 $("#sale").css('display','none');
 
+
 let customerCodes = [];
 getAllCustomers();
 
 
 function clearAll(){
-    $("#customer,#supplier,#employee,#inventory,#sale").css('display','none');
+    $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
 }
 
 function setView(viewOb){

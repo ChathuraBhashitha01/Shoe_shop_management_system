@@ -3,11 +3,12 @@ $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
 $("#sale").css('display','none');
+
 getAllInventories();
 
 
 function clearAll(){
-    $("#customer,#supplier,#employee,#inventory,#sale").css('display','none');
+    $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
 }
 
 function setView(viewOb){
@@ -271,9 +272,16 @@ function uploadItemPicture(code){
             // Create a Blob from the array buffer
             let blob = new Blob([uint8Array], { type: 'image/jpeg, image/png,image/jpg' }); // Change the MIME type accordingly
 
+            let file = new File([blob], 'image.png', { type: 'image/png' });
+
+            let dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+
+            inputItemPicture.files = dataTransfer.files;
+
             // Create an object URL for the blob
             itemPicture.src = URL.createObjectURL(blob);
-            $("#inputItemPicture").val(blob)
+
         },
     });
 }
