@@ -21,14 +21,16 @@ public class User implements UserDetails {
 
     @Id
     private String email;
+    private String name;
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        HashSet<GrantedAuthority> authorities=new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority(role.name()));
+        HashSet<GrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(
+                "Role_"+role.name()));
         return authorities;
     }
 

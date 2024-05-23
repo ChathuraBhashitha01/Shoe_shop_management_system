@@ -8,15 +8,18 @@ import io.jsonwebtoken.security.Keys;
 import lk.ijse.gdse.springboot.back_end.service.JwtService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.function.Function;
 
+@Service
 public class JwtServiceImpl implements JwtService {
     @Value("${token.key}")
     String jwtKey;
+
     @Override
     public String extractUserName(String token) {
         return extractClaims(token, Claims::getSubject); // extract the subject claim from a Claims object
@@ -27,14 +30,15 @@ public class JwtServiceImpl implements JwtService {
         HashMap<String, Object> claims = new HashMap<>();
         claims.put("role",userDetails.getAuthorities());
         Date currentDate = new Date();
-        Date expiredDate = new Date(currentDate.getTime() + 1000 * 60 * 60 * 24);
+        Date expiredDate = new Date(currentDate.getTime() + 1000 * 600);
         String accessToken = Jwts.builder()
                 .setClaims(claims)
                 .setSubject(userDetails.getUsername()) // set the "subject" (sub) claim of the JWT
                 .setIssuedAt(currentDate) // set the "issued at" (iat) claim of the JWT
                 .setExpiration(expiredDate) // set the "expiration" (exp) claim of the JWT
-                .signWith(getSignKey(), SignatureAlgorithm.HS256) // give the signing key and the signing algorithm for signing the JWT
+                .signWith(getSignKey(),SignatureAlgorithm.HS256) // give the signing key and the signing algorithm for signing the JWT
                 .compact();
+
         return accessToken;
     }
 
@@ -53,6 +57,7 @@ public class JwtServiceImpl implements JwtService {
         return Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token).getBody();
     }
 
+    // extract all claims from jwt
     private <T> T extractClaims(String token, Function<Claims,T> claimResolve){
         Claims claims = getAllClaims(token);
         return claimResolve.apply(claims);

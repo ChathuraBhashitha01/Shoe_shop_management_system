@@ -1,6 +1,7 @@
 package lk.ijse.gdse.springboot.back_end.auth.response;
 
-import lk.ijse.gdse.shoeshopbackend.util.Role;
+
+import lk.ijse.gdse.springboot.back_end.util.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

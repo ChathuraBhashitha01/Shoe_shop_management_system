@@ -19,11 +19,10 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     private final UserRepo userRepo;
-    private final EmployeeRepo employeeRepo;
     private final ModelMapper mapper;
 
     @Override
-    public UserDetailsService userServiceDetails() {
+    public UserDetailsService userDetailService() {
         return username -> userRepo.findById(username)
                 .orElseThrow(() -> new
                         UsernameNotFoundException(
@@ -31,13 +30,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(UserDTO userDTO) {
-        if (userRepo.existsById(userDTO.getEmail())){
-            throw new DuplicateRecordException("User Email is already exists!");
-        } else if (!employeeRepo.existsByEmail(userDTO.getEmail())) {
-            throw new NotFoundException("No Employee can be found this email");
-        } else {
-            userRepo.save(mapper.map(userDTO, User.class));
-        }
+    public void Save(UserDTO userDTO) {
+        userRepo.save(mapper.map(userDTO, User.class));
     }
 }

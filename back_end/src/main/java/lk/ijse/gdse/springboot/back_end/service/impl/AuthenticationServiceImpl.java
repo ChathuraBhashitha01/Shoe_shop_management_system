@@ -22,17 +22,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
-
     private final PasswordEncoder passwordEncoder;
     private final UserRepo userRepo;
     private final ModelMapper mapper;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
-
-    private final EmployeeRepo employeeRepo;
 
     @Override
     public JwtAuthResponse signIn(SignInRequest signInRequest) {
@@ -57,17 +56,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public JwtAuthResponse signUp(SignUpRequest signUpRequest) {
-        String email = signUpRequest.getEmail();
-
-        if (userRepo.existsById(email)) {
-            throw new DuplicateRecordException("User Email already exists!");
-        }
-
-        if (!employeeRepo.existsByEmail(email)) {
-            throw new NotFoundException("No Employee can be found with this email");
-        }
-
         UserDTO userDTO = UserDTO.builder()
+                .name(signUpRequest.getName())
                 .email(signUpRequest.getEmail())
                 .password(passwordEncoder.encode(signUpRequest.getPassword()))
                 .role(Role.valueOf(signUpRequest.getRole()))

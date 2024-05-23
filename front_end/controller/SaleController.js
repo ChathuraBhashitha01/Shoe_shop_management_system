@@ -1,24 +1,24 @@
-$("#customer").css('display','none');
+/*$("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
-$("#inventory").css('display','none');
+$("#inventory").css('display','none');*/
 
 
 setPurchaseOrderID()
 
 let paymentMethod="cash";
 
-function clearAll(){
+/*function clearAll(){
     $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
-}
+}*/
 
-function setView(viewOb){
+function setSaleView(viewOb){
     clearAll();
     viewOb.css('display','block');
 }
 
 $("#navSale").click(function (){
-    setView($("#sale"))
+    setSaleView($("#sale"))
 });
 
 getAllInventoriesForSale();

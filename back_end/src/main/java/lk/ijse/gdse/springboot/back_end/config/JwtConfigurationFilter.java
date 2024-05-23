@@ -21,8 +21,9 @@ import java.io.IOException;
 public class JwtConfigurationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserService userService;
+
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String authorizationHeader = request.getHeader("Authorization"); // get the value of the Authorization header
 
         // validate Authorization header
@@ -32,7 +33,7 @@ public class JwtConfigurationFilter extends OncePerRequestFilter {
 
             // check if username extracted from JWT is not null and there is no existing authenticated user in the security context
             if(extractedUserName != null && SecurityContextHolder.getContext().getAuthentication()==null){
-                UserDetails userDetails = userService.userServiceDetails().loadUserByUsername(extractedUserName); //get the UserDetails corresponding to the extracted username from user table in db
+                UserDetails userDetails = userService.userDetailService().loadUserByUsername(extractedUserName); //get the UserDetails corresponding to the extracted username from user table in db
 
                 // checks if the JWT token is valid for the extracted user details
                 if(jwtService.isTokenValid(jwt,userDetails)){
