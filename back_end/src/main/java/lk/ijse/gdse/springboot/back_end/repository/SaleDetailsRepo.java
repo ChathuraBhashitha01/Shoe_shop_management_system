@@ -9,8 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface SaleDetailsRepo extends JpaRepository<SaleDetails,String> {
-    SaleDetails findTopByOrderByItemCode();
 
-    @Query(value = "SELECT * FROM sale WHERE purchase_date >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY)", nativeQuery = true)
-    List<Sale> getAllRefundOrders();
+    @Query(value = "SELECT * FROM sale_details WHERE order_no = :orderId", nativeQuery = true)
+    List<SaleDetails> findOrderDetailsByOrderId(String orderId);
 }

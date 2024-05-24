@@ -1,6 +1,7 @@
 package lk.ijse.gdse.springboot.back_end.controller;
 
 import lk.ijse.gdse.springboot.back_end.dto.SaleDTO;
+import lk.ijse.gdse.springboot.back_end.dto.SaleDetailsDTO;
 import lk.ijse.gdse.springboot.back_end.service.SaleService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,7 @@ public class SaleController {
     }
 
     @GetMapping("/orderID")
-    public String getOrederID(){
+    public String getOrderID(){
         return saleService.getNextId();
     }
 
@@ -41,5 +42,10 @@ public class SaleController {
     @DeleteMapping(value = "/{id}")
     public void deleteSales(@PathVariable("id") String id){
         saleService.deleteSale(id);
+    }
+
+    @GetMapping("/refund")
+    public List<SaleDetailsDTO> getRefund(){
+        return saleService.getAllRefundOrders();
     }
 }

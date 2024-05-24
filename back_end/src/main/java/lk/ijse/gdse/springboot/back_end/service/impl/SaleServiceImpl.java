@@ -1,6 +1,5 @@
 package lk.ijse.gdse.springboot.back_end.service.impl;
 
-import jakarta.transaction.Transactional;
 import lk.ijse.gdse.springboot.back_end.dto.CustomerDTO;
 import lk.ijse.gdse.springboot.back_end.dto.InventoryDTO;
 import lk.ijse.gdse.springboot.back_end.dto.SaleDTO;
@@ -16,10 +15,13 @@ import lk.ijse.gdse.springboot.back_end.repository.SaleRepo;
 import lk.ijse.gdse.springboot.back_end.service.SaleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class SaleServiceImpl implements SaleService {
 
     private ModelMapper modelMapper;
@@ -42,14 +44,14 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    @Transactional
     public void saveSale(SaleDTO saleDTO) {
         SaleDTO saleDTO1=new SaleDTO(saleDTO.getOrderNo(),saleDTO.getCustomerCode(),saleDTO.getCustomerName(),saleDTO.getTotalPrice(),saleDTO.getPurchaseDate(),saleDTO.getPaymentMethod(),saleDTO.getAddedPoints(),saleDTO.getCashierName(),saleDTO.getEmployeeCode());
         saleRepo.save(modelMapper.map(saleDTO1, Sale.class));
 
         for (SaleDetailsDTO detailsDTO:saleDTO.getSaleDetails()) {
-            saleDetailsRepo.save(modelMapper.map(detailsDTO, SaleDetails.class));
-
+             SaleDetailsDTO saleDetailsDTO = new SaleDetailsDTO(detailsDTO.getOrderNo(), detailsDTO.getItemCode(), detailsDTO.getItemDesc(), detailsDTO.getSize(), detailsDTO.getQuantity(), detailsDTO.getUnitPrice());
+            saleDetailsRepo.save(modelMapper.map(saleDetailsDTO, SaleDetails.class));
+            System.out.println( "sale details"+detailsDTO);
             if(detailsDTO.getSize()==5){
                 InventoryDTO inventoryDTO=modelMapper.map(inventoryRepo.findById(detailsDTO.getItemCode()).get(), InventoryDTO.class);
                 int qty=inventoryDTO.getQuantitySize5()-detailsDTO.getQuantity();
@@ -103,35 +105,32 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public String getNextId() {
-        /*List<SaleDTO> detailsDTOS=saleRepo.findTopByOrderByOrderNo().stream().map(sale -> modelMapper.map(sale,SaleDTO.class)).toList();
-        for (SaleDTO detail:detailsDTOS) {
-            return splitId(detail.getOrderNo());
+        String prefix = "OR-";
+        String id = "";
+
+        Sale lastOrder = saleRepo.findTopByOrderByOrderNoDesc();
+        int nextNumericPart;
+        if (lastOrder != null) {
+            String lastCode = lastOrder.getOrderNo();
+            String numericPartString = lastCode.substring(prefix.length());
+            try {
+                int numericPart = Integer.parseInt(numericPartString);
+                nextNumericPart = numericPart + 1;
+            } catch (NumberFormatException e) {
+                nextNumericPart = 1;
+            }
+        } else {
+            nextNumericPart = 1;
         }
-        return splitId(null);*/
-        return null;
+        id = prefix + String.format("%04d", nextNumericPart);
+
+        System.out.println("Order next id ="+id);
+        return id;
     }
 
     @Override
     public String splitId(String id) {
-        if(id != null) {
-            String[] strings = id.split("OR00-00");
-            int ids = Integer.parseInt(strings[1]);
-            if(ids==9){
-                String[] strings2 = id.split("OR00-0");
-                int ids2 = Integer.parseInt(strings2[1]);
-                if(ids2==99){
-                    String[] strings3 = id.split("OR00-");
-                    int ids3 = Integer.parseInt(strings2[1]);
-                    ids3++;
-                    return "OR00-" + ids3;
-                }
-                ids2++;
-                return "OR00-0" + ids2;
-            }
-            ids++;
-            return "OR00-00" + ids;
-        }
-        return "OR00-001";
+        return null;
     }
 
     @Override
@@ -142,5 +141,20 @@ public class SaleServiceImpl implements SaleService {
     @Override
     public void deleteSale(String id) {
         saleRepo.deleteById(id);
+    }
+
+    @Override
+    public List<SaleDetailsDTO> getAllRefundOrders() {
+        List<SaleDetailsDTO> refundDetails=new ArrayList<>();
+//        return saleRepo.getAllRefundOrders().stream().map(sale -> modelMapper.map(sale,SaleDTO.class)).toList();
+         List<Sale> allRefundOrders = saleRepo.getAllRefundOrders();
+        for (Sale sale:allRefundOrders) {
+             List<SaleDetailsDTO> orderDetailsByOrderId = saleDetailsRepo.findOrderDetailsByOrderId(sale.getOrderNo()).stream().map(saleDetails -> modelMapper.map(saleDetails,SaleDetailsDTO.class)).toList();
+            for (SaleDetailsDTO saleDetails:orderDetailsByOrderId) {
+               refundDetails.add(saleDetails);
+            }
+        }
+        System.out.println("refund : ");
+        return refundDetails;
     }
 }

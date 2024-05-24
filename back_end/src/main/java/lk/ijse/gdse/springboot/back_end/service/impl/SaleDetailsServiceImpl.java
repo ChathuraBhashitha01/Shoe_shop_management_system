@@ -5,9 +5,12 @@ import lk.ijse.gdse.springboot.back_end.entity.SaleDetails;
 import lk.ijse.gdse.springboot.back_end.repository.SaleDetailsRepo;
 import lk.ijse.gdse.springboot.back_end.service.SaleDetailsService;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+@Service
 public class SaleDetailsServiceImpl implements SaleDetailsService {
 
     private ModelMapper modelMapper;
@@ -40,6 +43,13 @@ public class SaleDetailsServiceImpl implements SaleDetailsService {
 
     @Override
     public SaleDetailsDTO getTopSale() {
-        return modelMapper.map(saleDetailsRepo.findTopByOrderByItemCode(),SaleDetailsDTO.class);
+        /*return modelMapper.map(saleDetailsRepo.findTopByOrderByItemCode(),SaleDetailsDTO.class);*/
+        return null;
     }
+
+   /* @Override
+    public List<SaleDetailsDTO> getAllRefundOrders() {
+        return saleDetailsRepo.getAllRefundOrders().stream().map(saleDetails -> modelMapper.map(saleDetails,SaleDetailsDTO.class)).toList();
+    }*/
+
 }
