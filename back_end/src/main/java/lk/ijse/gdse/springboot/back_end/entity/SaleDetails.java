@@ -9,13 +9,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "saleDetails")
+@Table(name = "sale_details")
 public class SaleDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int no;
-
+    private String itemDesc;
+    private int size;
+    private int quantity;
+    private double unitPrice;
     @ManyToOne
     @JoinColumn(name = "orderNo",referencedColumnName = "orderNo",insertable = false,updatable = false)
     private Sale orderNo;
@@ -23,9 +26,5 @@ public class SaleDetails {
     @ManyToOne
     @JoinColumn(name = "itemCode",referencedColumnName = "itemCode",insertable = false,updatable = false)
     private Inventory itemCode;
-    private String itemDesc;
-    private int size;
-    private int quantity;
-    private double unitPrice;
 
 }

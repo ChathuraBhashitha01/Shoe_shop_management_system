@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,7 +20,7 @@ public class Sale {
     @Id
     private String orderNo;
     @ManyToOne
-    @JoinColumn(name = "customerCode",referencedColumnName = "customerCode")
+    @JoinColumn(name = "customer",referencedColumnName = "customerCode")
     private Customer customer;
     private String customerName;
     private double totalPrice;
@@ -27,6 +29,9 @@ public class Sale {
     private int addedPoints;
     private String cashierName;
     @ManyToOne
-    @JoinColumn(name = "employeeCode",referencedColumnName = "employeeCode")
+    @JoinColumn(name = "employee",referencedColumnName = "employeeCode")
     private Employee employee;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "orderNo")
+    private List<SaleDetails> saleDetails = new ArrayList<>();
 }

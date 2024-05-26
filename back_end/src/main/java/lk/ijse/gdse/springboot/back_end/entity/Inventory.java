@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,7 +29,7 @@ public class Inventory {
     private int quantitySize10;
     private int quantitySize11;
     @ManyToOne
-    @JoinColumn(name = "supplierCode",referencedColumnName = "supplierCode")
+    @JoinColumn(name = "supplier",referencedColumnName = "supplierCode")
     private Supplier supplier;
     private String supplierName;
     private double unitPriceSale;
@@ -34,6 +37,9 @@ public class Inventory {
     private double expectedProfit;
     private double profitMargin;
     private String status;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "itemCode")
+    private List<SaleDetails> saleDetails = new ArrayList<>();
 
 
 }
