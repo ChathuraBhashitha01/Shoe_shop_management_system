@@ -47,9 +47,5 @@ public class SaleDetailsServiceImpl implements SaleDetailsService {
         return null;
     }
 
-   /* @Override
-    public List<SaleDetailsDTO> getAllRefundOrders() {
-        return saleDetailsRepo.getAllRefundOrders().stream().map(saleDetails -> modelMapper.map(saleDetails,SaleDetailsDTO.class)).toList();
-    }*/
 
 }

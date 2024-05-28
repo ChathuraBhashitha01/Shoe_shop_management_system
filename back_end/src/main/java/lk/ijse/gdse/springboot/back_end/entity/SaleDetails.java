@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "sale_details")
+@Table(name = "saleDetails")
 public class SaleDetails {
 
     @Id
@@ -19,12 +19,15 @@ public class SaleDetails {
     private int size;
     private int quantity;
     private double unitPrice;
-    @ManyToOne
-    @JoinColumn(name = "orderNo",referencedColumnName = "orderNo",insertable = false,updatable = false)
-    private Sale orderNo;
 
     @ManyToOne
-    @JoinColumn(name = "itemCode",referencedColumnName = "itemCode",insertable = false,updatable = false)
-    private Inventory itemCode;
+    @JoinColumn(name = "orderNo",referencedColumnName = "orderNo",
+            insertable = true,
+            updatable = true)
+    private Sale sale;
+
+    @ManyToOne
+    @JoinColumn(name = "itemCode",referencedColumnName = "itemCode")
+    private Inventory inventory;
 
 }

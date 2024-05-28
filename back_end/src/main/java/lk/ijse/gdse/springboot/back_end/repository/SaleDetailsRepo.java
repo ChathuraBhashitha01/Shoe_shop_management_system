@@ -12,4 +12,10 @@ public interface SaleDetailsRepo extends JpaRepository<SaleDetails,String> {
 
     @Query(value = "SELECT * FROM sale_details WHERE order_no = :orderId", nativeQuery = true)
     List<SaleDetails> findOrderDetailsByOrderId(String orderId);
+
+    @Query("SELECT s.inventory.itemCode, SUM(s.quantity) AS totalQuantity " +
+            "FROM SaleDetails s " +
+            "GROUP BY s.inventory.itemCode " +
+            "ORDER BY totalQuantity DESC")
+    SaleDetails findTopSellingItem();
 }

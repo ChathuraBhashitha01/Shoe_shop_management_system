@@ -38,7 +38,7 @@ public class Inventory {
     private double profitMargin;
     private String status;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "itemCode")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "inventory")
     private List<SaleDetails> saleDetails = new ArrayList<>();
 
 
