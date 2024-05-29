@@ -1,16 +1,5 @@
-/*$("#customer").css('display','none');
-$("#supplier").css('display','none');
-$("#employee").css('display','none');
-$("#inventory").css('display','none');*/
-
-
-setPurchaseOrderID()
 
 let paymentMethod="cash";
-
-/*function clearAll(){
-    $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
-}*/
 
 function setSaleView(viewOb){
     clearAll();
@@ -20,6 +9,20 @@ function setSaleView(viewOb){
 $("#navSale").click(function (){
     setSaleView($("#sale"))
 });
+NextOrderID();
+function NextOrderID(){
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/sales/orderID",
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        success: function (resp) {
+            $("#lblOrderId").text(resp)
+            console.log(resp);
+        },
+    });
+}
 
 getAllInventoriesForSale();
 function getAllInventoriesForSale(){
@@ -27,6 +30,9 @@ function getAllInventoriesForSale(){
         url: "http://localhost:8080/app/api/v1/inventories",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             for (const inventory of resp) {
 
@@ -90,6 +96,9 @@ function getPictureForAddToCartForm(code){
         url: "http://localhost:8080/app/api/v1/inventories/"+code,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
 
             let base64Image =resp.itemPicture;
@@ -348,46 +357,18 @@ $("#btnPurchase").click(function (){
     purchaseOrder();
 })
 
-function setPurchaseOrderID(){
-    $.ajax({
-        url: "http://localhost:8080/app/api/v1/sales/orderID",
-        method: "GET",
-        dataType: "json",
-        success: function (resp) {
-            $("#lblOrderId").text(resp)
-        },
-    });
-}
-
 function purchaseOrder(){
     let customerCode = $("#txtCustomerCodeForPurchase").val();
-    let employeeCode = $("#txtEmployeeCodeForPurchase").val();
+    let employeeCode = $("#lblUserID").text();
     let orderId = $("#lblOrderId").text();
     let totalOfAllItems = $("#txtSubtotal").text();
     let orderDate = $("#lblOrderDate").text();
-    let customerName;
-    let employeeName;
+    let customerName=null;
+    let employeeName=$("#lblUserName").text();
     let addedPoints=0;
 
     let itemDetails=[];
 
-    $.ajax({
-        url: "http://localhost:8080/app/api/v1/employees/"+employeeCode,
-        method: "GET",
-        dataType: "json",
-        success: function (resp) {
-            employeeName=resp.employeeName;
-        },
-    });
-
-    $.ajax({
-        url: "http://localhost:8080/app/api/v1/customers/"+customerCode,
-        method: "GET",
-        dataType: "json",
-        success: function (resp) {
-            customerName=resp.customerName;
-        },
-    });
 
     $('#tblPurchase>tr').each(function () {
         let code=$(this).children().eq(0).text();
@@ -434,6 +415,9 @@ function purchaseOrder(){
         method:"POST",
         data:jsonObject,
         contentType:("application/json"),
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
@@ -445,6 +429,9 @@ function purchaseOrder(){
             console.log("Error",error);
         }
     });
+    $("#tblPurchase").empty();
+    NextOrderID();
+
 }
 
 $("#btnToSalesForm").click(function (){
@@ -466,6 +453,9 @@ function getAllSales(){
         url: "http://localhost:8080/app/api/v1/sales/getAll",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             for (const sale of resp) {
                 let row = `<tr>
@@ -484,3 +474,156 @@ function getAllSales(){
         },
     });
 }
+
+$("#btnToRefundForm").click(function (){
+    $("#refundPurchase").css({
+        'display':'block'
+    });
+});
+
+$("#btnToSaleFromRefund").click(function (){
+    $("#refundPurchase").css({
+        'display':'none'
+    });
+});
+getAllRefunds();
+function getAllRefunds(){
+    $("#tblForRefundDetails").empty();
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/sales/refund",
+        method: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        success: function (resp) {
+            for (const sale of resp) {
+                let row = `<tr>
+                    <td>${sale.orderNo}</td>
+                    <td>${sale.itemCode}</td>
+                    <td>${sale.itemDesc}</td>
+                    <td>${sale.size}</td>
+                    <td>${sale.quantity}</td>
+                    <td>${sale.unitPrice}</td>              
+                </tr>`
+                $("#tblForRefundDetails").append(row);
+            }
+        },
+    });
+}
+$("#searchSales").click(function (){
+    let sortType = $("#sortSales").val();
+    let maxPrice = $("#maxPrice").val();
+    let minPrice = $("#minPrice").val();
+
+    if (sortType==="Man"||sortType==="Women" &&  $("#minPrice").val().length===0 && $("#maxPrice").val().length===0){
+        $("#itemDetails").empty();
+        $.ajax({
+            url: "http://localhost:8080/app/api/v1/inventories/getByGender/"+sortType,
+            method: "GET",
+            dataType: "json",
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            },
+            success: function (resp) {
+                for (const inventory of resp) {
+
+                    let divElement=`<div class="divInItemDetails">
+                                    <img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">
+                                    <label>${inventory.itemDesc}</label>
+                                    <label>${inventory.unitPriceSale}</label>
+                                    <button class="btnItemBuy">Buy</button>
+                                    <label>${inventory.status}</label>
+                                    <label>${inventory.status}</label>
+                                    <label>In Stock</label>
+                                    <label class="itemCode">${inventory.itemCode}</label>
+                                </div>`
+
+                    $("#itemDetails").append(divElement);
+                }
+            }
+        });
+    }
+    else if (sortType==="All" && $("#minPrice").val().length===0 && $("#maxPrice").val().length===0){
+        $("#itemDetails").empty();
+        getAllInventoriesForSale();
+    }
+    else if(sortType==="All" && $("#minPrice").val().length!==0 && $("#maxPrice").val().length!==0){
+        $("#itemDetails").empty();
+        $.ajax({
+            url: "http://localhost:8080/app/api/v1/inventories/getAllItemsByPrice/"+minPrice+"/"+maxPrice,
+            method: "GET",
+            dataType: "json",
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            },
+            success: function (resp) {
+                for (const inventory of resp) {
+
+                    let divElement=`<div class="divInItemDetails">
+                                    <img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">
+                                    <label>${inventory.itemDesc}</label>
+                                    <label>${inventory.unitPriceSale}</label>
+                                    <button class="btnItemBuy">Buy</button>
+                                    <label>${inventory.status}</label>
+                                    <label>${inventory.status}</label>
+                                    <label>In Stock</label>
+                                    <label class="itemCode">${inventory.itemCode}</label>
+                                </div>`
+
+                    $("#itemDetails").append(divElement);
+                }
+            }
+        });
+    }
+    else if (sortType!=="All" &&  $("#minPrice").val().length!==0 && $("#maxPrice").val().length!==0){
+        $("#itemDetails").empty();
+        $.ajax({
+            url: "http://localhost:8080/app/api/v1/inventories/getAllItemsByPriceAndGender/"+sortType+"/"+minPrice+"/"+maxPrice,
+            method: "GET",
+            dataType: "json",
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            },
+            success: function (resp) {
+                for (const inventory of resp) {
+
+                    let divElement=`<div class="divInItemDetails">
+                                    <img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">
+                                    <label>${inventory.itemDesc}</label>
+                                    <label>${inventory.unitPriceSale}</label>
+                                    <button class="btnItemBuy">Buy</button>
+                                    <label>${inventory.status}</label>
+                                    <label>${inventory.status}</label>
+                                    <label>In Stock</label>
+                                    <label class="itemCode">${inventory.itemCode}</label>
+                                </div>`
+
+                    $("#itemDetails").append(divElement);
+                }
+            }
+        });
+    }
+});
+
+$("#customerContact").click(function (){
+
+    let contact = $("#customerContact").val();
+
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/customers/"+contact,
+        method: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        success: function (resp) {
+            $("#lblCustomerCode").text(resp.customerCode);
+            $("#lblCustomerName").text(resp.customerName);
+            $("#lblCustomerEmail").text(resp.email);
+            $("#lblCustomerLevel").text(resp.level);
+            $("#lblCustomerPurchaseDate").text(resp.recentPurchaseDate);
+            $("#lblCustomerAddress").text(resp.addressLine01+","+resp.addressLine02+","+resp.addressLine03+","+resp.addressLine04+","+resp.addressLine05+".");
+        },
+    });
+});

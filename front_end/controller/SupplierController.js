@@ -1,23 +1,23 @@
-$("#customer").css('display','none');
+/*$("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
-$("#sale").css('display','none');
+$("#sale").css('display','none');*/
 
 
 let supplierCodes = [];
 getAllSupplier();
-function clearAll(){
+/*function clearAll(){
     $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
-}
+}*/
 
-function setView(viewOb){
+function setSupplierView(viewOb){
     clearAll();
     viewOb.css('display','block');
 }
 
 $("#navSupplier").click(function (){
-    setView($("#supplier"))
+    setSupplierView($("#supplier"))
 });
 
 $("#btnSaveSupplier").click(function (){
@@ -69,6 +69,9 @@ function saveSupplier(){
         method:"POST",
         data:jsonObject,
         contentType:("application/json"),
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
@@ -117,6 +120,9 @@ function updateSupplier(){
         method:"PATCH",
         data:jsonObject,
         contentType:("application/json"),
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
@@ -136,6 +142,9 @@ function deleteSupplier(){
     $.ajax({
         url: "http://localhost:8080/app/api/v1/suppliers/" + supplierCode,
         method: "DELETE",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             if (jqxhr.status == 201) {
                 alert("Delete supplier successfully");
@@ -160,6 +169,9 @@ function getAllSupplier(){
         url: "http://localhost:8080/app/api/v1/suppliers",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             for (const supplier of resp) {
                 let row=`<tr>

@@ -8,10 +8,12 @@ $("#btnSignUpToApp").click(function () {
 
     let email= $("#txtSignUpEmail").val();
     let password= $("#txtPasswordSignUpEmail").val();
+    let name= $("#txtNameSignUpEmail").val();
     let role= $("#cmdAccessRole").val();
 
     let signUpObj = {
         email:email,
+        name:name,
         password:password,
         role:role
     }
@@ -21,7 +23,7 @@ $("#btnSignUpToApp").click(function () {
     const jsonObj = JSON.stringify(signUpObj)
 
     $.ajax({
-        url: "http://localhost:8080/api/v1/auth/signUp",
+        url: "http://localhost:8080/app/api/v1/auth/signUp",
         method: "POST",
         data: jsonObj,
         contentType: "application/json",

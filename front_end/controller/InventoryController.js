@@ -1,15 +1,15 @@
-$("#customer").css('display','none');
+/*$("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
-$("#sale").css('display','none');
+$("#sale").css('display','none');*/
 
 getAllInventories();
 
 
-function clearAll(){
+/*function clearAll(){
     $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
-}
+}*/
 
 function setView(viewOb){
     clearAll();
@@ -36,9 +36,10 @@ $("#btnInventorySave").click(function (){
 
     let itemPicInput = $("#inputItemPicture").prop('files')[0];
 
+    let typeofGender=$("#cmdTypeOfGender").val();
     let category=$("#cmdItemCategory").val();
     let supplierCode=$("#txtSupplierCodeForItem").val();
-    let supplierName=$("#txtSupplierName").val();
+    let supplierName=$("#txtSupplierNameForItem").val();
     let unitPriceSale=$("#txtUnitPriceSale").val();
     let unitPriceBuy=$("#txtUnitPriceBuy").val();
     let expectedProfit=$("#txtItemExpectedProfit").val();
@@ -56,6 +57,7 @@ $("#btnInventorySave").click(function (){
     inventoryData.append('itemCode',itemCode);
     inventoryData.append('itemDesc',itemName);
     inventoryData.append('itemPicture',itemPicInput);
+    inventoryData.append('typeOfGender',typeofGender);
     inventoryData.append('category',category);
     inventoryData.append('quantitySize5',size5);
     inventoryData.append('quantitySize6',size6);
@@ -78,6 +80,9 @@ $("#btnInventorySave").click(function (){
         data: inventoryData,
         processData: false,
         contentType: false,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
@@ -85,6 +90,8 @@ $("#btnInventorySave").click(function (){
                 alert("Added inventory successfully");
             }
             getAllInventories();
+            $("#itemDetails").empty();
+            getAllInventoriesForSale();
         },
         error: function (error){
             console.log("Error",error);
@@ -97,7 +104,7 @@ $("#btnInventoryUpdate").click(function (){
     let itemName=$("#txtItemName").val();
 
     let itemPicInput = $("#inputItemPicture").prop('files')[0];
-
+    let typeofGender=$("#cmdTypeOfGender").val();
     let category=$("#cmdItemCategory").val();
     let supplierCode=$("#txtSupplierCodeForItem").val();
     let supplierName=$("#txtSupplierNameForItem").val();
@@ -118,6 +125,7 @@ $("#btnInventoryUpdate").click(function (){
     inventoryData.append('itemCode',itemCode);
     inventoryData.append('itemDesc',itemName);
     inventoryData.append('itemPicture',itemPicInput);
+    inventoryData.append('typeOfGender',typeofGender);
     inventoryData.append('category',category);
     inventoryData.append('quantitySize5',size5);
     inventoryData.append('quantitySize6',size6);
@@ -140,6 +148,9 @@ $("#btnInventoryUpdate").click(function (){
         data: inventoryData,
         processData: false,
         contentType: false,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
@@ -147,6 +158,8 @@ $("#btnInventoryUpdate").click(function (){
                 alert("Added inventory successfully");
             }
             getAllInventories();
+            $("#itemDetails").empty();
+            getAllInventoriesForSale();
         },
         error: function (error){
             console.log("Error",error);
@@ -160,11 +173,16 @@ $("#btnInventoryDelete").click(function (){
     $.ajax({
         url: "http://localhost:8080/app/api/v1/inventories/" + itemCode,
         method: "DELETE",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             if (jqxhr.status == 201) {
                 alert("Delete inventory successfully");
             }
             getAllInventories();
+            $("#itemDetails").empty();
+            getAllInventoriesForSale();
         },
         error: function (error) {
 
@@ -178,12 +196,16 @@ function getAllInventories(){
         url: "http://localhost:8080/app/api/v1/inventories",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             for (const inventory of resp) {
                 let row=`<tr>
                     <td>${inventory.itemCode}</td>
                     <td><img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="max-width: 50px; height: 50px; border-radius: 10px;"></td>
                     <td>${inventory.itemDesc}</td>
+                    <td>${inventory.typeOfGender}</td>
                     <td>${inventory.category}</td>
                     <td>${inventory.quantitySize5}</td>
                     <td>${inventory.quantitySize6}</td>
@@ -211,21 +233,22 @@ function bindInventoryTrEvents() {
     $("#tblInventories>tr").click(function () {
         let code = $(this).children().eq(0).text();
         let name = $(this).children().eq(2).text();
-        let category = $(this).children().eq(3).text();
-        let quantitySize5 = $(this).children().eq(4).text();
-        let quantitySize6 = $(this).children().eq(5).text();
-        let quantitySize7 = $(this).children().eq(6).text();
-        let quantitySize8 = $(this).children().eq(7).text();
-        let quantitySize9 = $(this).children().eq(8).text();
-        let quantitySize10 = $(this).children().eq(9).text();
-        let quantitySize11 = $(this).children().eq(10).text();
-        let supplierCode = $(this).children().eq(11).text();
-        let supplierName = $(this).children().eq(12).text();
-        let unitPriceSale = $(this).children().eq(13).text();
-        let unitPriceBuy = $(this).children().eq(14).text();
-        let expectedProfit = $(this).children().eq(15).text();
-        let profitMargin = $(this).children().eq(16).text();
-        let status = $(this).children().eq(17).text();
+        let typeOfGender = $(this).children().eq(3).text();
+        let category = $(this).children().eq(4).text();
+        let quantitySize5 = $(this).children().eq(5).text();
+        let quantitySize6 = $(this).children().eq(6).text();
+        let quantitySize7 = $(this).children().eq(7).text();
+        let quantitySize8 = $(this).children().eq(8).text();
+        let quantitySize9 = $(this).children().eq(9).text();
+        let quantitySize10 = $(this).children().eq(10).text();
+        let quantitySize11 = $(this).children().eq(11).text();
+        let supplierCode = $(this).children().eq(12).text();
+        let supplierName = $(this).children().eq(13).text();
+        let unitPriceSale = $(this).children().eq(14).text();
+        let unitPriceBuy = $(this).children().eq(15).text();
+        let expectedProfit = $(this).children().eq(16).text();
+        let profitMargin = $(this).children().eq(17).text();
+        let status = $(this).children().eq(18).text();
 
         $("#txtItemCode").val(code)
         $("#txtItemName").val(name)
@@ -244,6 +267,7 @@ function bindInventoryTrEvents() {
         $("#txtItemExpectedProfit").val(expectedProfit)
         $("#txtItemProfitMargin").val(profitMargin)
         $("#txtItemStatus").val(status)
+        $("#cmdTypeOfGender").val(typeOfGender)
 
         uploadItemPicture(code);
     });
@@ -253,6 +277,9 @@ function uploadItemPicture(code){
         url: "http://localhost:8080/app/api/v1/inventories/"+code,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
 
             let base64Image =resp.itemPicture;

@@ -20,7 +20,7 @@
             position: fixed;
             z-index: 1;
         }
-        body>header>nav>label{
+        body>header>nav>label:nth-child(1){
             margin-top: 1%;
             margin-right: 0;
         }
@@ -37,23 +37,41 @@
         body>header>nav>div{
             display: flex;
         }
-
-        body>header>nav>div>img{
-            align-self: center;
-        }
-
         body>header>nav>div>ul>li{
             display: inline-block;
             padding-left: 40px;
             list-style: none;
+            cursor: pointer;
         }
-        /*body>header>nav>div>img{*/
-        /*    position: absolute;*/
-        /*    top: 10px;*/
-        /*    bottom: 0;*/
-        /*    right: 200px;*/
-        /*    margin: auto;*/
-        /*}*/
+        body>header>nav>img{
+            width: 50px;
+            height: 50px;
+            border-radius:50%;
+            position: absolute;
+            top: 0;
+            right: 3%;
+            bottom: 0;
+            margin: auto;
+        }
+        body>header>nav>label:nth-child(4){
+            position: absolute;
+            top: 10%;
+            right: 7%;
+            margin: auto;
+            font-weight: bold;
+            color: black;
+        }
+        body>header>nav>label:nth-child(5){
+            position: absolute;
+            bottom: 10%;
+            right: 7%;
+            margin: auto;
+            font-weight: bold;
+            color: black;
+        }
+        body>header>nav>label:nth-child(6){
+            display: none;
+        }
         body>main>section:nth-child(1)>div:first-child{
             width: 98vw;
             height: 55vh;
@@ -71,23 +89,6 @@
         body>main>section:nth-child(1)>div:first-child>div:first-child>div{
             position: relative;
         }
-      /*  body>main>section:nth-child(1)>div:first-child>div:first-child>div>label{
-            margin-top: 0;
-            margin-bottom: 15px;
-            display: inline-block;
-        }*/
-       /* body>main>section:nth-child(1)>div:first-child>div:first-child>div>input{
-            !*margin-top: 0;*!
-            !*margin-bottom: 0;*!
-            width: 350px;
-            height: 20px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-
-        }*/
         body>main>section:nth-child(1)>div:first-child>div:first-child>div:nth-child(3)>div{
             display: inline-block;
             margin-left: 195px;
@@ -113,23 +114,6 @@
         body>main>section:nth-child(1)>div:first-child>div:last-child>div{
             position: relative;
         }
-        /*body>main>section:nth-child(1)>div:first-child>div:last-child>div>h4{
-            margin-top: 0;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        body>main>section:nth-child(1)>div:first-child>div:last-child>div>input{
-            !*margin-top: 0;*!
-            !*margin-bottom: 0;*!
-            width: 350px;
-            height: 20px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-
-        }*/
         body>main>section:nth-child(1)>div:first-child>div:last-child>div:nth-child(3)>div{
             display: inline-block;
             margin-left: 195px;
@@ -155,48 +139,6 @@
             box-shadow: 0 .4rem .8rem #0005;
 
         }
-        /*body>main>section:nth-child(1)>div:last-child>div:last-child>table,th,td{
-            border-collapse: collapse;
-            padding: 10px;
-        }
-        body>main>section:nth-child(1)>div:last-child>div:last-child>table>thead{
-            position: sticky;
-            top: 0;
-            left: 0;
-            background-color: #d5d1defe;
-        }
-        body>main>section:nth-child(1)>div:last-child>div:last-child>table>tbody>tr:hover{
-            background-color: white;
-        }*/
-        /*body>main>section:nth-child(1)>div:last-child>div{
-            !*width: 100%; !* or set a specific width *!*!
-            height: 300px; !* set a specific height to enable vertical scrolling *!
-            !*overflow-x: auto; !* enables horizontal scrolling *!*!
-            overflow-y: auto; !* enables vertical scrolling *!
-        }*/
-       /* body>main>section:nth-child(1)>div:last-child>div:first-child{
-            width: 100%;
-            height: 10%;
-            background-color:#fff3ff ;
-            padding: 20px;
-        }
-        body>main>section:nth-child(1)>div:last-child>div:last-child::-webkit-scrollbar{
-            width: 0.5rem;
-            height: 0.5rem;
-        }
-        body>main>section:nth-child(1)>div:last-child>div:last-child::-webkit-scrollbar-thumb{
-            border-radius: 5rem;
-            background-color: #000400;
-            visibility: hidden;
-        }
-        body>main>section:nth-child(1)>div:last-child>div:last-child:hover::-webkit-scrollbar-thumb{
-            visibility: visible;
-        }*/
-       /* body>main>section:nth-child(2){
-            width: 100vw;
-            height: 90vh;
-            position: relative;
-        }*/
         body>main>section:nth-child(2)>div:first-child{
             width: 98vw;
             height: 55vh;
@@ -211,25 +153,6 @@
             left: 7%;
             margin: auto;
         }
-      /*  body>main>section:nth-child(2)>div:first-child>div:first-child>div{
-            position: relative;
-        }*/
-        /*body>main>section:nth-child(2)>div:first-child>div:first-child>div>h4{
-            margin-top: 0;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        body>main>section:nth-child(2)>div:first-child>div:first-child>div>input{
-            !*margin-top: 0;*!
-            !*margin-bottom: 0;*!
-            width: 450px;
-            height: 20px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-        }*/
         body>main>section:nth-child(2)>div:first-child>div:last-child{
             width: 40vw;
             height: 50vh;
@@ -238,23 +161,6 @@
             right: 7%;
             margin: auto;
         }
-       /* body>main>section:nth-child(2)>div:first-child>div:last-child>div{
-            position: relative;
-        }*/
-       /* body>main>section:nth-child(2)>div:first-child>div:last-child>div>h4{
-            margin-top: 0;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        body>main>section:nth-child(2)>div:first-child>div:last-child>div>input{
-            width: 450px;
-            height: 20px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-        }*/
         body>main>section:nth-child(2)>div:last-child{
             width: 95vw;
             height: 92vh;
@@ -319,24 +225,6 @@
             position: relative;
             top: 130px;
         }
-        /*body>main>section:nth-child(3)>div:first-child>div:first-child>div:last-child>div{
-            position: relative;
-        }
-        body>main>section:nth-child(3)>div:first-child>div:first-child>div:last-child>div>h4{
-            margin-top: 0;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        body>main>section:nth-child(3)>div:first-child>div:first-child>div:last-child>div>input{
-            width: 350px;
-            height: 20px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-
-        }*/
         body>main>section:nth-child(3)>div:first-child>div:first-child>div:last-child>div:nth-child(3)>div{
             display: inline-block;
             margin-left: 195px;
@@ -352,24 +240,6 @@
             right: 7%;
             margin: auto;
         }
-       /* body>main>section:nth-child(3)>div:first-child>div:last-child>div{
-            position: relative;
-        }
-        body>main>section:nth-child(3)>div:first-child>div:last-child>div>h4{
-            margin-top: 0;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        body>main>section:nth-child(3)>div:first-child>div:last-child>div>input{
-            width: 350px;
-            height: 20px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-
-        }*/
         body>main>section:nth-child(3)>div:last-child{
             width: 95vw;
             height: 92vh;
@@ -405,14 +275,6 @@
             top: 0;
             margin: auto;
         }
-        /*body>main>section:nth-child(4)>div:first-child>div:first-child>div:first-child>img{
-            width: 80px;
-            height: 80px;
-            position: absolute;
-            top: 5px;
-            left: 30px;
-            margin: auto;
-        }*/
         body>main>section:nth-child(4)>div:first-child>div:first-child>div:first-child>img{
             width: 80px;
             height: 80px;
@@ -440,31 +302,6 @@
         body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div{
             position: relative;
         }
-       /* body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div>h4{
-            display: inline-block;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div>input{
-            width: 350px;
-            height: 20px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-
-        }
-        body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div>select{
-            width: 355px;
-            height: 25px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-
-        }*/
         body>main>section:nth-child(4)>div:first-child>div:last-child{
             width: 40vw;
             height: 70vh;
@@ -476,67 +313,9 @@
         body>main>section:nth-child(4)>div:first-child>div:last-child>div{
             position: relative;
         }
-        /*body>main>section:nth-child(4)>div:first-child>div:last-child>div:nth-child(1)>h4{
-            display: inline-block;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:last-child>div:nth-child(1)>div{
-            display: inline-block;
-            margin-left: 195px;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:last-child>div:nth-child(1)>div>div{
-            display: inline-block;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:last-child>div:nth-child(2)>h4{
-            display: inline-block;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:last-child>div:nth-child(2)>div{
-            display: inline-block;
-            margin-left: 180px;
-        }*/
-       /* body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div:nth-child(4)>div>div{
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div:nth-child(4)>div{
-            display: inline-block;
-            margin-top: 10px;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div:nth-child(4)>div>div{
-            position: absolute;
-            left: 0;
-            top: 0;
-            margin: auto;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:first-child>div:last-child>div:nth-child(4)>div>input:last-child{
-            width: 100px;
-            height: 20px;
-            border: black solid 1px;
-        }*/
         body>main>section:nth-child(4)>div:first-child>div:last-child>div{
             position: relative;
         }
-       /* body>main>section:nth-child(4)>div:first-child>div:last-child>div>h4{
-            margin-top: 0;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:last-child>div>input{
-            width: 350px;
-            height: 20px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-        }
-        body>main>section:nth-child(4)>div:first-child>div:last-child>div:nth-child(8)>textarea{
-            width: 350px;
-            border: black solid 1px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            margin: auto;
-        }*/
         body>main>section:nth-child(4)>div:last-child{
             width: 95vw;
             height: 92vh;
@@ -720,35 +499,28 @@
             margin-left: 20px;
         }
         body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1){
-            width: 620px;
+            width: 90vw;
             height: 40px;
             position: absolute;
-            top: 90px;
-            left: 0;
-            right: 0;
+            top: 12%;
+            left: 5%;
             margin: auto;
         }
         body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>button{
             width: 200px;
             height: 40px;
         }
-        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>button:nth-child(1){
-            margin-top: 0;
-            margin-bottom: 0;
-            margin-left: 0;
-            margin-right: 0;
+        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>input{
+            width: 100px;
         }
-        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>button:nth-child(2){
-            margin-top: 0;
-            margin-bottom: 0;
-            margin-left: 0;
-            margin-right: 0;
+        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>select{
+            width: 100px;
+            height: 30px;
+            margin-left: 30%;
         }
-        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>button:nth-child(3){
-            margin-top: 0;
-            margin-bottom: 0;
-            margin-left: 0;
-            margin-right: 0;
+        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>button:nth-child(7){
+            width: 30px;
+            height: 30px;
         }
         body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(2){
             width: 90vw;
@@ -786,7 +558,7 @@
         body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(2)>div:nth-child(4){
             position: absolute;
             right: 2%;
-            bottom: 10%;
+            bottom: 2%;
             margin: auto;
         }
         body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(2)>div:nth-child(4)>button{
@@ -811,8 +583,27 @@
             font-size: 12px;
         }
         body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(2)>div:nth-child(7){
-            width: 75%;
-            height: 5%;
+            width: 100%;
+            height: 20%;
+           /* display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr)*/;
+        }
+        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(2)>div:nth-child(7)>div{
+            display: inline-block;
+        }
+        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(3){
+            width: 90vw;
+            height: 75vh;
+            border: red solid 1px;
+            background: #ffffff;
+            overflow: hidden;
+            overflow-y: scroll;
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            margin: auto;
+            display: none;
         }
         body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(4){
             width: 90vw;
@@ -926,6 +717,7 @@
             top: 35px;
             left: 20px;
         }
+
         body>main>section:nth-child(7)>div:nth-child(3){
             position: relative;
             top: 80px;
@@ -986,6 +778,11 @@
             top: 35px;
             left: 20px;
         }
+        #txtNameSignUpEmail{
+            position: relative;
+            top: 55px;
+            left: 20px;
+        }
         body>main>section:nth-child(8)>div:nth-child(2){
             position: relative;
             top: 80px;
@@ -1012,7 +809,7 @@
     <link rel="stylesheet" href="assets/Bootstrap/css/bootstrap.css">
 </head>
 <body>
-    <header>
+    <header id="header">
         <nav>
             <label>Hello, Shoes (Pvt) Ltd</label>
             <div>
@@ -1025,8 +822,11 @@
                     <li id="navEmployee">Employee</li>
                     <li id="navUser">User</li>
                 </ul>
-                <img width="40" src="assets/image/user.png" alt="This is  User  png">
             </div>
+            <img width="40" src="assets/image/user.png" alt="This is  User  png" id="profilePictureForNavBar">
+            <label id="lblUserRole">name</label>
+            <label id="lblUserName">name</label>
+            <label id="lblUserID">name</label>
         </nav>
     </header>
     <main>
@@ -1582,6 +1382,13 @@
                             <span class="input-group-text" >Item Decs</span>
                             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtItemName">
                         </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" >Gender</span>
+                            <select class="form-select form-select-sm" aria-label="Small select example" id="cmdTypeOfGender">
+                                <option value="Man">Man</option>
+                                <option value=Women>Women</option>
+                            </select>
+                        </div>
                        <!-- <div>
                             <h4>Category : </h4>
                             <select name="category" id="cmdItemCategory" >
@@ -1818,6 +1625,14 @@
                     <button type="button" class="btn btn-outline-primary" id="btnToPurchaseForm">Purchase</button>
                     <button type="button" class="btn btn-outline-secondary"  id="btnToRefundForm">Refund</button>
                     <button type="button" class="btn btn-outline-success" id="btnToSalesForm">Sales</button>
+                    <select aria-label="Small select example" id="sortSales">
+                        <option value="All">All</option>
+                        <option value="Man">Man</option>
+                        <option value=Women>Women</option>
+                    </select>
+                    <input type="text"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="minPrice" placeholder="Min Price">
+                    <input type="text"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="maxPrice" placeholder="Max Price">
+                    <button type="button" class="btn btn-outline-success" id="searchSales">🔍</button>
                 </div>
                 <div id="purchaseForm">
                     <div>
@@ -1922,22 +1737,54 @@
                     </div>
                     <div>
                         <label class="form-label">Order ID :</label>
-                        <label class="form-label" id="lblOrderId">OR00-001</label>
+                        <label class="form-label" id="lblOrderId"></label>
                     </div>
                     <div>
                         <label class="form-label">Date :</label>
                         <label class="form-label" id="lblOrderDate">OR00-001</label>
                     </div>
                     <div>
-                        <div class="col-6">
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Customer Code" id="txtCustomerCodeForPurchase">
+                        <div class="col-2">
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Customer Code" id="customerContact">
                         </div>
-                        <div class="col-6">
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Employee Code" id="txtEmployeeCodeForPurchase">
+                        <div class="col-2">
+                           <label id="lblCustomerCode"></label>
+                        </div>
+                        <div class="col-2">
+                            <label id="lblCustomerName"></label>
+                        </div>
+                        <div class="col-2">
+                            <label id="lblCustomerEmail"></label>
+                        </div>
+                        <div class="col-2">
+                            <label id="lblCustomerLevel"></label>
+                        </div>
+                        <div class="col-2">
+                            <label id="lblCustomerPurchaseDate"></label>
+                        </div>
+                        <div class="col-2">
+                            <label id="lblCustomerAddress"></label>
                         </div>
                     </div>
                 </div>
-                <div></div>
+                <div id="refundPurchase">
+                    <button type="button" class="btn btn-outline-primary" id="btnToSaleFromRefund">📤</button>
+                    <table class="table table-hover">
+                        <thead >
+                        <tr style="border: black">
+                            <th scope="col" >OrderNO</th>
+                            <th scope="col" >Item code</th>
+                            <th scope="col" >Item Desc</th>
+                            <th scope="col" >Size</th>
+                            <th scope="col" >Quantity</th>
+                            <th scope="col" >unitPrice</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider" id="tblForRefundDetails" style="border: black">
+
+                        </tbody>
+                    </table>
+                </div>
                 <div id="purchaseDetails">
                     <button type="button" class="btn btn-outline-primary" id="btnToSaleFromPurchase">Back</button>
                     <table class="table table-hover">
@@ -1978,7 +1825,7 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <label>Most sale item</label>
-                        <label>Adidas</label>
+                        <label id="lblMostSellingItem"></label>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
@@ -2030,7 +1877,7 @@
             </div>
 
         </section>
-        <section id="log-in-page">
+        <sec<!--tion id="log-in-page">
             <h3>Hello, Shoes (Pvt) Ltd</h3>
             <div>
                 <input type="text" placeholder="User" id="txtUser">
@@ -2047,24 +1894,25 @@
             <div>
                 <div >
                     <select class="form-select form-select-sm" aria-label="Small select example" id="cmdAccessRole">
-                        <option>Admin</option>
-                        <option>User</option>
+                        <option>ADMIN</option>
+                        <option>USER</option>
                     </select>
                 </div>
                 <input type="text" placeholder="Email" id="txtSignUpEmail">
                 <input type="text" placeholder="Password" id="txtPasswordSignUpEmail" >
+                <input type="text" placeholder="User" id="txtNameSignUpEmail" >
             </div>
 
             <div>
                 <button type="button" id="btnSignUpToApp">Sign Up</button>
                 <button type="button" id="btnBackLogIn">Back</button>
             </div>
-        </section>
+        </section>-->
     </main>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
     <script src="assets/Bootstrap/js/bootstrap.js"></script>
-    <script src="controller/SignInController.js"></script>
-    <script src="controller/SignUpController.js"></script>
+   <!-- <script src="controller/SignInController.js"></script>
+    <script src="controller/SignUpController.js"></script>-->
     <script src="controller/AdminPanelController.js"></script>
     <script src="controller/CustomerController.js"></script>
     <script src="controller/SupplierController.js"></script>

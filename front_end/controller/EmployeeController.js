@@ -1,22 +1,22 @@
-$("#customer").css('display','none');
+/*$("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
 $("#sale").css('display','none');
-$("#admin").css('display','none');
+$("#admin").css('display','none');*/
 getAllEmployee()
 
-function clearAll(){
+/*function clearAll(){
     $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
-}
+}*/
 
-function setView(viewOb){
+function setEmployeeView(viewOb){
     clearAll();
     viewOb.css('display','block');
 }
 
 $("#navEmployee").click(function (){
-    setView($("#employee"))
+    setEmployeeView($("#employee"))
 });
 
 let profilePic=document.getElementById("profilePic")
@@ -86,6 +86,9 @@ function saveEmployee(){
         data: formData,
         processData: false,
         contentType: false,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (resp, textStatus, jqxhr) {
             console.log("Success", resp);
@@ -148,6 +151,9 @@ function updateEmployee(){
         data: employeeFormData,
         processData: false,
         contentType: false,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (resp, textStatus, jqxhr) {
             console.log("Success", resp);
@@ -167,6 +173,9 @@ function deleteEmployee(){
     $.ajax({
         url: "http://localhost:8080/app/api/v1/employees/" + employeeCode,
         method: "DELETE",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             if (jqxhr.status == 201) {
                 alert("Delete employee successfully");
@@ -185,6 +194,9 @@ function getAllEmployee(){
         url: "http://localhost:8080/app/api/v1/employees",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             for (const employee of resp) {
                 let row=`<tr>
@@ -263,6 +275,9 @@ function uploadProfilePicture(code){
         url: "http://localhost:8080/app/api/v1/employees/"+code,
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
 
             let base64Image =resp.employeePicture;

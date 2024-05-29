@@ -1,25 +1,28 @@
-$("#customer").css('display','none');
+/*$("#customer").css('display','none');
 $("#supplier").css('display','none');
 $("#employee").css('display','none');
 $("#inventory").css('display','none');
-$("#sale").css('display','none');
+$("#sale").css('display','none');*/
 
 
 let customerCodes = [];
 getAllCustomers();
 
-
 function clearAll(){
-    $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
+    $("#customer,#supplier,#employee,#inventory,#sale,#admin,#log-in-page,#sign-up-page").css('display','none');
 }
 
-function setView(viewOb){
+/*function clearAll(){
+    $("#customer,#supplier,#employee,#inventory,#sale,#admin,#header").css('display','none');
+}*/
+
+function setCustomerView(viewOb){
     clearAll();
     viewOb.css('display','block');
 }
 
 $("#navCustomer").click(function (){
-    setView($("#customer"));
+    setCustomerView($("#customer"));
 });
 
 $("#btnSaveCustomer").click(function (){
@@ -77,6 +80,9 @@ function saveCustomer(){
         method:"POST",
         data:jsonObject,
         contentType:("application/json"),
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
@@ -96,6 +102,9 @@ function deleteCustomer(){
     $.ajax({
         url: "http://localhost:8080/app/api/v1/customers/"+ cusCode,
         method: "DELETE",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp, textStatus, jqxhr) {
             if (jqxhr.status == 201) {
                 alert("Delete customer successfully");
@@ -148,6 +157,9 @@ function updateCustomer(){
         method:"PATCH",
         data:jsonObject,
         contentType:("application/json"),
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
@@ -174,6 +186,9 @@ function getAllCustomers(){
         url: "http://localhost:8080/app/api/v1/customers",
         method: "GET",
         dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         success: function (resp) {
             for (const customer of resp) {
                 let row=`<tr>

@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cf8278f6-5935-4356-b8cd-b0fd40e9cbf6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/SaleDetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/AdminPanelController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/SignInController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/SignUpController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/SaleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/SaleDetailsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/SaleDetailsRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/SaleRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/SaleRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/SaleDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/SaleDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/SaleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/SaleDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/SaleDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/SaleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/SaleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/auth/response/JwtAuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/auth/response/JwtAuthResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/CustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/CustomerRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/InventoryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/InventoryRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/InventoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/InventoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/InventoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/AdminPanelController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AdminPanelController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/CustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/CustomerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/EmployeeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EmployeeController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/InventoryController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/InventoryController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/SaleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SaleController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/SignInController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SignInController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/SignUpController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SignUpController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/SupplierController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SupplierController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front_end.iws" beforeDir="false" afterPath="$PROJECT_DIR$/front_end.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/login_from.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/login_from.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,19 +57,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../DTEC 115/Shoe-shop-management-system-with-jwt" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "master",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\assets\Bootstrap" />
@@ -73,22 +72,16 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\controller" />
+      <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\view\controller" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -154,7 +147,29 @@
       <workItem from="1716225337092" duration="1075000" />
       <workItem from="1716226464628" duration="1677000" />
       <workItem from="1716286351093" duration="19574000" />
-      <workItem from="1716347387798" duration="9517000" />
+      <workItem from="1716347387798" duration="10384000" />
+      <workItem from="1716452950466" duration="20191000" />
+      <workItem from="1716477960082" duration="601000" />
+      <workItem from="1716483862766" duration="4015000" />
+      <workItem from="1716514880021" duration="5170000" />
+      <workItem from="1716522993831" duration="2073000" />
+      <workItem from="1716540648963" duration="1641000" />
+      <workItem from="1716571712940" duration="2394000" />
+      <workItem from="1716611661166" duration="405000" />
+      <workItem from="1716622055355" duration="504000" />
+      <workItem from="1716622586366" duration="8000" />
+      <workItem from="1716703332667" duration="5316000" />
+      <workItem from="1716742637785" duration="7000" />
+      <workItem from="1716742725083" duration="3958000" />
+      <workItem from="1716798195978" duration="235000" />
+      <workItem from="1716798467714" duration="3266000" />
+      <workItem from="1716831159346" duration="67000" />
+      <workItem from="1716831282058" duration="5493000" />
+      <workItem from="1716866916362" duration="2901000" />
+      <workItem from="1716891602108" duration="5863000" />
+      <workItem from="1716911219257" duration="191000" />
+      <workItem from="1716911451291" duration="6472000" />
+      <workItem from="1716987191637" duration="22772000" />
     </task>
     <servers />
   </component>
@@ -171,6 +186,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
