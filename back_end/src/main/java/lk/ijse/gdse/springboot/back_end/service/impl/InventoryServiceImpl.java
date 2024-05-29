@@ -45,4 +45,15 @@ public class InventoryServiceImpl implements InventoryService {
         inventoryRepo.deleteById(id);
     }
 
+    @Override
+    public List<InventoryDTO> getAllDetailsUseGender(String gender) {
+        return inventoryRepo.findByTypeOfGenderContaining(gender).stream().map(inventory -> modelMapper.map(inventory, InventoryDTO.class)).toList();
+    }
+
+    @Override
+    public List<InventoryDTO> getAllItemsByPrice(double minPrice, double maxPrice) {
+        return inventoryRepo.findByUnitPriceSaleBetween(minPrice,maxPrice).stream().map(inventory -> modelMapper.map(inventory, InventoryDTO.class)).toList();
+    }
+
+
 }

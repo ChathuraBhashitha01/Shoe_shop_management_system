@@ -91,4 +91,14 @@ public class InventoryController {
         inventoryService.deleteInventory(id);
     }
 
+    @GetMapping(value = "/getByGender/{gender}")
+    public List<InventoryDTO> getAllDetailsUseGender(@PathVariable("gender") String gender){
+        return inventoryService.getAllDetailsUseGender(gender);
+    }
+
+    @GetMapping("/getAllItemsByPrice/{minPrice}/{maxPrice}")
+    public List<InventoryDTO> getAllItemsByPrice(@PathVariable("minPrice") double minPrice,@PathVariable("maxPrice") double maxPrice){
+        return inventoryService.getAllItemsByPrice(minPrice,maxPrice);
+    }
+
 }
