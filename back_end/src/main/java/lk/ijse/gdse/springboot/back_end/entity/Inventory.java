@@ -20,6 +20,7 @@ public class Inventory {
     private String itemDesc;
     @Column(columnDefinition = "LONGTEXT")
     private String itemPicture;
+    private String typeOfGender;
     private String category;
     private int quantitySize5;
     private int quantitySize6;
@@ -38,7 +39,7 @@ public class Inventory {
     private double profitMargin;
     private String status;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "inventory")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "item")
     private List<SaleDetails> saleDetails = new ArrayList<>();
 
 

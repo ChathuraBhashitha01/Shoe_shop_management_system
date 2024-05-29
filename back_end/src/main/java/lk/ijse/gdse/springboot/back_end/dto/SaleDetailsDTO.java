@@ -16,7 +16,8 @@ public class SaleDetailsDTO {
     private String orderNo;
     private String itemCode;
 
-    public SaleDetailsDTO(String itemDesc, int size, int quantity, double unitPrice,String orderNo, String itemCode) {
+
+    public SaleDetailsDTO(String itemCode,String itemDesc, int size, int quantity, double unitPrice, String orderNo) {
         this.itemDesc = itemDesc;
         this.size = size;
         this.quantity = quantity;

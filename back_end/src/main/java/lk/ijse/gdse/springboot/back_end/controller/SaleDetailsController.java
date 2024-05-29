@@ -17,9 +17,12 @@ public class SaleDetailsController {
 
     private SaleDetailsService saleDetailsService;
 
+    public SaleDetailsController(SaleDetailsService saleDetailsService) {
+        this.saleDetailsService = saleDetailsService;
+    }
 
-  /*  @GetMapping("/refund")
-    public List<SaleDetailsDTO> getRefund(){
-        return saleDetailsService.getAllRefundOrders();
-    }*/
+    @GetMapping(value = "/topSale")
+    public SaleDetailsDTO getMostSellingItem(){
+        return saleDetailsService.getTopSale();
+    }
 }

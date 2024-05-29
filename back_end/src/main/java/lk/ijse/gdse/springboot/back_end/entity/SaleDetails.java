@@ -20,14 +20,16 @@ public class SaleDetails {
     private int quantity;
     private double unitPrice;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "orderNo",referencedColumnName = "orderNo",
             insertable = true,
             updatable = true)
-    private Sale sale;
+    private Sale order;
 
     @ManyToOne
-    @JoinColumn(name = "itemCode",referencedColumnName = "itemCode")
-    private Inventory inventory;
+    @JoinColumn(name = "itemCode",referencedColumnName = "itemCode",
+            insertable = true,
+            updatable = true)
+    private Inventory item;
 
 }

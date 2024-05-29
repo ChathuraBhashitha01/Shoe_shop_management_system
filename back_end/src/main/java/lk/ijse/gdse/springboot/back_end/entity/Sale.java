@@ -32,6 +32,6 @@ public class Sale {
     @JoinColumn(name = "employeeCode",referencedColumnName = "employeeCode")
     private Employee employee;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "sale")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "order")
     private List<SaleDetails> saleDetails = new ArrayList<>();
 }

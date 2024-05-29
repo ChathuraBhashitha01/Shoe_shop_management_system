@@ -12,6 +12,7 @@ public class InventoryDTO {
     private String itemCode;
     private String itemDesc;
     private String itemPicture;
+    private String typeOfGender;
     private String category;
     private int quantitySize5;
     private int quantitySize6;

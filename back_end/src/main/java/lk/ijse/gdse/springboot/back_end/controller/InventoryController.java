@@ -34,6 +34,7 @@ public class InventoryController {
     public void saveInventory(@RequestParam("itemCode") String code,
                               @RequestParam("itemDesc") String name,
                               @RequestParam("itemPicture") MultipartFile picture,
+                              @RequestParam("typeOfGender") String typeOfGender,
                               @RequestParam("category") String category,
                               @RequestParam("quantitySize5") int quantitySize5,
                               @RequestParam("quantitySize6") int quantitySize6,
@@ -52,7 +53,7 @@ public class InventoryController {
                               ) throws IOException {
         String base64ProfilePic = Base64.getEncoder().encodeToString(picture.getBytes());
 
-         InventoryDTO inventoryDTO = new InventoryDTO(code, name, base64ProfilePic, category, quantitySize5, quantitySize6, quantitySize7,
+         InventoryDTO inventoryDTO = new InventoryDTO(code, name, base64ProfilePic,typeOfGender, category, quantitySize5, quantitySize6, quantitySize7,
                 quantitySize8, quantitySize9, quantitySize10, quantitySize11, supplierCode, supplierName, unitPriceSale, unitPriceBuy, expectedProfit, profitMargin, status);
         inventoryService.saveInventory(inventoryDTO);
     }
@@ -61,6 +62,7 @@ public class InventoryController {
     public void updateInventory(@RequestParam("itemCode") String code,
                                 @RequestParam("itemDesc") String name,
                                 @RequestParam("itemPicture") MultipartFile picture,
+                                @RequestParam("typeOfGender") String typeOfGender,
                                 @RequestParam("category") String category,
                                 @RequestParam("quantitySize5") int quantitySize5,
                                 @RequestParam("quantitySize6") int quantitySize6,
@@ -79,7 +81,7 @@ public class InventoryController {
     ) throws IOException {
         String base64ProfilePic = Base64.getEncoder().encodeToString(picture.getBytes());
 
-        InventoryDTO inventoryDTO = new InventoryDTO(code, name, base64ProfilePic, category, quantitySize5, quantitySize6, quantitySize7,
+        InventoryDTO inventoryDTO = new InventoryDTO(code, name, base64ProfilePic,typeOfGender, category, quantitySize5, quantitySize6, quantitySize7,
                 quantitySize8, quantitySize9, quantitySize10, quantitySize11, supplierCode, supplierName, unitPriceSale, unitPriceBuy, expectedProfit, profitMargin, status);
         inventoryService.updateInventory(inventoryDTO);
     }

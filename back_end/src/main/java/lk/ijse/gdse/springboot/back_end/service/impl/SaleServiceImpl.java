@@ -73,7 +73,9 @@ public class SaleServiceImpl implements SaleService {
 
         for (SaleDetailsDTO detailsDTO:saleDTO.getSaleDetails()) {
 
-            SaleDetails saleDetails = modelMapper.map(detailsDTO, SaleDetails.class);
+            SaleDetailsDTO saleDetailsDTO = new SaleDetailsDTO(detailsDTO.getItemCode(),detailsDTO.getItemDesc(), detailsDTO.getSize(), detailsDTO.getQuantity(), detailsDTO.getUnitPrice(), detailsDTO.getOrderNo());
+
+            SaleDetails saleDetails = modelMapper.map(saleDetailsDTO, SaleDetails.class);
             saleDetailsRepo.save(saleDetails);
 
             if(detailsDTO.getSize()==5){
