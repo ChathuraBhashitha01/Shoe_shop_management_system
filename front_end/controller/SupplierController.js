@@ -188,6 +188,7 @@ function getAllSupplier(){
                 const supplierDetails = {
                     id: supplier.supplierCode
                 }
+                supplierCodes=[];
                 supplierCodes.push(supplierDetails);
             }
         }

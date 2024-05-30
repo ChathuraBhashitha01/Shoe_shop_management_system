@@ -353,17 +353,25 @@ function displayCurrentTimestamp() {
     setInterval(displayCurrentTimestamp, 1000); // Update the timestamp every second
 }*/
 
+
 $("#btnPurchase").click(function (){
     purchaseOrder();
 })
 
 function purchaseOrder(){
-    let customerCode = $("#txtCustomerCodeForPurchase").val();
+    let lblCustomerCode = $("#lblCustomerCode").text();
+    let arrayCode = lblCustomerCode.split(":");
+    let customerCode = arrayCode[1];
+
+    let lblCustomerName = $("#lblCustomerName").text();
+    let arrayName = lblCustomerName.split(":");
+    let customerName = arrayName[1];
+
     let employeeCode = $("#lblUserID").text();
     let orderId = $("#lblOrderId").text();
     let totalOfAllItems = $("#txtSubtotal").text();
     let orderDate = $("#lblOrderDate").text();
-    let customerName=null;
+    // let customerName= $("#lblCustomerName").text();
     let employeeName=$("#lblUserName").text();
     let addedPoints=0;
 
@@ -611,19 +619,19 @@ $("#customerContact").click(function (){
     let contact = $("#customerContact").val();
 
     $.ajax({
-        url: "http://localhost:8080/app/api/v1/customers/"+contact,
+        url: "http://localhost:8080/app/api/v1/customers/getCustomerByContact/"+contact,
         method: "GET",
         dataType: "json",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (resp) {
-            $("#lblCustomerCode").text(resp.customerCode);
-            $("#lblCustomerName").text(resp.customerName);
-            $("#lblCustomerEmail").text(resp.email);
-            $("#lblCustomerLevel").text(resp.level);
-            $("#lblCustomerPurchaseDate").text(resp.recentPurchaseDate);
-            $("#lblCustomerAddress").text(resp.addressLine01+","+resp.addressLine02+","+resp.addressLine03+","+resp.addressLine04+","+resp.addressLine05+".");
+            $("#lblCustomerCode").text("Customer Code :"+resp.customerCode);
+            $("#lblCustomerName").text("Customer Name :"+resp.customerName);
+            $("#lblCustomerEmail").text("Customer Email :"+resp.email);
+            $("#lblCustomerLevel").text("Customer Level :"+resp.level);
+            $("#lblCustomerPurchaseDate").text("Recent PurchaseDate :"+resp.recentPurchaseDate);
+            // $("#lblCustomerAddress").text("Customer Address : "+resp.addressLine01+","+resp.addressLine02+","+resp.addressLine03+","+resp.addressLine04+","+resp.addressLine05+".");
         },
     });
 });

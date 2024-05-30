@@ -5,7 +5,7 @@ $("#inventory").css('display','none');
 $("#sale").css('display','none');
 $("#admin").css('display','none');*/
 getAllEmployee()
-
+let employeeCodes=[];
 /*function clearAll(){
     $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
 }*/
@@ -188,6 +188,12 @@ function deleteEmployee(){
     });
 }
 
+function searchEmployee(id){
+    return employeeCodes.find(function (employee){
+        return employee.id==id;
+    });
+};
+
 function getAllEmployee(){
     $("#tblEmployee").empty();
     $.ajax({
@@ -218,6 +224,11 @@ function getAllEmployee(){
                 </tr>`;
                 $("#tblEmployee").append(row);
                 bindEmployeeTrEvents();
+                const employeeDetails = {
+                    id: employee.employeeCode
+                }
+                employeeCodes=[];
+                employeeCodes.push(employeeDetails);
             }
         }
     });

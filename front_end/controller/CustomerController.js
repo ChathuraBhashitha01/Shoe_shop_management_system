@@ -219,6 +219,7 @@ function getAllCustomers(){
                     email:customer.email,
                     recentPurchaseDate:customer.recentPurchaseDate*/
                 }
+                customerCodes=[];
                 customerCodes.push(customerDetails);
             }
         }

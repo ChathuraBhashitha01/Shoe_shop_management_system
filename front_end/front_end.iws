@@ -8,24 +8,24 @@
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/auth/response/JwtAuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/auth/response/JwtAuthResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/SaleDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/SaleDetailsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/CustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/CustomerRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/InventoryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/InventoryRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/SaleDetailsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/repository/SaleDetailsRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/InventoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/CustomerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/InventoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/InventoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/AdminPanelController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AdminPanelController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/SaleDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/service/impl/SaleDetailsServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/CustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/CustomerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/EmployeeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/EmployeeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/InventoryController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/InventoryController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/SaleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SaleController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/SignInController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SignInController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/SignUpController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SignUpController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/SupplierController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SupplierController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/validation/EmployeeValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/validation/EmployeeValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/validation/InventoryValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/validation/InventoryValidation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front_end.iws" beforeDir="false" afterPath="$PROJECT_DIR$/front_end.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/login_from.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/login_from.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,18 +51,27 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2fgoSKxC0oUFyS43iOSfUnKKHMC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "master",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.SaleController.js.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\assets\Bootstrap" />
@@ -169,7 +178,11 @@
       <workItem from="1716891602108" duration="5863000" />
       <workItem from="1716911219257" duration="191000" />
       <workItem from="1716911451291" duration="6472000" />
-      <workItem from="1716987191637" duration="22772000" />
+      <workItem from="1716987191637" duration="24858000" />
+      <workItem from="1717034051835" duration="1696000" />
+      <workItem from="1717053935868" duration="6935000" />
+      <workItem from="1717066453004" duration="267000" />
+      <workItem from="1717069736514" duration="717000" />
     </task>
     <servers />
   </component>
