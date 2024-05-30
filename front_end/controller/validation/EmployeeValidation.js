@@ -109,9 +109,9 @@ function setEmployeeBtn(){
     let id = $("#txtEmployeeCode").val();
     if (searchEmployee(id) == undefined) {
         $("#btnEmployeeUpdate").prop("disabled", true);
-        $("#btnEmployeeUpdate").prop("disabled", true);
+        $("#btnEmployeeDelete").prop("disabled", true);
     } else {
-        $("#btnEmployeeDelete").prop("disabled", false);
+        $("#btnEmployeeUpdate").prop("disabled", false);
         $("#btnEmployeeDelete").prop("disabled", false);
     }
 }

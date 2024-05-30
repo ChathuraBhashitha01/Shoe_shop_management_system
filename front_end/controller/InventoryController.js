@@ -6,6 +6,7 @@ $("#sale").css('display','none');*/
 
 getAllInventories();
 
+let inventoryCodes = [];
 
 /*function clearAll(){
     $("#customer,#supplier,#employee,#inventory,#sale,#admin").css('display','none');
@@ -31,6 +32,10 @@ inputItemPicture.onchange = function (){
 
 
 $("#btnInventorySave").click(function (){
+    saveInventory();
+});
+
+function saveInventory(){
     let itemCode=$("#txtItemCode").val();
     let itemName=$("#txtItemName").val();
 
@@ -97,9 +102,13 @@ $("#btnInventorySave").click(function (){
             console.log("Error",error);
         }
     });
-});
+}
 
 $("#btnInventoryUpdate").click(function (){
+    updateInventory();
+});
+
+function updateInventory(){
     let itemCode=$("#txtItemCode").val();
     let itemName=$("#txtItemName").val();
 
@@ -165,9 +174,13 @@ $("#btnInventoryUpdate").click(function (){
             console.log("Error",error);
         }
     });
-});
+}
 
 $("#btnInventoryDelete").click(function (){
+   deleteInventory();
+});
+
+function deleteInventory(){
     let itemCode=$("#txtItemCode").val();
 
     $.ajax({
@@ -188,7 +201,13 @@ $("#btnInventoryDelete").click(function (){
 
         }
     });
-});
+}
+
+function searchInventory(id){
+    return employeeCodes.find(function (inventory){
+        return inventory.id==id;
+    });
+};
 
 function getAllInventories(){
     $("#tblInventories").empty();
@@ -224,6 +243,12 @@ function getAllInventories(){
                 </tr>`;
                 $("#tblInventories").append(row);
                 bindInventoryTrEvents();
+
+                const inventoryDetails = {
+                    id: inventory.itemCode
+                }
+                inventoryCodes=[];
+                inventoryCodes.push(inventoryDetails);
             }
         }
     });
