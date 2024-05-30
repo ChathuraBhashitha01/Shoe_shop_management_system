@@ -55,5 +55,10 @@ public class InventoryServiceImpl implements InventoryService {
         return inventoryRepo.findByUnitPriceSaleBetween(minPrice,maxPrice).stream().map(inventory -> modelMapper.map(inventory, InventoryDTO.class)).toList();
     }
 
+    @Override
+    public List<InventoryDTO> getAllItemsByPriceAndTypeOfGender(double minPrice, double maxPrice,String gender) {
+        return inventoryRepo.findByUnitPriceSaleBetweenAndTypeOfGenderContaining(minPrice,maxPrice,gender).stream().map(inventory -> modelMapper.map(inventory, InventoryDTO.class)).toList();
+    }
+
 
 }

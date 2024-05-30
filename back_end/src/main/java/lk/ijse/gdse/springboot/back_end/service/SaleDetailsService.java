@@ -10,6 +10,6 @@ public interface SaleDetailsService {
     List<SaleDetailsDTO> getAllSaleDetails();
     SaleDetailsDTO getSaleDetails(String id);
     void saveSaleDetails(SaleDetailsDTO saleDetailsDTO);
-    void deleteSaleDetails(String id);
+    void deleteSaleDetails(int id);
     SaleDetailsDTO getTopSale();
 }

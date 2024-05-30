@@ -51,6 +51,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         return JwtAuthResponse.builder()
                 .token(generatedToken)
                 .role(user.getRole())
+                .name(user.getName())
                 .build();
     }
 

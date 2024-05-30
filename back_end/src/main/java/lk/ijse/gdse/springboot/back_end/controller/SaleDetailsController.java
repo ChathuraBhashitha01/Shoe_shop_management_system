@@ -1,14 +1,9 @@
 package lk.ijse.gdse.springboot.back_end.controller;
 
 import lk.ijse.gdse.springboot.back_end.dto.SaleDetailsDTO;
-import lk.ijse.gdse.springboot.back_end.entity.SaleDetails;
 import lk.ijse.gdse.springboot.back_end.service.SaleDetailsService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/salesDetails")
@@ -21,8 +16,13 @@ public class SaleDetailsController {
         this.saleDetailsService = saleDetailsService;
     }
 
-    @GetMapping(value = "/topSale")
+    @GetMapping( "/topSale")
     public SaleDetailsDTO getMostSellingItem(){
         return saleDetailsService.getTopSale();
+    }
+
+    @DeleteMapping(value = "/{no}")
+    public void deleteRefundOrder(@PathVariable("no") int no){
+        saleDetailsService.deleteSaleDetails(no);
     }
 }

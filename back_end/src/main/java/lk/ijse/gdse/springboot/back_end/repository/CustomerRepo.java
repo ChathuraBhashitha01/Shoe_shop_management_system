@@ -7,4 +7,5 @@ import java.sql.Timestamp;
 
 public interface CustomerRepo extends JpaRepository<Customer,String> {
    Customer findByCustomerCode(String code);
+   Customer findCustomerByContactNo(String contactNo);
 }

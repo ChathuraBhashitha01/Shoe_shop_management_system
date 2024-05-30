@@ -101,4 +101,9 @@ public class InventoryController {
         return inventoryService.getAllItemsByPrice(minPrice,maxPrice);
     }
 
+    @GetMapping("/getAllItemsByPriceAndGender/{gender}/{minPrice}/{maxPrice}")
+    public List<InventoryDTO> getAllItemsByPrice(@PathVariable("gender") String gender,@PathVariable("minPrice") double minPrice,@PathVariable("maxPrice") double maxPrice){
+        return inventoryService.getAllItemsByPriceAndTypeOfGender(minPrice,maxPrice,gender);
+    }
+
 }

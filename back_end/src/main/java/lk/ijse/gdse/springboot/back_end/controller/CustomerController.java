@@ -47,4 +47,8 @@ public class CustomerController {
         customerService.deleteCustomer(id);
     }
 
+    @GetMapping(value = "/getCustomerByContact/{contact}")
+    public CustomerDTO getCustomerByContact(@PathVariable("contact") String contact){
+        return customerService.getCustomerByContact(contact);
+    }
 }
