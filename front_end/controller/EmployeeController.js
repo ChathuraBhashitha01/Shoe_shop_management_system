@@ -204,6 +204,7 @@ function getAllEmployee(){
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (resp) {
+            employeeCodes=[];
             for (const employee of resp) {
                 let row=`<tr>
                     <td>${employee.employeeCode}</td>
@@ -227,7 +228,6 @@ function getAllEmployee(){
                 const employeeDetails = {
                     id: employee.employeeCode
                 }
-                employeeCodes=[];
                 employeeCodes.push(employeeDetails);
             }
         }

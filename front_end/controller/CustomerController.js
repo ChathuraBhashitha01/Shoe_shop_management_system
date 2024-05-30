@@ -190,6 +190,7 @@ function getAllCustomers(){
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (resp) {
+            customerCodes=[];
             for (const customer of resp) {
                 let row=`<tr>
                     <td>${customer.customerCode}</td>
@@ -209,17 +210,8 @@ function getAllCustomers(){
 
                 const customerDetails = {
                     id: customer.customerCode,
-                    /*customerName:customer.customerName,
-                    gender:customer.gender,
-                    joinDate:customer.joinDate,
-                    level:customer.level,
-                    totalPoint:customer.totalPoint,
-                    dob:customer.dob,
-                    contactNo:customer.contactNo,
-                    email:customer.email,
-                    recentPurchaseDate:customer.recentPurchaseDate*/
+
                 }
-                customerCodes=[];
                 customerCodes.push(customerDetails);
             }
         }

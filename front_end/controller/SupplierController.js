@@ -173,6 +173,7 @@ function getAllSupplier(){
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (resp) {
+            supplierCodes=[];
             for (const supplier of resp) {
                 let row=`<tr>
                     <td>${supplier.supplierCode}</td>
@@ -188,7 +189,6 @@ function getAllSupplier(){
                 const supplierDetails = {
                     id: supplier.supplierCode
                 }
-                supplierCodes=[];
                 supplierCodes.push(supplierDetails);
             }
         }

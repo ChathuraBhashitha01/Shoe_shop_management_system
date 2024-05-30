@@ -1,19 +1,19 @@
 const ITEM_ID_REGEX = /^(I00-)[0-9]{3}$/;
 const ITEM_NAME_REGEX = /^[A-Za-z ]{2,}$/;
-const ITEM_QUANTITY_SIZE_5 = /^[1-9 ]{1,4}$/;
-const ITEM_QUANTITY_SIZE_6 = /^[1-9 ]{1,4}$/;
-const ITEM_QUANTITY_SIZE_7 = /^[1-9 ]{1,4}$/;
-const ITEM_QUANTITY_SIZE_8 = /^[1-9 ]{1,4}$/;
-const ITEM_QUANTITY_SIZE_9 = /^[1-9 ]{1,4}$/;
-const ITEM_QUANTITY_SIZE_10 = /^[1-9 ]{1,4}$/;
-const ITEM_QUANTITY_SIZE_11 = /^[1-9 ]{1,4}$/;
-const ITEM_SUPPLY_CODE = /^(S00-)[0-9]{3}$/;
-const ITEM_SUPPLY_NAME =  /^[A-Za-z ]{2,}$/;
-const ITEM_UNIT_PRICE_SALE = /^[1-9 ]{1,6}$/;
-const ITEM_UNIT_PRICE_BUY = /^[1-9 ]{1,6}$/;
-const ITEM_EXPECTED_PROFIT = /^[1-9 ]{1,6}$/;
-const ITEM_PROFIT_MARGIN = /^[1-9 ]{1,4}$/;
-const ITEM_STATUS = /^[A-Za-z]{2,}$/;
+const ITEM_QUANTITY_SIZE_5 = /^[0-9 ]{1,}$/;
+const ITEM_QUANTITY_SIZE_6 = /^[0-9 ]{1,}$/;
+const ITEM_QUANTITY_SIZE_7 = /^[0-9 ]{1,}$/;
+const ITEM_QUANTITY_SIZE_8 = /^[0-9 ]{1,}$/;
+const ITEM_QUANTITY_SIZE_9 = /^[0-9 ]{1,}$/;
+const ITEM_QUANTITY_SIZE_10 = /^[0-9 ]{1,}$/;
+const ITEM_QUANTITY_SIZE_11 = /^[0-9 ]{1,}$/;
+const ITEM_SUPPLY_CODE = /^(S00-)[0-9]{1,}$/;
+const ITEM_SUPPLY_NAME =  /^[A-Za-z ]{1,}$/;
+const ITEM_UNIT_PRICE_SALE = /^[0-9 ]{1,}$/;
+const ITEM_UNIT_PRICE_BUY = /^[0-9 ]{1,}$/;
+const ITEM_EXPECTED_PROFIT = /^[0-9 ]{1,}$/;
+const ITEM_PROFIT_MARGIN = /^[0-9 ]{1,}$/;
+const ITEM_STATUS = /^[A-Za-z 0-9]{2,}$/;
 
 
 
@@ -64,7 +64,7 @@ $("#txtItemCode,#txtItemName,#txtSize5Qty,#txtSize6Qty,#txtSize7Qty,#txtSize8Qty
             }
         } else {
             if (checkInventoryValidation(inventoryArray[indexNo])) {
-
+                saveInventory();
             }
         }
     }

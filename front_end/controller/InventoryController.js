@@ -204,13 +204,14 @@ function deleteInventory(){
 }
 
 function searchInventory(id){
-    return employeeCodes.find(function (inventory){
+    return inventoryCodes.find(function (inventory){
         return inventory.id==id;
     });
 };
 
 function getAllInventories(){
     $("#tblInventories").empty();
+
     $.ajax({
         url: "http://localhost:8080/app/api/v1/inventories",
         method: "GET",
@@ -219,6 +220,7 @@ function getAllInventories(){
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (resp) {
+            inventoryCodes=[];
             for (const inventory of resp) {
                 let row=`<tr>
                     <td>${inventory.itemCode}</td>
@@ -247,7 +249,6 @@ function getAllInventories(){
                 const inventoryDetails = {
                     id: inventory.itemCode
                 }
-                inventoryCodes=[];
                 inventoryCodes.push(inventoryDetails);
             }
         }
