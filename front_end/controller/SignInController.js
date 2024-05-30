@@ -64,8 +64,17 @@ function switchToAnotherPageFromLogin(resp) {
 
     if(resp.role==="USER"){
         $("#sale,#header").css('display','block');
-        $("#navDashboard").css('display','block');
+        $("#navDashboard").css('display','none');
+        $("#navUser").css('display','none');
         $("#log-in-page").css('display','none');
+        $("#btnCustomerDelete").css('display','none');
+        $("#btnCustomerUpdate").css('display','none');
+        $("#btnSupplierDelete").css('display','none');
+        $("#btnSupplirUpdate").css('display','none');
+        $("#btnInventoryUpdate").css('display','none');
+        $("#btnInventoryDelete").css('display','none');
+        $("#btnEmployeeUpdate").css('display','none');
+        $("#btnEmployeeDelete").css('display','none');
     }
 }
 
