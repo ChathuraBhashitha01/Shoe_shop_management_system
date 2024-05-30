@@ -98,11 +98,8 @@ public class SaleDetailsServiceImpl implements SaleDetailsService {
     }
 
     @Override
-    public SaleDetailsDTO getTopSale() {
-        SaleDetailsDTO saleDetailsDTO= modelMapper.map(saleDetailsRepo.findTopSellingItemInLastWeek(),SaleDetailsDTO.class);
-        System.out.printf("Most selling item : %s\n",saleDetailsDTO);
-        return saleDetailsDTO;
-
+    public InventoryDTO getMostSellingItem() {
+        return modelMapper.map(saleDetailsRepo.findMostSellingItem(), InventoryDTO.class);
     }
 
 

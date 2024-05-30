@@ -1,5 +1,6 @@
 package lk.ijse.gdse.springboot.back_end.controller;
 
+import lk.ijse.gdse.springboot.back_end.dto.InventoryDTO;
 import lk.ijse.gdse.springboot.back_end.dto.SaleDetailsDTO;
 import lk.ijse.gdse.springboot.back_end.service.SaleDetailsService;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,8 @@ public class SaleDetailsController {
     }
 
     @GetMapping( "/topSale")
-    public SaleDetailsDTO getMostSellingItem(){
-        return saleDetailsService.getTopSale();
+    public InventoryDTO getMostSellingItem(){
+        return saleDetailsService.getMostSellingItem();
     }
 
     @DeleteMapping(value = "/{no}")
