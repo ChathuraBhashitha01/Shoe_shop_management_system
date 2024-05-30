@@ -494,8 +494,30 @@ $("#btnToSaleFromRefund").click(function (){
         'display':'none'
     });
 });
-getAllRefunds();
-function getAllRefunds(){
+
+$("#searchOrderNoForRefund").click(function (){
+    getRefundDetails();
+});
+
+$("#btnOrderRefund").click(function (){
+    let orderNo = $("#refundOrderNo").val();
+
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/salesDetails/"+orderNo,
+        method: "DELETE",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        success: function (resp) {
+            alert("Item Refund Succesfully");
+            getRefundDetails();
+        },
+    });
+});
+
+function getRefundDetails(){
+    let orderNo = $("#txtOrderNoForRefund").val();
+
     $("#tblForRefundDetails").empty();
     $.ajax({
         url: "http://localhost:8080/app/api/v1/sales/refund",
@@ -506,7 +528,9 @@ function getAllRefunds(){
         },
         success: function (resp) {
             for (const sale of resp) {
-                let row = `<tr>
+                if(sale.orderNo===orderNo){
+                    let row = `<tr>
+                    <td>${sale.no}</td>
                     <td>${sale.orderNo}</td>
                     <td>${sale.itemCode}</td>
                     <td>${sale.itemDesc}</td>
@@ -514,11 +538,23 @@ function getAllRefunds(){
                     <td>${sale.quantity}</td>
                     <td>${sale.unitPrice}</td>              
                 </tr>`
-                $("#tblForRefundDetails").append(row);
+                    $("#tblForRefundDetails").append(row);
+                    bindRefundTrEvents();
+                }
             }
         },
     });
 }
+
+function bindRefundTrEvents() {
+    $("#tblForRefundDetails>tr").click(function () {
+        let no = $(this).children().eq(0).text();
+
+        $("#refundOrderNo").val(no)
+
+    });
+}
+
 $("#searchSales").click(function (){
     let sortType = $("#sortSales").val();
     let maxPrice = $("#maxPrice").val();
