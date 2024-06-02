@@ -19,6 +19,12 @@ function setView(viewOb){
 
 $("#navInventory").click(function (){
     setView($("#inventory"))
+    $("#navCustomer").css( "font-weight","normal");
+    $("#navSupplier").css( "font-weight","normal");
+    $("#navDashboard").css( "font-weight","normal");
+    $("#navEmployee").css( "font-weight","normal");
+    $("#navInventory").css( "font-weight","bold");
+    $("#navSale").css( "font-weight","normal");
 });
 
 
@@ -33,6 +39,7 @@ inputItemPicture.onchange = function (){
 
 $("#btnInventorySave").click(function (){
     saveInventory();
+    clearInventoryInputField()
 });
 
 function saveInventory(){
@@ -91,21 +98,22 @@ function saveInventory(){
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
-            if (jqxhr.status == 201) {
-                alert("Added inventory successfully");
-            }
+                swal("Saved", "Inventory saved successfully!", "success");
             getAllInventories();
             $("#itemDetails").empty();
             getAllInventoriesForSale();
         },
         error: function (error){
-            console.log("Error",error);
+            if (xhr.status===409){
+                swal("Error", "This Inventory is already exits!", "error");
+            }
         }
     });
 }
 
 $("#btnInventoryUpdate").click(function (){
     updateInventory();
+    clearInventoryInputField()
 });
 
 function updateInventory(){
@@ -164,20 +172,21 @@ function updateInventory(){
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
             if (jqxhr.status == 201) {
-                alert("Added inventory successfully");
+                swal("Update", "Inventory saved successfully!", "success");
             }
             getAllInventories();
             $("#itemDetails").empty();
             getAllInventoriesForSale();
         },
         error: function (error){
-            console.log("Error",error);
+                swal("Error", "This Inventory does not exits!", "error");
         }
     });
 }
 
 $("#btnInventoryDelete").click(function (){
    deleteInventory();
+    clearInventoryInputField()
 });
 
 function deleteInventory(){
@@ -190,15 +199,13 @@ function deleteInventory(){
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (resp, textStatus, jqxhr) {
-            if (jqxhr.status == 201) {
-                alert("Delete inventory successfully");
-            }
+                swal("Delete", "Inventory saved successfully!", "success");
             getAllInventories();
             $("#itemDetails").empty();
             getAllInventoriesForSale();
         },
         error: function (error) {
-
+                swal("Error", "This Inventory does not exits!", "error");
         }
     });
 }
@@ -221,6 +228,7 @@ function getAllInventories(){
         },
         success: function (resp) {
             inventoryCodes=[];
+
             for (const inventory of resp) {
                 let row=`<tr>
                     <td>${inventory.itemCode}</td>

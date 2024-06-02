@@ -13,7 +13,7 @@
         body>header>nav{
             width: 98.5vw;
             height: 8vh;
-            background: #E5F4FD;
+            background: #C7DEF2;
             align-items: baseline;
             display: flex;
             overflow: hidden;
@@ -22,7 +22,9 @@
         }
         body>header>nav>label:nth-child(1){
             margin-top: 1%;
-            margin-right: 0;
+            margin-left: 3%;
+            font-weight: bold;
+            font-size: 16px;
         }
         body>header>nav>div>ul{
             display: flex;
@@ -77,6 +79,8 @@
             height: 55vh;
             position: relative;
             top: 15vh;
+            border: darkred solid 2px;
+            border-radius: 10px;
         }
         body>main>section:nth-child(1)>div:first-child>div:first-child{
             width: 40vw;
@@ -137,6 +141,8 @@
             background-color: #fff5;
             backdrop-filter: blur(7px);
             box-shadow: 0 .4rem .8rem #0005;
+            border: darkred solid 2px;
+            border-radius: 10px;
 
         }
         body>main>section:nth-child(2)>div:first-child{
@@ -356,6 +362,7 @@
             height: 230px;
             border: black solid 1px;
             position: relative;
+            margin-bottom: 10px;
            /* display: inline-block;
             margin-top: 25px;
             margin-bottom: 25px;
@@ -516,9 +523,11 @@
         body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>select{
             width: 100px;
             height: 30px;
-            margin-left: 30%;
         }
-        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>button:nth-child(7){
+        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>select:nth-child(4){
+            margin-left: 15%;
+        }
+        body>main>section:nth-child(5)>section:nth-child(3)>div:nth-child(1)>button:nth-child(9){
             width: 30px;
             height: 30px;
         }
@@ -686,18 +695,68 @@
             margin: auto;
         }
         body>main>section:nth-child(6)>div:nth-child(4){
-            width: 71vw;
-            height: 45vh;
+            width: 500px;
+            height: 300px;
+            border: 2px solid black;
             position: absolute;
             top: 46%;
             left: 23%;
             margin: auto;
         }
+        body>main>section:nth-child(6)>div:nth-child(4)>div:nth-child(1)>input{
+            width: 450px;
+            height: 35px;
+            border: black solid 1px;
+            font-size: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+       /* #txtSignUpEmail{
+            position: relative;
+            top: 5px;
+            left: 20px;
+        }*/
+        #cmdAccessRole{
+            width: 450px;
+            height: 35px;
+            border: black solid 2px;
+            font-size: 15px;
+            border-radius: 5px;
+        }
+       /* #txtPasswordSignUpEmail{
+            position: relative;
+            top: 25px;
+            left: 20px;
+        }
+        #txtNameSignUpEmail{
+            position: relative;
+            top: 35px;
+            left: 20px;
+        }*/
+        body>main>section:nth-child(6)>div:nth-child(4)>div:nth-child(1){
+            position: relative;
+            top: 50px;
+            left: 20px;
+        }
+        body>main>section:nth-child(6)>div:nth-child(4)>div:nth-child(2){
+            position: relative;
+            top: 75px;
+            left: 125px;
+        }
+        body>main>section:nth-child(6)>div:nth-child(4)>div:nth-child(2)>button{
+            width: 200px;
+            height: 30px;
+            border: black solid 1px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
         body>main>section:nth-child(7)>div{
             display: inline-block;
             position: relative;
         }
-        body>main>section:nth-child(7){
+        body>main>section:nth-child(7)div:first-child{
             width: 500px;
             height: 370px;
             border: 2px solid black;
@@ -709,11 +768,11 @@
             margin: auto;
             border-radius: 10px;
         }
-        body>main>section:nth-child(7)>h3{
+        body>main>section:nth-child(7)div:first-child>h3{
             margin-left: 130px;
             font-size: 25px;
         }
-        body>main>section:nth-child(7)>div:nth-child(2)>input{
+        body>main>section:nth-child(7)div:first-child>div:nth-child(2)>input{
             width: 450px;
             height: 40px;
             border: black solid 2px;
@@ -730,13 +789,12 @@
             top: 35px;
             left: 20px;
         }
-
-        body>main>section:nth-child(7)>div:nth-child(3){
+        body>main>section:nth-child(7)div:first-child>div:nth-child(3){
             position: relative;
             top: 80px;
             left: 20px;
         }
-        body>main>section:nth-child(7)>div:nth-child(3)>button{
+        body>main>section:nth-child(7)div:first-child>div:nth-child(3)>button{
             width: 200px;
             height: 40px;
             border: black solid 2px;
@@ -747,7 +805,7 @@
         #btnSignIn{
             margin-right: 50px;
         }
-        body>main>section:nth-child(8)>div{
+        /*body>main>section:nth-child(8)>div{
             display: inline-block;
             position: relative;
         }
@@ -762,19 +820,19 @@
             right: 0;
             margin: auto;
             border-radius: 10px;
-        }
-        body>main>section:nth-child(8)>h3{
+        }*/
+       /* body>main>section:nth-child(8)>h3{
             margin-left: 130px;
             font-size: 25px;
-        }
-        body>main>section:nth-child(8)>div:nth-child(2)>input{
+        }*/
+       /* body>main>section:nth-child(8)>div:nth-child(2)>input{
             width: 450px;
             height: 40px;
             border: black solid 2px;
             font-size: 20px;
             border-radius: 5px;
-        }
-        #txtSignUpEmail{
+        }*/
+       /* #txtSignUpEmail{
             position: relative;
             top: 10px;
             left: 20px;
@@ -816,7 +874,7 @@
         }
         #btnSignUpToApp{
             margin-right: 50px;
-        }
+        }*/
 
     </style>
     <link rel="stylesheet" href="assets/Bootstrap/css/bootstrap.css">
@@ -833,7 +891,6 @@
                     <li id="navSupplier">Supplier</li>
                     <li id="navInventory">Inventory</li>
                     <li id="navEmployee">Employee</li>
-                    <li id="navUser">User</li>
                 </ul>
             </div>
             <img width="40" src="assets/image/user.png" alt="This is  User  png" id="profilePictureForNavBar">
@@ -1428,12 +1485,18 @@
                                 <option>Casual Shoes</option>
                                 <option>Industrial Shoes</option>
                                 <option>Sport Shoes</option>
-                                <option>Heel</option>
-                                <option>Flats</option>
-                                <option>Wedges</option>
-                                <option>Flip Flops</option>
-                                <option>Sandals</option>
-                                <option>Slippers</option>
+                                <option>Formal Heel</option>
+                                <option>Formal Flats</option>
+                                <option>Formal Wedges</option>
+                                <option>Formal Flip Flops</option>
+                                <option>Formal Sandals</option>
+                                <option>Formal Slippers</option>
+                                <option>Casual Heel</option>
+                                <option>Casual Flats</option>
+                                <option>Casual Wedges</option>
+                                <option>Casual Flip Flops</option>
+                                <option>Casual Sandals</option>
+                                <option>Casual Slippers</option>
                                 <option>Shoe shampoo</option>
                                 <option>POLB, POLBR, POLDBR</option>
                                 <option>Full-socks</option>
@@ -1639,10 +1702,17 @@
                     <button type="button" class="btn btn-outline-secondary"  id="btnToRefundForm">Refund</button>
                     <button type="button" class="btn btn-outline-success" id="btnToSalesForm">Sales</button>
                     <select aria-label="Small select example" id="sortSales">
+                        <option >gender</option>
                         <option value="All">All</option>
                         <option value="Man">Man</option>
                         <option value=Women>Women</option>
                     </select>
+                    <select aria-label="Small select example" id="sortSalesByItem">
+                        <option value="catergory">Catergory</option>
+                        <option value="Formal Shoes">Formal Shoes</option>
+                        <option value='Casual Shoes'>Casual Shoes</option>
+                    </select>
+                    <input type="text"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="itemName" placeholder="Item Desc">
                     <input type="text"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="minPrice" placeholder="Min Price">
                     <input type="text"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="maxPrice" placeholder="Max Price">
                     <button type="button" class="btn btn-outline-success" id="searchSales">🔍</button>
@@ -1834,86 +1904,83 @@
         <section id="admin">
             <div>
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
+                    <div class="card-body" style="background: #95999c">
                       <label>Today's sales</label>
-                      <label>Rs 25000</label>
+                      <label id="lblSalesOfToday">Rs 25000</label>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
+                <div class="card " style="width: 18rem;">
+                    <div class="card-body" style="background: #95999c">
                         <label>Today's Profit</label>
-                        <label>Rs 25000</label>
+                        <label id="lblProfitOfSellingItem">Rs 25000</label>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
+                    <div class="card-body" style="background: #95999c">
                         <label>Most sale item</label>
                         <label id="lblMostSellingItem"></label>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
+                    <div class="card-body" style="background: #95999c">
                         <label>Customers</label>
-                        <label>100</label>
+                        <label id="lblCountOfCustomers">100</label>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <label>Total items</label>
-                        <label>100</label>
+                    <div class="card-body" style="background: #95999c">
+                        <label>Sold items</label>
+                        <label id="lblSoldItem">100</label>
                     </div>
                 </div>
             </div>
             <div class="card" >
-                <img  class="card-img-top" alt="..." id="imgMostSellItem">
+                <img  class="card-img-top" alt="..." id="imgMostSellItem" style="height: 75%">
                 <div class="card-body">
-                    <label id="lblMostSellItemCode"></label>
-                    <label id="lblMostSellItemName"></label>
-                    <label id="lblMostSellItemStatus"></label>
-                    <label id="lblMostSellItemPrice"></label>
+                    <label id="lblMostSellItemName" style="font-weight: bold "></label>
                 </div>
             </div>
             <div class="card" >
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+
                 </div>
             </div>
             <div class="card" >
-                <table class="table table-hover">
-                    <thead >
-                    <tr style="border: black">
-                        <th scope="col" >Item Code</th>
-                        <th scope="col" >Item Desc</th>
-                        <th scope="col" >Size</th>
-                        <th scope="col" >Price</th>
-                        <th scope="col" >Quantity</th>
-                        <th scope="col" >Total</th>
-                    </tr>
-                    </thead>
-                    <tbody class="table-group-divider"  style="border: black">
+                <div>
+                    <div >
+                        <select class="form-select form-select-sm" aria-label="Small select example" id="cmdAccessRole">
+                            <option>ADMIN</option>
+                            <option>USER</option>
+                        </select>
+                    </div>
+                    <input type="text" placeholder="Email" id="txtSignUpEmail">
+                    <input type="text" placeholder="Password" id="txtPasswordSignUpEmail" >
+                    <input type="text" placeholder="User" id="txtNameSignUpEmail" >
+                </div>
 
-                    </tbody>
-                </table>
+                <div>
+                    <button type="button" id="btnSignUpToApp">Sign Up</button>
+                </div>
             </div>
 
         </section>
         <section id="log-in-page">
-            <h3>Hello, Shoes (Pvt) Ltd</h3>
             <div>
-                <input type="text" placeholder="User" id="txtUser">
-                <input type="text" placeholder="Password" id="txtPassword" >
+                <h3>Hello, Shoes (Pvt) Ltd</h3>
+                <div>
+                    <input type="text" placeholder="User" id="txtUser">
+                    <input type="password" placeholder="Password" id="txtPassword" >
+                </div>
+
+                <div>
+                    <button type="button" id="btnSignIn">Sign In</button>
+                </div>
             </div>
 
-            <div>
-                <button type="button" id="btnSignIn">Sign In</button>
-                <button type="button" id="btnSignUp">Sign Up</button>
-            </div>
         </section>
         <section id="sign-up-page">
-            <h3>Hello, Shoes (Pvt) Ltd</h3>
+            <!--<h3>Hello, Shoes (Pvt) Ltd</h3>
             <div>
                 <div >
                     <select class="form-select form-select-sm" aria-label="Small select example" id="cmdAccessRole">
@@ -1929,7 +1996,7 @@
             <div>
                 <button type="button" id="btnSignUpToApp">Sign Up</button>
                 <button type="button" id="btnBackLogIn">Back</button>
-            </div>
+            </div>-->
         </section>
     </main>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
@@ -1946,5 +2013,6 @@
     <script src="controller/validation/SupplierValidation.js"></script>
     <script src="controller/validation/EmployeeValidation.js"></script>
     <script src="controller/validation/InventoryValidation.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>

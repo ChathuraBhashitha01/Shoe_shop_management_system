@@ -18,6 +18,12 @@ function setSupplierView(viewOb){
 
 $("#navSupplier").click(function (){
     setSupplierView($("#supplier"))
+    $("#navCustomer").css( "font-weight","normal");
+    $("#navSupplier").css( "font-weight","bold");
+    $("#navDashboard").css( "font-weight","normal");
+    $("#navEmployee").css( "font-weight","normal");
+    $("#navInventory").css( "font-weight","normal");
+    $("#navSale").css( "font-weight","normal");
 });
 
 $("#btnSaveSupplier").click(function (){

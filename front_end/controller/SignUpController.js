@@ -1,9 +1,4 @@
 
-
-function clearAll(){
-    $("#customer,#supplier,#employee,#inventory,#sale,#admin,#header#log-in-page,#sign-up-page").css('display','none');
-}
-
 $("#btnSignUpToApp").click(function () {
 
     let email= $("#txtSignUpEmail").val();
@@ -32,7 +27,7 @@ $("#btnSignUpToApp").click(function () {
             localStorage.setItem("token", resp.token)
             clearSignUpInputFields();
             swal("SignUp", "Sign up successfully", "success");
-            $("#sale").css('display','block');
+
         },
         error: function (xhr, textStatus, error) {
             console.log("signUp error: ", error);

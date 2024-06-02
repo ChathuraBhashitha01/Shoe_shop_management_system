@@ -17,6 +17,12 @@ function setEmployeeView(viewOb){
 
 $("#navEmployee").click(function (){
     setEmployeeView($("#employee"))
+    $("#navCustomer").css( "font-weight","normal");
+    $("#navSupplier").css( "font-weight","normal");
+    $("#navDashboard").css( "font-weight","normal");
+    $("#navEmployee").css( "font-weight","bold");
+    $("#navInventory").css( "font-weight","normal");
+    $("#navSale").css( "font-weight","normal");
 });
 
 let profilePic=document.getElementById("profilePic")
@@ -28,14 +34,17 @@ inputFile.onchange = function (){
 
 $("#btnEmployeeSave").click(function (){
    saveEmployee();
+    clearEmployeeInputField();
 });
 
 $("#btnEmployeeUpdate").click(function (){
     updateEmployee();
+    clearEmployeeInputField();
 });
 
 $("#btnEmployeeDelete").click(function (){
     deleteEmployee();
+    clearEmployeeInputField();
 });
 
 function saveEmployee(){
@@ -92,13 +101,11 @@ function saveEmployee(){
 
         success: function (resp, textStatus, jqxhr) {
             console.log("Success", resp);
-            if (jqxhr.status == 201) {
-                alert("Added employee successfully");
-            }
+                swal("Saved", "Employee saved successfully!", "success");
             getAllEmployee();
         },
         error: function (error) {
-            console.log("Error", error);
+                swal("Error", "This Employee is already exits!", "error");
         }
     });
 }
@@ -157,13 +164,11 @@ function updateEmployee(){
 
         success: function (resp, textStatus, jqxhr) {
             console.log("Success", resp);
-            if (jqxhr.status == 201) {
-                alert("Added employee successfully");
-            }
-            getAllCustomers();
+            swal("Update", "Employee saved successfully!", "success");
+            getAllEmployee();
         },
         error: function (error) {
-            console.log("Error", error);
+                swal("Error", "This Employee does not exits!", "error");
         }
     });
 }
@@ -177,13 +182,11 @@ function deleteEmployee(){
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (resp, textStatus, jqxhr) {
-            if (jqxhr.status == 201) {
-                alert("Delete employee successfully");
-            }
-            getAllCustomers();
+                swal("Delete", "Employee saved successfully!", "success");
+            getAllEmployee();
         },
         error: function (error) {
-
+                swal("Error", "This Employee does not exits!", "error");
         }
     });
 }
@@ -196,6 +199,7 @@ function searchEmployee(id){
 
 function getAllEmployee(){
     $("#tblEmployee").empty();
+    let employeeCount=0;
     $.ajax({
         url: "http://localhost:8080/app/api/v1/employees",
         method: "GET",
@@ -224,6 +228,7 @@ function getAllEmployee(){
                     <td>${employee.emergencyContact}</td>
                 </tr>`;
                 $("#tblEmployee").append(row);
+                employeeCount++;
                 bindEmployeeTrEvents();
                 const employeeDetails = {
                     id: employee.employeeCode
@@ -232,6 +237,12 @@ function getAllEmployee(){
             }
         }
     });
+    if (employeeCount<=8){
+        $('#btnEmployeeSave').attr('disabled', true);
+    }
+    else if (employeeCount>8){
+        $('#btnEmployeeSave').attr('disabled', false);
+    }
 }
 
 function bindEmployeeTrEvents() {

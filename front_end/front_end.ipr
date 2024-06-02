@@ -6,6 +6,9 @@
     </profile>
     <version value="1.0" />
   </component>
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{sweetalert}" />
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/front_end.iml" filepath="$PROJECT_DIR$/front_end.iml" />

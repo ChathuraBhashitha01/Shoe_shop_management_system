@@ -1,4 +1,4 @@
-const ITEM_ID_REGEX = /^(I00-)[0-9]{3}$/;
+const ITEM_ID_REGEX = /^[A-Z 0-9]{8,}$/;
 const ITEM_NAME_REGEX = /^[A-Za-z ]{2,}$/;
 const ITEM_QUANTITY_SIZE_5 = /^[0-9 ]{1,}$/;
 const ITEM_QUANTITY_SIZE_6 = /^[0-9 ]{1,}$/;

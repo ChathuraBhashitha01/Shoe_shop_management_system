@@ -23,16 +23,35 @@ function setCustomerView(viewOb){
 
 $("#navCustomer").click(function (){
     setCustomerView($("#customer"));
+    $("#navCustomer").css( "font-weight","bold");
+    $("#navSupplier").css( "font-weight","normal");
+    $("#navDashboard").css( "font-weight","normal");
+    $("#navEmployee").css( "font-weight","normal");
+    $("#navInventory").css( "font-weight","normal");
+    $("#navSale").css( "font-weight","normal");
 });
 
 $("#btnSaveCustomer").click(function (){
-    saveCustomer();
-    clearCustomerInputField();
+    if (checkCustomerAll()) {
+        if (checkCusEmptyInputFields()){
+            saveCustomer();
+        }
+    } else {
+        swal("Error", "Please check the input fields!", "error");
+    }
 });
 
 $("#btnCustomerUpdate").click(function (){
-    updateCustomer();
-    clearCustomerInputField();
+    /*updateCustomer();
+    clearCustomerInputField();*/
+
+    if (checkCustomerAll()) {
+        if (checkCusEmptyInputFields()){
+            updateCustomer();
+        }
+    } else {
+        swal("Error", "Please check the input fields!", "error");
+    }
 });
 
 $("#btnCustomerDelete").click(function (){
@@ -83,16 +102,15 @@ function saveCustomer(){
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
-
         success: function (resp, textStatus, jqxhr){
-            console.log("Success",resp);
             if (jqxhr.status == 201) {
-                alert("Added customer successfully");
+                swal("Saved", "Customer saved successfully!", "success");
             }
             getAllCustomers();
         },
         error: function (error){
-            console.log("Error",error);
+                swal("Error", "This customer is already exits!", "error");
+
         }
     });
 }
@@ -107,12 +125,12 @@ function deleteCustomer(){
         },
         success: function (resp, textStatus, jqxhr) {
             if (jqxhr.status == 201) {
-                alert("Delete customer successfully");
+                swal("Deleted", "Customer deleted successfully!", "success");
             }
             getAllCustomers();
         },
         error: function (error) {
-
+                swal("Error", "This customer does not exits!", "error");
         }
     });
 }
@@ -164,12 +182,12 @@ function updateCustomer(){
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
             if (jqxhr.status == 201) {
-                alert("Added customer successfully");
+                swal("Updated", "Customer updated successfully!", "success");
             }
             getAllCustomers();
         },
         error: function (error){
-            console.log("Error",error);
+                swal("Error", "This customer does not exits!", "error");
         }
     });
 }
@@ -251,4 +269,11 @@ function bindCusTrEvents() {
         $("#txtEmail").val(email)
         $("#txtPurchaseDate").val(purchaseDate)
     });
+}
+function checkCusEmptyInputFields() {
+    if ($("#txtDOB").val()==="" || $("#txtJoinDate").val()===""){
+        swal("Error", "Fill all empty the fields!", "error");
+        return false;
+    }
+    return true
 }

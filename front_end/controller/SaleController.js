@@ -1,5 +1,6 @@
 
 let paymentMethod="cash";
+$("#navSale").css( "font-weight","bold");
 
 function setSaleView(viewOb){
     clearAll();
@@ -8,21 +9,14 @@ function setSaleView(viewOb){
 
 $("#navSale").click(function (){
     setSaleView($("#sale"))
+    $("#navCustomer").css( "font-weight","normal");
+    $("#navSupplier").css( "font-weight","normal");
+    $("#navDashboard").css( "font-weight","normal");
+    $("#navEmployee").css( "font-weight","normal");
+    $("#navInventory").css( "font-weight","normal");
+    $("#navSale").css( "font-weight","bold");
 });
 NextOrderID();
-function NextOrderID(){
-    $.ajax({
-        url: "http://localhost:8080/app/api/v1/sales/orderID",
-        method: "GET",
-        headers: {
-            "Authorization": "Bearer " + localStorage.getItem("token")
-        },
-        success: function (resp) {
-            $("#lblOrderId").text(resp)
-            console.log(resp);
-        },
-    });
-}
 
 getAllInventoriesForSale();
 function getAllInventoriesForSale(){
@@ -67,27 +61,6 @@ function getAllInventoriesForSale(){
 
             }
         }
-    });
-}
-
-function eventListenerBtnDetailForm(){
-
-    $("#itemDetails>div").click(function () {
-        $("#itemSelectForm").css({
-            'display':'inline-block'
-        })
-
-        let code = $(this).children().eq(7).text();
-        let name = $(this).children().eq(1).text();
-        let price = $(this).children().eq(2).text();
-        let status = $(this).children().eq(4).text();
-
-        $("#itemCodeForDetailForm").text(code);
-        $("#itemNameForDetailForm").text(name);
-        $("#itemPriceForDetailForm").text(price);
-        $("#itemStatusForDetailForm").text(status);
-
-        getPictureForAddToCartForm(code);
     });
 }
 
@@ -253,6 +226,7 @@ $('#btnAddToCart').click(function () {
             </tr>`;
 
         $("#tblPurchase").append(row);
+
     }
 
     $('#tblPurchase>tr').each(function () {
@@ -266,6 +240,7 @@ $('#btnAddToCart').click(function () {
     $("#itemSelectForm").css({
         'display':'none'
     })
+    removeEvent();
 });
 
 $("#btnToPurchaseForm").click(function (){
@@ -359,13 +334,23 @@ $("#btnPurchase").click(function (){
 })
 
 function purchaseOrder(){
-    let lblCustomerCode = $("#lblCustomerCode").text();
-    let arrayCode = lblCustomerCode.split(":");
-    let customerCode = arrayCode[1];
 
-    let lblCustomerName = $("#lblCustomerName").text();
-    let arrayName = lblCustomerName.split(":");
-    let customerName = arrayName[1];
+    let customerCode=null;
+
+    if($("#lblCustomerCode").text().length!==0){
+        let lblCustomerCode = $("#lblCustomerCode").text();
+        let arrayCode = lblCustomerCode.split(":");
+        customerCode = arrayCode[1];
+    }
+
+    let customerName=null;
+
+    if($("#lblCustomerName").text().length!==0){
+        let lblCustomerName = $("#lblCustomerName").text();
+        let arrayName = lblCustomerName.split(":");
+        customerName = arrayName[1];
+    }
+
 
     let employeeCode = $("#lblUserID").text();
     let orderId = $("#lblOrderId").text();
@@ -429,11 +414,14 @@ function purchaseOrder(){
 
         success: function (resp, textStatus, jqxhr){
             console.log("Success",resp);
-            if (jqxhr.status == 201) {
-                alert("place order successfully");
-            }
+                swal("Saved", "place order saved successfully!", "success");
+                loadDataToLocalDate();
+                getAllSales();
+                NextOrderID();
+                clearLbl();
         },
         error: function (error){
+            swal("Error", "place order not saved !", "error");
             console.log("Error",error);
         }
     });
@@ -509,7 +497,7 @@ $("#btnOrderRefund").click(function (){
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (resp) {
-            alert("Item Refund Succesfully");
+            swal("Saved", "place order saved successfully!", "success");
             getRefundDetails();
         },
     });
@@ -543,6 +531,10 @@ function getRefundDetails(){
                 }
             }
         },
+        error: function (error){
+            swal("Error", "Refund order not saved !", "error");
+            console.log("Error",error);
+        }
     });
 }
 
@@ -554,13 +546,10 @@ function bindRefundTrEvents() {
 
     });
 }
-
-$("#searchSales").click(function (){
+$("#sortSales").change(function (){
     let sortType = $("#sortSales").val();
-    let maxPrice = $("#maxPrice").val();
-    let minPrice = $("#minPrice").val();
 
-    if (sortType==="Man"||sortType==="Women" &&  $("#minPrice").val().length===0 && $("#maxPrice").val().length===0){
+    if (sortType==="Man"||sortType==="Women"){
         $("#itemDetails").empty();
         $.ajax({
             url: "http://localhost:8080/app/api/v1/inventories/getByGender/"+sortType,
@@ -584,6 +573,7 @@ $("#searchSales").click(function (){
                                 </div>`
 
                     $("#itemDetails").append(divElement);
+                    eventListenerBtnDetailForm();
                 }
             }
         });
@@ -592,7 +582,55 @@ $("#searchSales").click(function (){
         $("#itemDetails").empty();
         getAllInventoriesForSale();
     }
-    else if(sortType==="All" && $("#minPrice").val().length!==0 && $("#maxPrice").val().length!==0){
+})
+
+$("#sortSalesByItem").change(function (){
+    let sortItem=$("#sortSalesByItem").val();
+
+    if (sortItem==="Formal Shoes"||sortItem==="Casual Shoes"){
+        $("#itemDetails").empty();
+        $.ajax({
+            url: "http://localhost:8080/app/api/v1/inventories/getByCat/"+sortItem,
+            method: "GET",
+            dataType: "json",
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            },
+            success: function (resp) {
+                for (const inventory of resp) {
+
+                    let divElement=`<div class="divInItemDetails">
+                                    <img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">
+                                    <label>${inventory.itemDesc}</label>
+                                    <label>${inventory.unitPriceSale}</label>
+                                    <button class="btnItemBuy">Buy</button>
+                                    <label>${inventory.status}</label>
+                                    <label>${inventory.status}</label>
+                                    <label>In Stock</label>
+                                    <label class="itemCode">${inventory.itemCode}</label>
+                                </div>`
+
+                    $("#itemDetails").append(divElement);
+                    eventListenerBtnDetailForm();
+                }
+            }
+        });
+
+    }
+    else if (sortType==="All" && $("#minPrice").val().length===0 && $("#maxPrice").val().length===0){
+        $("#itemDetails").empty();
+        getAllInventoriesForSale();
+    }
+})
+
+$("#searchSales").click(function (){
+    let sortType = $("#sortSales").val();
+    let sortItem=$("#sortSalesByItem").val();
+    let itemName=$("#itemName").val();
+    let maxPrice = $("#maxPrice").val();
+    let minPrice = $("#minPrice").val();
+
+    if($("#minPrice").val().length!==0 && $("#maxPrice").val().length!==0 && $("#itemName").val().length===0){
         $("#itemDetails").empty();
         $.ajax({
             url: "http://localhost:8080/app/api/v1/inventories/getAllItemsByPrice/"+minPrice+"/"+maxPrice,
@@ -616,14 +654,16 @@ $("#searchSales").click(function (){
                                 </div>`
 
                     $("#itemDetails").append(divElement);
+                    eventListenerBtnDetailForm();
                 }
             }
         });
+
     }
-    else if (sortType!=="All" &&  $("#minPrice").val().length!==0 && $("#maxPrice").val().length!==0){
-        $("#itemDetails").empty();
+   else if ($("#itemName").val().length!==0  &&  $("#minPrice").val().length===0 && $("#maxPrice").val().length===0){
+      $("#itemDetails").empty();
         $.ajax({
-            url: "http://localhost:8080/app/api/v1/inventories/getAllItemsByPriceAndGender/"+sortType+"/"+minPrice+"/"+maxPrice,
+            url: "http://localhost:8080/app/api/v1/inventories/searchByName/"+itemName,
             method: "GET",
             dataType: "json",
             headers: {
@@ -633,6 +673,37 @@ $("#searchSales").click(function (){
                 for (const inventory of resp) {
 
                     let divElement=`<div class="divInItemDetails">
+                                        <img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">
+                                        <label>${inventory.itemDesc}</label>
+                                        <label>${inventory.unitPriceSale}</label>
+                                        <button class="btnItemBuy">Buy</button>
+                                        <label>${inventory.status}</label>
+                                        <label>${inventory.status}</label>
+                                        <label>In Stock</label>
+                                        <label class="itemCode">${inventory.itemCode}</label>
+                                    </div>`
+
+                    $("#itemDetails").append(divElement);
+                    eventListenerBtnDetailForm();
+                }
+            }
+        });
+
+    }
+});
+/*$("#itemName").click(function (){
+    $("#itemDetails").empty();
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/inventories/searchByName/"+itemName,
+        method: "GET",
+        dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        success: function (resp) {
+            for (const inventory of resp) {
+
+                let divElement=`<div class="divInItemDetails">
                                     <img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="width: 200px; height: 150px; padding: 0;">
                                     <label>${inventory.itemDesc}</label>
                                     <label>${inventory.unitPriceSale}</label>
@@ -643,12 +714,12 @@ $("#searchSales").click(function (){
                                     <label class="itemCode">${inventory.itemCode}</label>
                                 </div>`
 
-                    $("#itemDetails").append(divElement);
-                }
+                $("#itemDetails").append(divElement);
             }
-        });
-    }
-});
+        }
+    });
+})*/
+
 
 $("#customerContact").click(function (){
 
@@ -671,3 +742,55 @@ $("#customerContact").click(function (){
         },
     });
 });
+
+function NextOrderID(){
+    $.ajax({
+        url: "http://localhost:8080/app/api/v1/sales/orderID",
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        success: function (resp) {
+            $("#lblOrderId").text(resp)
+            console.log(resp);
+        },
+    });
+}
+function eventListenerBtnDetailForm(){
+
+    $("#itemDetails>div").click(function () {
+        $("#itemSelectForm").css({
+            'display':'inline-block'
+        })
+
+        let code = $(this).children().eq(7).text();
+        let name = $(this).children().eq(1).text();
+        let price = $(this).children().eq(2).text();
+        let status = $(this).children().eq(4).text();
+
+        $("#itemCodeForDetailForm").text(code);
+        $("#itemNameForDetailForm").text(name);
+        $("#itemPriceForDetailForm").text(price);
+        $("#itemStatusForDetailForm").text(status);
+
+        getPictureForAddToCartForm(code);
+    });
+}
+function clearLbl(){
+     $("#lblUserID").text("");
+    $("#lblOrderId").text("");
+   $("#txtSubtotal").text("");
+    $("#lblCustomerName").text("");
+    $("#txtCash").val("")
+    $("#txtBalance").val("");
+    $("#txtDiscount").val("")
+    $("#txtTotal").text("");
+
+}
+
+function removeEvent() {
+    $('#tblPurchase>tr').on('dblclick',function () {
+        $(this).remove();
+    });
+}
+
