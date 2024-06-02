@@ -751,32 +751,42 @@
             font-weight: bold;
             font-size: 20px;
         }
-
-        body>main>section:nth-child(7)>div{
-            display: inline-block;
+        body>main>section:nth-child(7){
+            width: 100vw;
+            height: 100vh;
             position: relative;
+            border: 2px solid black;
+            background: url(assets/image/8689bf9e0b661e9b3828e45584f9132c.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+
         }
-        body>main>section:nth-child(7)div:first-child{
-            width: 500px;
-            height: 370px;
+        body>main>section:nth-child(7)>div:nth-child(1){
+            width: 365px;
+            height: 250px;
             border: 2px solid black;
             position: absolute;
             top: 0;
             bottom: 0;
-            left: 0;
-            right: 0;
+            right: 25px;
             margin: auto;
-            border-radius: 10px;
+
         }
-        body>main>section:nth-child(7)div:first-child>h3{
-            margin-left: 130px;
-            font-size: 25px;
+        body>main>section:nth-child(7)>div:nth-child(1)>div{
+            display: inline-block;
+            position: relative;
         }
-        body>main>section:nth-child(7)div:first-child>div:nth-child(2)>input{
-            width: 450px;
-            height: 40px;
-            border: black solid 2px;
+        body>main>section:nth-child(7)>div:nth-child(1)>label:nth-child(1){
+            margin-left: 75px;
             font-size: 20px;
+        }
+        body>main>section:nth-child(7)>div:nth-child(1)>div:nth-child(2)>input{
+            width: 320px;
+            height: 30px;
+            border: black solid 2px;
+            font-size: 15px;
             border-radius: 5px;
         }
         #txtUser{
@@ -789,93 +799,22 @@
             top: 35px;
             left: 20px;
         }
-        body>main>section:nth-child(7)div:first-child>div:nth-child(3){
+        body>main>section:nth-child(7)>div:nth-child(1)>div:nth-child(3){
             position: relative;
             top: 80px;
             left: 20px;
         }
-        body>main>section:nth-child(7)div:first-child>div:nth-child(3)>button{
-            width: 200px;
-            height: 40px;
+        body>main>section:nth-child(7)>div:nth-child(1)>div:nth-child(3)>button{
+            width: 320px;
+            height: 30px;
             border: black solid 2px;
-            border-radius: 10px;
+            border-radius: 5px;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 15px;
         }
         #btnSignIn{
             margin-right: 50px;
         }
-        /*body>main>section:nth-child(8)>div{
-            display: inline-block;
-            position: relative;
-        }
-        body>main>section:nth-child(8){
-            width: 500px;
-            height: 370px;
-            border: 2px solid black;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            border-radius: 10px;
-        }*/
-       /* body>main>section:nth-child(8)>h3{
-            margin-left: 130px;
-            font-size: 25px;
-        }*/
-       /* body>main>section:nth-child(8)>div:nth-child(2)>input{
-            width: 450px;
-            height: 40px;
-            border: black solid 2px;
-            font-size: 20px;
-            border-radius: 5px;
-        }*/
-       /* #txtSignUpEmail{
-            position: relative;
-            top: 10px;
-            left: 20px;
-        }
-        #cmdAccessRole{
-            width: 450px;
-            height: 40px;
-            border: black solid 2px;
-            font-size: 20px;
-            border-radius: 5px;
-        }
-        #txtPasswordSignUpEmail{
-            position: relative;
-            top: 35px;
-            left: 20px;
-        }
-        #txtNameSignUpEmail{
-            position: relative;
-            top: 55px;
-            left: 20px;
-        }
-        body>main>section:nth-child(8)>div:nth-child(2){
-            position: relative;
-            top: 80px;
-            left: 20px;
-        }
-        body>main>section:nth-child(8)>div:nth-child(3){
-            position: relative;
-            top: 135px;
-            left: 20px;
-        }
-        body>main>section:nth-child(8)>div:nth-child(3)>button{
-            width: 200px;
-            height: 40px;
-            border: black solid 2px;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        #btnSignUpToApp{
-            margin-right: 50px;
-        }*/
-
     </style>
     <link rel="stylesheet" href="assets/Bootstrap/css/bootstrap.css">
 </head>
@@ -1967,7 +1906,7 @@
         </section>
         <section id="log-in-page">
             <div>
-                <h3>Hello, Shoes (Pvt) Ltd</h3>
+                <label>Hello, Shoes (Pvt) Ltd</label>
                 <div>
                     <input type="text" placeholder="User" id="txtUser">
                     <input type="password" placeholder="Password" id="txtPassword" >
@@ -1977,9 +1916,9 @@
                     <button type="button" id="btnSignIn">Sign In</button>
                 </div>
             </div>
-
+            <div></div>
         </section>
-        <section id="sign-up-page">
+<!--        <section id="sign-up-page">-->
             <!--<h3>Hello, Shoes (Pvt) Ltd</h3>
             <div>
                 <div >
@@ -1997,7 +1936,7 @@
                 <button type="button" id="btnSignUpToApp">Sign Up</button>
                 <button type="button" id="btnBackLogIn">Back</button>
             </div>-->
-        </section>
+<!--        </section>-->
     </main>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
     <script src="assets/Bootstrap/js/bootstrap.js"></script>
