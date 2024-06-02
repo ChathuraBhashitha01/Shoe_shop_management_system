@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf8278f6-5935-4356-b8cd-b0fd40e9cbf6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/image/8689bf9e0b661e9b3828e45584f9132c.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/AdminPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/AdminPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/lk/ijse/gdse/springboot/back_end/controller/CustomerController.java" afterDir="false" />
@@ -64,22 +63,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.index.html.executor": "Run",
-    "Node.js.AdminPanelController.js.executor": "Run",
-    "Node.js.SaleController.js.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/GDSE 66/Shoe_shop_management_system/front_end/assets",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.AdminPanelController.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.SaleController.js.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/GDSE 66/Shoe_shop_management_system/front_end/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GDSE 66\Shoe_shop_management_system\front_end\assets" />
@@ -206,7 +205,9 @@
       <workItem from="1717296108820" duration="252000" />
       <workItem from="1717296427514" duration="162000" />
       <workItem from="1717296677467" duration="5996000" />
-      <workItem from="1717333472898" duration="4093000" />
+      <workItem from="1717333472898" duration="4270000" />
+      <workItem from="1717343507656" duration="197000" />
+      <workItem from="1717345099195" duration="7399000" />
     </task>
     <servers />
   </component>

@@ -6,35 +6,44 @@
     <meta name="keywords" content="Shoes,Hello, Shoes,Women Shoes,Men Shoes">
     <meta name="viewport" content="width=device-width initial-scale=1">
     <link rel="stylesheet" href="assets/css/8.0.1_normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Handjet:wght@100&family=Josefin+Sans:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/font/css/all.css">
+    <link rel="stylesheet" href="assets/Bootstrap/css/bootstrap.css">
     <style>
+        *{
+            font-family:'Josefin+Sans:ital', " sans-serif";
+        }
         body>header{
             position: relative;
         }
         body>header>nav{
-            width: 98.5vw;
-            height: 8vh;
-            background: #C7DEF2;
+            width: 90vw;
+            height: 10vh;
+            background: #FFF0E5;
+            border: black solid 1px;
             align-items: baseline;
             display: flex;
             overflow: hidden;
             position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            margin: auto;
             z-index: 1;
         }
         body>header>nav>label:nth-child(1){
             margin-top: 1%;
             margin-left: 3%;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 20px;
         }
         body>header>nav>div>ul{
             display: flex;
             align-items: center;
             margin: 0;
-            /*position: absolute;*/
-            /*top: 0%;*/
-            /*bottom: 0;*/
-            /*right: 0%;*/
-            /*margin: auto;*/
+            padding-left: 20%;
         }
         body>header>nav>div{
             display: flex;
@@ -74,20 +83,26 @@
         body>header>nav>label:nth-child(6){
             display: none;
         }
-        body>main>section:nth-child(1)>div:first-child{
+        body>main>section:nth-child(1){
             width: 98vw;
+            height:168vh;
+            background: #FFF0E5;
+        }
+        body>main>section:nth-child(1)>div:first-child{
+            width: 90vw;
             height: 55vh;
             position: relative;
             top: 15vh;
-            border: darkred solid 2px;
-            border-radius: 10px;
+            left: 4.5%;
+            background: white;
+            border: black solid 1px;
         }
         body>main>section:nth-child(1)>div:first-child>div:first-child{
             width: 40vw;
             height: 50vh;
             position: absolute;
-            top: 0%;
-            left: 7%;
+            top: 5%;
+            left: 4%;
             margin: auto;
         }
         body>main>section:nth-child(1)>div:first-child>div:first-child>div{
@@ -111,8 +126,8 @@
             width: 40vw;
             height: 50vh;
             position: absolute;
-            top: 0%;
-            right: 7%;
+            top: 5%;
+            right: 4%;
             margin: auto;
         }
         body>main>section:nth-child(1)>div:first-child>div:last-child>div{
@@ -126,74 +141,80 @@
             display: inline-block;
         }
         body>main>section:nth-child(1)>div:last-child{
-            width: 95vw;
-            height: 92vh;
+            width: 90vw;
+            height: 87vh;
             position: absolute;
-            left: 3%;
-            top: 70%;
+            left: 4.5%;
+            top: 80%;
             margin: 0;
             padding: 0;
-            overflow-y: scroll; /* enables vertical scrolling */
-
+            overflow-y: scroll;
             box-sizing: border-box;
-            font-family: sans-serif;
-
-            background-color: #fff5;
-            backdrop-filter: blur(7px);
-            box-shadow: 0 .4rem .8rem #0005;
-            border: darkred solid 2px;
-            border-radius: 10px;
+            border: black solid 1px;
+            background: white;
 
         }
-        body>main>section:nth-child(2)>div:first-child{
+        body>main>section:nth-child(2){
             width: 98vw;
+            height:160vh;
+            background: #FFF0E5;
+        }
+        body>main>section:nth-child(2)>div:first-child{
+            width: 90vw;
             height: 55vh;
             position: relative;
-            top: 15vh;
+            top: 17vh;
+            left: 4.5%;
+            border: black solid 1px;
+            background: white;
         }
         body>main>section:nth-child(2)>div:first-child>div:first-child{
             width: 40vw;
             height: 50vh;
             position: absolute;
-            top: 0%;
-            left: 7%;
+            top: 12%;
+            left: 4%;
             margin: auto;
         }
         body>main>section:nth-child(2)>div:first-child>div:last-child{
             width: 40vw;
             height: 50vh;
             position: absolute;
-            top: 0%;
-            right: 7%;
+            top: 12%;
+            right: 4%;
             margin: auto;
         }
         body>main>section:nth-child(2)>div:last-child{
-            width: 95vw;
-            height: 92vh;
+            width: 90vw;
+            height: 80vh;
             position: absolute;
-            left: 2%;
-            top: 60%;
-
-            overflow-y: scroll; /* enables vertical scrolling */
-
+            left: 4.5%;
+            top: 77%;
+            overflow-y: scroll;
             box-sizing: border-box;
-            font-family: sans-serif;
-
-            background-color: #fff5;
-            backdrop-filter: blur(7px);
-            box-shadow: 0 .4rem .8rem #0005;
+            border: black solid 1px;
+            background: white;
+        }
+        body>main>section:nth-child(3){
+            width: 98vw;
+            height: 185vh;
+            background: #FFF0E5;
         }
         body>main>section:nth-child(3)>div:first-child{
-            width: 98vw;
-            height: 70vh;
+            width: 90vw;
+            height: 76vh;
             position: relative;
+            top: 16vh;
+            left: 4.5%;
+            border: black solid 1px;
+            background: white;
         }
         body>main>section:nth-child(3)>div:first-child>div:first-child{
             width: 40vw;
             height: 65vh;
             position: absolute;
-            top: 23%;
-            left: 7%;
+            top: 5%;
+            left: 4%;
             margin: auto;
         }
         body>main>section:nth-child(3)>div:first-child>div:first-child>div:first-child{
@@ -242,20 +263,21 @@
             width: 40vw;
             height: 65vh;
             position: absolute;
-            top: 23%;
-            right: 7%;
+            top: 5%;
+            right: 4%;
             margin: auto;
         }
         body>main>section:nth-child(3)>div:last-child{
-            width: 95vw;
-            height: 92vh;
+            width: 90vw;
+            height: 80vh;
             overflow: hidden;
             overflow-y: scroll;
             overflow-x: scroll;
-            position: absolute;
-            left: 2%;
-            top:90%;
-            margin: auto;
+            position: relative;
+            left: 4.5%;
+            top: 14%;
+            border: black solid 1px;
+            background: white;
         }
         body>main>section:nth-child(4)>div:first-child{
             position: relative;
@@ -772,7 +794,7 @@
             bottom: 0;
             right: 25px;
             margin: auto;
-
+            background: white;
         }
         body>main>section:nth-child(7)>div:nth-child(1)>div{
             display: inline-block;
@@ -816,7 +838,6 @@
             margin-right: 50px;
         }
     </style>
-    <link rel="stylesheet" href="assets/Bootstrap/css/bootstrap.css">
 </head>
 <body>
     <header id="header">
@@ -824,7 +845,7 @@
             <label>Hello, Shoes (Pvt) Ltd</label>
             <div>
                 <ul>
-                    <li id="navDashboard">Dashboard</li>
+                    <li id="navDashboard"><i class="fa-solid fa-house"></i>Dashboard</li>
                     <li id="navCustomer">Customer</li>
                     <li id="navSale">Sale</li>
                     <li id="navSupplier">Supplier</li>
@@ -1019,17 +1040,17 @@
                 <table class="table mb-5" data-bs-spy="scroll">
                     <thead style="border: black">
                     <tr style="border: black">
-                        <th scope="col" style="background: #0a58ca">Code</th>
-                        <th scope="col" style="background: #0a58ca">Name</th>
-                        <th scope="col" style="background: #0a58ca">Gender</th>
-                        <th scope="col" style="background: #0a58ca">Join date</th>
-                        <th scope="col" style="background: #0a58ca">Level</th>
-                        <th scope="col" style="background: #0a58ca">Total points</th>
-                        <th scope="col" style="background: #0a58ca">DOB</th>
-                        <th scope="col" style="background: #0a58ca">Address</th>
-                        <th scope="col" style="background: #0a58ca">Contact No</th>
-                        <th scope="col" style="background: #0a58ca">Email</th>
-                        <th scope="col" style="background: #0a58ca">purchase date &
+                        <th scope="col" style="background: white">Code</th>
+                        <th scope="col" style="background: white">Name</th>
+                        <th scope="col" style="background: white">Gender</th>
+                        <th scope="col" style="background: white">Join date</th>
+                        <th scope="col" style="background: white">Level</th>
+                        <th scope="col" style="background: white">Total points</th>
+                        <th scope="col" style="background: white">DOB</th>
+                        <th scope="col" style="background: white">Address</th>
+                        <th scope="col" style="background: white">Contact No</th>
+                        <th scope="col" style="background: white">Email</th>
+                        <th scope="col" style="background: white">purchase date &
                             time</th>
                     </tr>
                     </thead>
@@ -1149,13 +1170,13 @@
                 <table class="table mb-5" >
                     <thead style="border: black">
                     <tr style="border: black">
-                        <th scope="col" style="background: #0a58ca">Code</th>
-                        <th scope="col" style="background: #0a58ca">Name</th>
-                        <th scope="col" style="background: #0a58ca">Category</th>
-                        <th scope="col" style="background: #0a58ca">Address</th>
-                        <th scope="col" style="background: #0a58ca">Contact No.1</th>
-                        <th scope="col" style="background: #0a58ca">Contact No.2</th>
-                        <th scope="col" style="background: #0a58ca">Email</th>
+                        <th scope="col" style="background: white">Code</th>
+                        <th scope="col" style="background: white">Name</th>
+                        <th scope="col" style="background: white">Category</th>
+                        <th scope="col" style="background: white">Address</th>
+                        <th scope="col" style="background: white">Contact No.1</th>
+                        <th scope="col" style="background: white">Contact No.2</th>
+                        <th scope="col" style="background: white">Email</th>
                     </tr>
                     </thead>
                     <tbody class="table-group-divider" id="tblSupplier" style="border: black">
@@ -1343,21 +1364,21 @@
                 <table class="table mb-5" >
                     <thead style="border: black">
                     <tr style="border: black">
-                        <th scope="col" style="background: #0a58ca">Code</th>
-                        <th scope="col" style="background: #0a58ca"></th>
-                        <th scope="col" style="background: #0a58ca">Name</th>
-                        <th scope="col" style="background: #0a58ca">Gender</th>
-                        <th scope="col" style="background: #0a58ca">Status</th>
-                        <th scope="col" style="background: #0a58ca">Designation</th>
-                        <th scope="col" style="background: #0a58ca">Access Role</th>
-                        <th scope="col" style="background: #0a58ca">DOB</th>
-                        <th scope="col" style="background: #0a58ca">Date of Join </th>
-                        <th scope="col" style="background: #0a58ca">Attached Branch</th>
-                        <th scope="col" style="background: #0a58ca">Address</th>
-                        <th scope="col" style="background: #0a58ca">Contact No</th>
-                        <th scope="col" style="background: #0a58ca">Email</th>
-                        <th scope="col" style="background: #0a58ca">Inform in case of emergency</th>
-                        <th scope="col" style="background: #0a58ca">Emergency Contact</th>
+                        <th scope="col" style="background: white">Code</th>
+                        <th scope="col" style="background: white"></th>
+                        <th scope="col" style="background: white">Name</th>
+                        <th scope="col" style="background: white">Gender</th>
+                        <th scope="col" style="background: white">Status</th>
+                        <th scope="col" style="background: white">Designation</th>
+                        <th scope="col" style="background: white">Access Role</th>
+                        <th scope="col" style="background: white">DOB</th>
+                        <th scope="col" style="background: white">Date of Join </th>
+                        <th scope="col" style="background: white">Attached Branch</th>
+                        <th scope="col" style="background: white">Address</th>
+                        <th scope="col" style="background: white">Contact No</th>
+                        <th scope="col" style="background: white">Email</th>
+                        <th scope="col" style="background: white">Inform in case of emergency</th>
+                        <th scope="col" style="background: white">Emergency Contact</th>
                     </tr>
                     </thead>
                     <tbody class="table-group-divider" id="tblEmployee" style="border: black">
@@ -1904,7 +1925,7 @@
             </div>
 
         </section>
-        <section id="log-in-page">
+        <!--<section id="log-in-page">
             <div>
                 <label>Hello, Shoes (Pvt) Ltd</label>
                 <div>
@@ -1917,7 +1938,7 @@
                 </div>
             </div>
             <div></div>
-        </section>
+        </section>-->
 <!--        <section id="sign-up-page">-->
             <!--<h3>Hello, Shoes (Pvt) Ltd</h3>
             <div>
@@ -1940,7 +1961,7 @@
     </main>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
     <script src="assets/Bootstrap/js/bootstrap.js"></script>
-    <script src="controller/SignInController.js"></script>
+    <!--<script src="controller/SignInController.js"></script>-->
     <script src="controller/SignUpController.js"></script>
     <script src="controller/AdminPanelController.js"></script>
     <script src="controller/CustomerController.js"></script>
