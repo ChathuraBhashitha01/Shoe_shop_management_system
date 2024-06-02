@@ -211,21 +211,21 @@ function getAllEmployee(){
             employeeCodes=[];
             for (const employee of resp) {
                 let row=`<tr>
-                    <td>${employee.employeeCode}</td>
-                    <td><img alt="image" src="data:image/png;base64,${employee.employeePicture}" style="max-width: 50px; height: 50px; border-radius: 50px; "></td>
-                    <td>${employee.employeeName}</td>
-                    <td>${employee.gender}</td>
-                    <td>${employee.status}</td>
-                    <td>${employee.designation}</td>
-                    <td>${employee.accessRole}</td>
-                    <td>${employee.dob}</td>
-                    <td>${employee.dateOfJoin}</td>
-                    <td>${employee.attachedBranch}</td>
-                    <td>${employee.addressLine01+","+employee.addressLine02+","+employee.addressLine03+","+employee.addressLine04+","+employee.addressLine05+"."}</td>
-                    <td>${employee.contactNo}</td>
-                    <td>${employee.email}</td>
-                    <td>${employee.informInCaseOfEmergency}</td>
-                    <td>${employee.emergencyContact}</td>
+                    <td style="background: #FFF0E5">${employee.employeeCode}</td>
+                    <td style="background: #FFF0E5"><img alt="image" src="data:image/png;base64,${employee.employeePicture}" style="max-width: 50px; height: 50px; border-radius: 50px; "></td>
+                    <td style="background: #FFF0E5">${employee.employeeName}</td>
+                    <td style="background: #FFF0E5">${employee.gender}</td>
+                    <td style="background: #FFF0E5">${employee.status}</td>
+                    <td style="background: #FFF0E5">${employee.designation}</td>
+                    <td style="background: #FFF0E5">${employee.accessRole}</td>
+                    <td style="background: #FFF0E5">${employee.dob}</td>
+                    <td style="background: #FFF0E5">${employee.dateOfJoin}</td>
+                    <td style="background: #FFF0E5">${employee.attachedBranch}</td>
+                    <td style="background: #FFF0E5">${employee.addressLine01+","+employee.addressLine02+","+employee.addressLine03+","+employee.addressLine04+","+employee.addressLine05+"."}</td>
+                    <td style="background: #FFF0E5">${employee.contactNo}</td>
+                    <td style="background: #FFF0E5">${employee.email}</td>
+                    <td style="background: #FFF0E5">${employee.informInCaseOfEmergency}</td>
+                    <td style="background: #FFF0E5">${employee.emergencyContact}</td>
                 </tr>`;
                 $("#tblEmployee").append(row);
                 employeeCount++;

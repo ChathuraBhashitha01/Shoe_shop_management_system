@@ -231,25 +231,25 @@ function getAllInventories(){
 
             for (const inventory of resp) {
                 let row=`<tr>
-                    <td>${inventory.itemCode}</td>
-                    <td><img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="max-width: 50px; height: 50px; border-radius: 10px;"></td>
-                    <td>${inventory.itemDesc}</td>
-                    <td>${inventory.typeOfGender}</td>
-                    <td>${inventory.category}</td>
-                    <td>${inventory.quantitySize5}</td>
-                    <td>${inventory.quantitySize6}</td>
-                    <td>${inventory.quantitySize7}</td>
-                    <td>${inventory.quantitySize8}</td>
-                    <td>${inventory.quantitySize9}</td>
-                    <td>${inventory.quantitySize10}</td>
-                    <td>${inventory.quantitySize11}</td>
-                    <td>${inventory.supplierCode}</td>
-                    <td>${inventory.supplierName}</td>
-                    <td>${inventory.unitPriceSale}</td>
-                    <td>${inventory.unitPriceBuy}</td>
-                    <td>${inventory.expectedProfit}</td>
-                    <td>${inventory.profitMargin}</td>
-                    <td>${inventory.status}</td>
+                    <td style="background: #FFF0E5">${inventory.itemCode}</td>
+                    <td style="background: #FFF0E5"><img alt="image" src="data:image/png;base64,${inventory.itemPicture}" style="max-width: 50px; height: 50px; border-radius: 10px;"></td>
+                    <td style="background: #FFF0E5">${inventory.itemDesc}</td>
+                    <td style="background: #FFF0E5">${inventory.typeOfGender}</td>
+                    <td style="background: #FFF0E5">${inventory.category}</td>
+                    <td style="background: #FFF0E5">${inventory.quantitySize5}</td>
+                    <td style="background: #FFF0E5">${inventory.quantitySize6}</td>
+                    <td style="background: #FFF0E5">${inventory.quantitySize7}</td>
+                    <td style="background: #FFF0E5">${inventory.quantitySize8}</td>
+                    <td style="background: #FFF0E5">${inventory.quantitySize9}</td>
+                    <td style="background: #FFF0E5">${inventory.quantitySize10}</td>
+                    <td style="background: #FFF0E5">${inventory.quantitySize11}</td>
+                    <td style="background: #FFF0E5">${inventory.supplierCode}</td>
+                    <td style="background: #FFF0E5">${inventory.supplierName}</td>
+                    <td style="background: #FFF0E5">${inventory.unitPriceSale}</td>
+                    <td style="background: #FFF0E5">${inventory.unitPriceBuy}</td>
+                    <td style="background: #FFF0E5">${inventory.expectedProfit}</td>
+                    <td style="background: #FFF0E5">${inventory.profitMargin}</td>
+                    <td style="background: #FFF0E5">${inventory.status}</td>
                 </tr>`;
                 $("#tblInventories").append(row);
                 bindInventoryTrEvents();

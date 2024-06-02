@@ -182,13 +182,13 @@ function getAllSupplier(){
             supplierCodes=[];
             for (const supplier of resp) {
                 let row=`<tr>
-                    <td>${supplier.supplierCode}</td>
-                    <td>${supplier.supplierName}</td>
-                    <td>${supplier.category}</td>
-                    <td>${supplier.addressLine01+","+supplier.addressLine02+","+supplier.addressLine03+","+supplier.addressLine04+","+supplier.addressLine05+","+supplier.addressLine06+"."}</td>
-                    <td>${supplier.contactNo1}</td>
-                    <td>${supplier.contactNo2}</td>
-                    <td>${supplier.email}</td>
+                    <td style="background: #FFF0E5">${supplier.supplierCode}</td>
+                    <td style="background: #FFF0E5">${supplier.supplierName}</td>
+                    <td style="background: #FFF0E5">${supplier.category}</td>
+                    <td style="background: #FFF0E5">${supplier.addressLine01+","+supplier.addressLine02+","+supplier.addressLine03+","+supplier.addressLine04+","+supplier.addressLine05+","+supplier.addressLine06+"."}</td>
+                    <td style="background: #FFF0E5">${supplier.contactNo1}</td>
+                    <td style="background: #FFF0E5">${supplier.contactNo2}</td>
+                    <td style="background: #FFF0E5">${supplier.email}</td>
                 </tr>`;
                 $("#tblSupplier").append(row);
                 bindSupplierTrEvents();

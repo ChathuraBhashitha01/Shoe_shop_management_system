@@ -211,17 +211,17 @@ function getAllCustomers(){
             customerCodes=[];
             for (const customer of resp) {
                 let row=`<tr>
-                    <td>${customer.customerCode}</td>
-                    <td>${customer.customerName}</td>
-                    <td>${customer.gender}</td>
-                    <td>${customer.joinDate}</td>
-                    <td>${customer.level}</td>
-                    <td>${customer.totalPoint}</td>
-                    <td>${customer.dob}</td>
-                    <td>${customer.addressLine01+","+customer.addressLine02+","+customer.addressLine03+","+customer.addressLine04+","+customer.addressLine05+"."}</td>
-                    <td>${customer.contactNo}</td>
-                    <td>${customer.email}</td>
-                    <td>${customer.recentPurchaseDate}</td> 
+                    <td style="background: #FFF0E5">${customer.customerCode}</td>
+                    <td style="background: #FFF0E5">${customer.customerName}</td>
+                    <td style="background: #FFF0E5">${customer.gender}</td>
+                    <td style="background: #FFF0E5">${customer.joinDate}</td>
+                    <td style="background: #FFF0E5">${customer.level}</td>
+                    <td style="background: #FFF0E5">${customer.totalPoint}</td>
+                    <td style="background: #FFF0E5">${customer.dob}</td>
+                    <td style="background: #FFF0E5">${customer.addressLine01+","+customer.addressLine02+","+customer.addressLine03+","+customer.addressLine04+","+customer.addressLine05+"."}</td>
+                    <td style="background: #FFF0E5">${customer.contactNo}</td>
+                    <td style="background: #FFF0E5">${customer.email}</td>
+                    <td style="background: #FFF0E5">${customer.recentPurchaseDate}</td> 
                 </tr>`;
                 $("#tblCustomer").append(row);
                 bindCusTrEvents();
