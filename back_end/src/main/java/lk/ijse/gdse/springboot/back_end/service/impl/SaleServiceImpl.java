@@ -49,25 +49,26 @@ public class SaleServiceImpl implements SaleService {
         SaleDTO saleDTO1 = new SaleDTO(saleDTO.getOrderNo(), saleDTO.getCustomerCode(), saleDTO.getCustomerName(), saleDTO.getTotalPrice(), saleDTO.getPurchaseDate(), saleDTO.getPaymentMethod(), saleDTO.getAddedPoints(), saleDTO.getCashierName(), saleDTO.getEmployeeCode());
         Sale sale=modelMapper.map(saleDTO1,Sale.class);
 
-        Customer customer = customerRepo.findById(saleDTO.getCustomerCode()).get();
+        if (saleDTO.getCustomerCode()!=null){
+            Customer customer = customerRepo.findById(saleDTO.getCustomerCode()).get();
 
-        int points=customer.getTotalPoint()+saleDTO.getAddedPoints();
-        customer.setTotalPoint(points);
+            int points=customer.getTotalPoint()+saleDTO.getAddedPoints();
+            customer.setTotalPoint(points);
 
-        Level loyaltyLevel = null;
-        if (points < 50){
-            loyaltyLevel = Level.New;
-        }else if (points >= 50 && points<99){
-            loyaltyLevel = Level.Bronze;
-        } else if (points >= 100 && points<199) {
-            loyaltyLevel = Level.Silver;
-        } else if (points >= 200) {
-            loyaltyLevel = Level.Gold;
+            Level loyaltyLevel = null;
+            if (points < 50){
+                loyaltyLevel = Level.New;
+            }else if (points >= 50 && points<99){
+                loyaltyLevel = Level.Bronze;
+            } else if (points >= 100 && points<199) {
+                loyaltyLevel = Level.Silver;
+            } else if (points >= 200) {
+                loyaltyLevel = Level.Gold;
+            }
+            customer.setLevel(loyaltyLevel);
+            customer.setRecentPurchaseDate(saleDTO.getPurchaseDate());
+            customerRepo.save(customer);
         }
-        customer.setLevel(loyaltyLevel);
-
-        customer.setRecentPurchaseDate(saleDTO.getPurchaseDate());
-        customerRepo.save(customer);
 
         saleRepo.save(sale);
 
@@ -166,12 +167,17 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public List<SaleDetailsDTO> getAllRefundOrders() {
+        List<SaleDetailsDTO> getAllRefundOrders=new ArrayList<>();
          List<Sale> allRefundOrders = saleRepo.getAllRefundOrders();
         for (Sale sale:allRefundOrders) {
-            return saleDetailsRepo.findOrderDetailsByOrderId(sale.getOrderNo()).stream().map(saleDetails -> modelMapper.map(saleDetails,SaleDetailsDTO.class)).toList();
+            List<SaleDetailsDTO> list = saleDetailsRepo.findOrderDetailsByOrderId(sale.getOrderNo()).stream().map(saleDetails -> modelMapper.map(saleDetails, SaleDetailsDTO.class)).toList();
+            for (SaleDetailsDTO saleDetailsDTO : list){
+                getAllRefundOrders.add(saleDetailsDTO);
+            }
+            System.out.println("refund : "+getAllRefundOrders);
 
         }
-        System.out.println("refund : ");
-        return null;
+
+        return getAllRefundOrders;
     }
 }

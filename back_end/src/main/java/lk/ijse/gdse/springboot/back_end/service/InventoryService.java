@@ -11,6 +11,8 @@ public interface InventoryService {
     void updateInventory(InventoryDTO inventoryDTO);
     void deleteInventory(String id);
     List<InventoryDTO> getAllDetailsUseGender(String gender);
+    List<InventoryDTO> getAllDetailsUseCategory(String gender);
     List<InventoryDTO> getAllItemsByPrice(double minPrice, double maxPrice);
     List<InventoryDTO> getAllItemsByPriceAndTypeOfGender(double minPrice, double maxPrice,String gender);
+    List<InventoryDTO> searchItemByName(String name);
 }

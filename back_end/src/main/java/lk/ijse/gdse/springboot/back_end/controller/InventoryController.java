@@ -96,6 +96,11 @@ public class InventoryController {
         return inventoryService.getAllDetailsUseGender(gender);
     }
 
+    @GetMapping(value = "/getByCat/{cat}")
+    public List<InventoryDTO> getAllDetailsUseCategory(@PathVariable("cat") String cat){
+        return inventoryService.getAllDetailsUseCategory(cat);
+    }
+
     @GetMapping("/getAllItemsByPrice/{minPrice}/{maxPrice}")
     public List<InventoryDTO> getAllItemsByPrice(@PathVariable("minPrice") double minPrice,@PathVariable("maxPrice") double maxPrice){
         return inventoryService.getAllItemsByPrice(minPrice,maxPrice);
@@ -104,6 +109,11 @@ public class InventoryController {
     @GetMapping("/getAllItemsByPriceAndGender/{gender}/{minPrice}/{maxPrice}")
     public List<InventoryDTO> getAllItemsByPrice(@PathVariable("gender") String gender,@PathVariable("minPrice") double minPrice,@PathVariable("maxPrice") double maxPrice){
         return inventoryService.getAllItemsByPriceAndTypeOfGender(minPrice,maxPrice,gender);
+    }
+
+    @GetMapping("/searchByName/{name}")
+    public List<InventoryDTO> searchByName(@PathVariable("name")String name){
+        return inventoryService.searchItemByName(name);
     }
 
 }

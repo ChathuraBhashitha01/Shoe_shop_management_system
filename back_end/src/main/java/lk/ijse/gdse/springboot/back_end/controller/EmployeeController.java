@@ -61,7 +61,7 @@ public class EmployeeController {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date newDob = dateFormat.parse(dob);
-        Date newJoinOfDate = dateFormat.parse(dob);
+        Date newJoinOfDate = dateFormat.parse(dateOfJoin);
         String base64ProfilePic = Base64.getEncoder().encodeToString(profilrPic.getBytes());
         EmployeeDTO employeeDTO = new EmployeeDTO(code, name, gender, status, designation,role, newDob, newJoinOfDate, attachedBranch,
                 addressLine1, addressLine2, addressLine3, addressLine4, addressLine5, contact, email, informInCaseOfEmergency, emergencyContact,base64ProfilePic);

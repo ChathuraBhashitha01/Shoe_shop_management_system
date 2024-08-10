@@ -19,9 +19,9 @@ public class Sale {
 
     @Id
     private String orderNo;
-    @ManyToOne
-    @JoinColumn(name = "customerCode",referencedColumnName = "customerCode")
-    private Customer customer;
+    /*@ManyToOne
+    @JoinColumn(name = "customerCode",referencedColumnName = "customerCode")*/
+    private String customerCode;
     private String customerName;
     private double totalPrice;
     private Timestamp PurchaseDate;
