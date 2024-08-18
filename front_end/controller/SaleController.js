@@ -210,7 +210,7 @@ $('#btnAddToCart').click(function () {
             $(this).children().eq(2).text(size);
             $(this).children().eq(3).text(price);
             $(this).children().eq(4).text(qty);
-            $(this).children().eq(5).text(qty * price);
+            $(this).children().eq(5).text(qty*price);
             exitItem=false;
         }
     });
